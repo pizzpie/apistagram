@@ -1,0 +1,28 @@
+<!-- Header Wrapper -->
+<div id="header_wrapper">
+	<!-- Header -->
+	<div id="header">
+		<!-- Logo div -->
+		<div id="h_logo">
+		  <%= link_to image_tag("logo.png", :alt => "Tatstagram - Share your Instagram photos"), root_url%>
+		</div>
+
+		<!-- Header banner ad div -->
+		<div id="h_banner">
+      <%=image_tag 'banner.gif', :alt => "Banner Placeholder"%>
+		</div>   
+
+		<!-- Sign in button div -->
+		<div id="h_signin">
+      <%- unless logged_in? %> 
+        <%= link_to image_tag("signin-button-off.gif", :alt => "signin-button-off", :oversrc=>"images/signin-button-on.gif"), new_auth_path%>
+			  <span class="register">or <%=link_to "register", new_auth_path%> for an account</span>
+      <%else%>
+        <span class="register"><%=link_to "SignOut", signout_path%></span>
+      <%end%>
+		</div>
+
+	<!-- Close header div -->
+	</div>	
+<!-- Close Header Wrapper Div -->
+</div>	

@@ -1,0 +1,69 @@
+<!-- Footer wrapper div -->
+
+<div id="footer_wrapper">
+  <!-- Footer div -->
+  <div id="footer">
+    <!-- Footer links section -->
+    <div id="f_links">
+      <%=image_tag 'balls.png', :alt => "balls", :class=>"balls"%>
+      <h1>Important Links</h1>
+      <ul>
+        <a href="#"><li>Contact Us</li></a>
+        <a href="#"><li>Advertise</li></a>
+        <a href="#"><li>Legal Stuff</li></a>
+        <a href="#"><li>Report an Image</li></a>
+        <li class="legal">© 2012 <a href="#">Vagabond Digital</a></li>
+      </ul>
+    </div>
+
+    <!-- Footer social section -->
+    <div id="f_social">
+      <%=image_tag 'balls.png', :alt => "balls", :class=>"balls"%>
+      <h1>Connect with us</h1>
+      <ul>
+        <li>
+          <a href="#">
+            <%=image_tag 'twitter-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Twitter
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <%=image_tag 'facebook-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <%=image_tag 'pinterest-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Pinterest
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <%=image_tag 'mobile-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%>Mobile
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Footer network section -->
+    <div id="f_network">
+      <%=image_tag 'balls.png', :alt => "balls", :class=>"balls"%>    
+      <h1>Our Network</h1>
+      <ul>
+        <a href="#"><li>Tattogram - Share your tattoos</li></a>
+        <a href="#"><li>Dinnergram - Share what’s for dinner</li></a>
+        <a href="#"><li>Tattogram - Share your tattoos</li></a>
+        <a href="#"><li>Tattogram - Share your tattoos</li></a>
+      </ul>
+    </div>
+
+    <!-- Footer sign up w/Instagram -->    
+    <div id="f_signup"> 
+      <%=image_tag 'balls.png', :alt => "balls", :class=>"balls"%>
+      <h1>Want to create an account?</h1>
+      <p>All of our photos are collected from users of the photo sharing service Instagram. If you want to get in on the action, including commenting and liking these photos, <%=link_to "create an account", new_auth_path%> to get started.</p>
+      <p class="apiblurb">This product uses the Instagram API but is not endorsed or certified by Instagram.</p>
+    </div>
+    
+    <!-- Close footer div -->       
+  </div>
+</div>
