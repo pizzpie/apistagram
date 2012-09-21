@@ -17,8 +17,6 @@
 
 <script language="javascript" src="js/simpleswap.js"></script>
 
-<script language="javascript" src="js/likeswap.js"></script>
-
 
 
 </head>
@@ -50,17 +48,23 @@
 		
 		</div>
 		
-		<!-- Sign in button div -->
+		<!-- Logged in state -->
 		
-		<div id="h_signin">
+		<div id="logged_in">
 		
-			<a href="#">
+			<div class="loggedin-user-thumb">
 			
-				<img src="images/signin-button-off.gif" alt="signin-button-off" oversrc="images/signin-button-on.gif" />
-
-			</a>
+				<img src="images/comment-thumb.jpg" alt="comment-thumb" width="38" height="38" />
 			
-			<span class="register">or <a href="#">register</a> for an account</span>
+			</div>
+			
+			<div class="loggedin-username">
+					
+					<a href="#"> <p>instagram_user</p> </a>
+					
+					<p class="user-control"><a href="#">sign out</a> | <a href="#">view profile</a></p>
+				
+			</div>
 		
 		</div>
 		
@@ -401,7 +405,7 @@
 			
 			<div class="submit-button">
 			
-				<a href="#" class="comment-button-style">LOG IN TO POST COMMENT</a>
+				<a href="#" class="comment-button-style">POST COMMENT</a>
 			
 			</div>
 	
@@ -567,6 +571,7 @@
 	
 	</div>
 	
+	
 	<!-- 336x280 -->
 	
 	<div class="large-rec">
@@ -574,6 +579,7 @@
 		<img src="images/336x280.jpg" alt="336x280" width="343" height="287" />
 	
 	</div>
+	
 		
 
 
@@ -667,6 +673,38 @@
 
 
 
+<!-- IMAGE SWAP SCRIPTS -->
+
+<!-- Swap Heart Button on Single Image Page -->
+
+<script language="javascript" type="text/javascript">
+		function changeImage() {
+    if(document.getElementById('myImage').src == 'http://www.craigmorrison.ca/tatagram/images/heart-icon-off.jpg') {
+        document.getElementById('myImage').src = 'http://www.craigmorrison.ca/tatagram/images/heart-icon-on.jpg';
+    } else if(document.getElementById('myImage').src == 'http://www.craigmorrison.ca/tatagram/images/heart-icon-on.jpg') {
+        document.getElementById('myImage').src = 'http://www.craigmorrison.ca/tatagram/images/heart-icon-off.jpg';
+    }
+    
+
+}
+
+</script>
+
+
+<!-- Swap Like Button on Single Image Page -->
+
+<script language="javascript" type="text/javascript">
+		function changeLikeButton() {
+    if(document.getElementById('myLikeButton').src == 'http://www.craigmorrison.ca/tatagram/images/like-button-off.gif') {
+        document.getElementById('myLikeButton').src = 'http://www.craigmorrison.ca/tatagram/images/like-button-on.gif';
+    } else if(document.getElementById('myLikeButton').src == 'http://www.craigmorrison.ca/tatagram/images/like-button-on.gif') {
+        document.getElementById('myLikeButton').src = 'http://www.craigmorrison.ca/tatagram/images/like-button-off.gif';
+    }
+    
+
+}
+
+</script>
 		
 		
 		
