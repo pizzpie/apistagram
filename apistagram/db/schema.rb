@@ -11,19 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923133712) do
+ActiveRecord::Schema.define(:version => 20120923140213) do
 
-  create_table "imedia", :force => true do |t|
-    t.string   "i_id"
-    t.string   "url"
-    t.string   "username"
-    t.integer  "tag_id"
-    t.boolean  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "media", :force => true do |t|
+  create_table "iphotos", :force => true do |t|
     t.string   "i_id"
     t.string   "url"
     t.string   "username"

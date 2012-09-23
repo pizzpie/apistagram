@@ -1,31 +1,41 @@
-<h1>Listing iphotos</h1>
-
-<table>
-  <tr>
-    <th>I</th>
-    <th>Url</th>
-    <th>Username</th>
-    <th>Tag</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @iphotos.each do |iphoto| %>
-  <tr>
-    <td><%= iphoto.i_id %></td>
-    <td><%= iphoto.url %></td>
-    <td><%= iphoto.username %></td>
-    <td><%= iphoto.tag_id %></td>
-    <td><%= iphoto.status %></td>
-    <td><%= link_to 'Show', iphoto %></td>
-    <td><%= link_to 'Edit', edit_iphoto_path(iphoto) %></td>
-    <td><%= link_to 'Destroy', iphoto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Iphoto', new_iphoto_path %>
+<!-- Div for title of photos -->
+<div class="photo_line_title">
+  <h1>What's Hot</h1>
+</div>
+<div class="photo_line">
+  <%@iphotos.each do |iphoto|%>
+    <!-- Individual photo div -->
+    <div class="photo_thumb">
+      <div class="thumb">
+        <div class="thumb-off">
+          <a href="single.html" class="outerLink"><%=image_tag iphoto.url, :alt => "", :width => 286, :height => 239%></a>
+        </div>
+        <div class="thumb-hover">
+        </div>
+        
+        <div class="call-text">
+          <a href="single.html"> <span>Click here to see full size</span> </a>
+        </div>
+      </div>
+      
+      <!-- Photo stats div -->
+      <div class="thumb_stats">
+        <div class="comment-stat">
+          <a href="single.html" title="Leave a comment"> <%=image_tag "comment-stat-icon.jpg", :class=>"imgmiddle", :alt=>"comment-stat-icon", :width=>"16", :height=>"15"%>
+          <span class="vert">12</span> </a>
+        </div>
+        <div class="like-stat">
+          <a href="#" onClick="changeLikeIndex(); return false;" title="Click to like image" > <%=image_tag "http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg", :id=>"myLikeIndex", :class=>"imgmiddle", :alt=>"like-stat-icon" %>
+          <span class="vert">45</span></a>
+        </div> 
+      </div>
+      
+      <!-- Photo username div -->
+      
+      <div class="photo_username">
+        <a href="user.html" title="View user profile"> <h3><%=iphoto.username%></h3> </a>
+      </div>
+    <!-- Close photo thumb div -->
+    </div>
+  <%end%>
+</div>

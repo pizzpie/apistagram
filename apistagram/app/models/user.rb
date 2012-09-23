@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   def self.authenticate(auth)
     user    = self.where(:provider => auth['provider'], :uid => auth['uid']).first
     user  ||= self.new(:provider => auth['provider'], :uid => auth['uid'])
-    debugger
     user.token    = auth['token']
     if auth['info']
       user.remote_image_url   = auth['info']["image"]     || ""
