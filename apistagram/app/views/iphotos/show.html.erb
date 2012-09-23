@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>I:</b>
+  <%= @iphoto.i_id %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @iphoto.url %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @iphoto.username %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @iphoto.tag_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @iphoto.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_iphoto_path(@iphoto) %> |
+<%= link_to 'Back', iphotos_path %>

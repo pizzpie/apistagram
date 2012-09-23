@@ -5,6 +5,8 @@ gem 'mysql2'
 gem "omniauth"  
 gem "omniauth-instagram"
 gem "instagram"
+gem "mini_magick"
+gem 'carrierwave'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

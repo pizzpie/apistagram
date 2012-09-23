@@ -18,6 +18,7 @@
         <%= link_to image_tag("signin-button-off.gif", :alt => "signin-button-off", :oversrc=>"images/signin-button-on.gif"), new_auth_path%>
 			  <span class="register">or <%=link_to "register", new_auth_path%> for an account</span>
       <%else%>
+      	<%=image_tag current_user.image_url(:thumb), :alt => current_user.name%>
         <span class="register"><%=link_to "SignOut", signout_path%></span>
       <%end%>
 		</div>

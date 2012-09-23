@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :provider
       t.string :token
       t.string :email
+      t.string :image
+      t.string :name
 
       t.timestamps
     end

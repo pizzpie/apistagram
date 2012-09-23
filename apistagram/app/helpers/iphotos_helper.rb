@@ -1,0 +1,2 @@
+module IphotosHelper
+end

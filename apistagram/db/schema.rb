@@ -11,13 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919103624) do
+ActiveRecord::Schema.define(:version => 20120923133712) do
+
+  create_table "imedia", :force => true do |t|
+    t.string   "i_id"
+    t.string   "url"
+    t.string   "username"
+    t.integer  "tag_id"
+    t.boolean  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "i_id"
+    t.string   "url"
+    t.string   "username"
+    t.integer  "tag_id"
+    t.boolean  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "uid"
     t.string   "provider"
     t.string   "token"
     t.string   "email"
+    t.string   "image"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
