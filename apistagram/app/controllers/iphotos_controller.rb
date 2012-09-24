@@ -2,6 +2,7 @@ class IphotosController < ApplicationController
   # GET /iphotos
   # GET /iphotos.json
   def index
+    current_user.get_grams if logged_in?
     @iphotos = Iphoto.all
 
     respond_to do |format|

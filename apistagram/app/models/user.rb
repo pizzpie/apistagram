@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def get_grams
-    tatsagram = IInstagram.new(:token => self.token, :tag => 'tatoo')
-    photos = tatsagram.get_grams
-
-    photos.each do |ipic|
-      puts ipic
-      Iphoto.create!(ipic)
+    Tag.all.each do |tag|
+      tatsagram = IInstagram.new(:token => self.token, :tag => tag.name)
+      photos    = tatsagram.get_grams
+      photos.each do |ipic|
+        Iphoto.create!(ipic) rescue nil
+      end
     end
   end
 end

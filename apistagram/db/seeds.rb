@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+AppConfiguration['tags'].each do |tag|
+	tag = Tag.create(:name => tag)
+end
