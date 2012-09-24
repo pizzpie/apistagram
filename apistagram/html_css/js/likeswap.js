@@ -36,16 +36,3 @@
 }
 
 
-// Swapping the User Profile like image in the thumb
-
-		function changeLikeUser() {
-    if(document.getElementById('myLikeUser').src == 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg') {
-        document.getElementById('myLikeUser').src = 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon-on.jpg';
-    } else if(document.getElementById('myLikeUser').src == 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon-on.jpg') {
-        document.getElementById('myLikeUser').src = 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg';
-    }
-    
-
-}
-
-
