@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924144926) do
+ActiveRecord::Schema.define(:version => 20120923140213) do
 
   create_table "iphotos", :force => true do |t|
     t.string   "i_id"
@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(:version => 20120924144926) do
     t.string   "username"
     t.integer  "tag_id"
     t.boolean  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
