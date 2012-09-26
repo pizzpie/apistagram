@@ -1,9 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :authenticate_admin_user
+
   helper_method :current_user, :logged_in?, :correct_user?
 
   private
+
+    def authenticate_admin_user
+      authenticate_or_request_with_http_basic do |user, password|
+        user == AppConfiguration["admin_user"] && password == AppConfiguration["admin_password"]
+      end
+    end
+
     def current_user
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
