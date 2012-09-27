@@ -7,6 +7,15 @@ gem "omniauth-instagram"
 gem "instagram"
 gem "mini_magick"
 gem 'carrierwave'
+gem 'delayed_job_active_record'
+gem "twitter-bootstrap-rails"
+gem 'will_paginate-bootstrap'
+gem 'will_paginate', '~> 3.0'
+
+gem 'haml'
+# forms
+gem 'simple_form'
+gem 'nested_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

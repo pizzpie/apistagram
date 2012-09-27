@@ -1,0 +1,29 @@
+.row
+  = form_tag admin_approve_photos_url, :class => 'form' do
+    = hidden_field_tag "all_photo_ids", @iphotos.collect {|p| p.id}
+    - @iphotos.each do |iphoto|
+      %a.span2.selector{"data-iphoto-id" => iphoto.id, :href => "#", :id => "iphoto_#{iphoto.id}"}
+        = render :partial => 'iphoto', :locals => {:image => iphoto}
+        = check_box_tag "iphoto_ids[]", iphoto.id, false, {:class=>"check"}
+    .action= submit_tag "Approve Selected Photos", :id=>"approve_photos", :class => "btn btn-large btn-primary pull-right"
+
+.row
+  .span12
+    = will_paginate @collection, :renderer => BootstrapPagination::Rails
+
+- content_for :javascript_bottom do
+  :plain
+    $(".selector").click(function() {
+      var id = $(this).attr('id');
+      var check = $("#"+id+" .check");
+      var checked = check.is(':checked');
+      if(!checked) {
+        $(this).addClass("selected");
+        check.attr("checked", true);
+      }
+      else {
+        $(this).removeClass("selected");
+        check.attr("checked", false);
+      }
+      return false;
+    });

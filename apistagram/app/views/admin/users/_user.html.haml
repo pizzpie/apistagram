@@ -1,0 +1,14 @@
+%td
+  = user.id
+%th
+  = user.uid
+%td
+  = user.provider
+%td
+  = user.name
+%td
+  = user.email
+%td
+  = image_tag user.image_url, :alt => user.name, :width => "50", :height => "50"
+%td
+  = link_to "Delete", admin_user_path(user), "data-method" => :delete, "data-remote" => true, :confirm => "Are your sure you want to delete this user and all his associated data? This action can't be undone!"

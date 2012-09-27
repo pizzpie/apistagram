@@ -1,0 +1,22 @@
+a.selector {
+  width: 150px;
+  display: block;
+  font-size: 22px;
+  line-height: 160px;
+  text-align: center;
+  text-transform: capitalize; 
+  border: 2px solid #ffffff;
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  &.selected {
+    text-decoration: none;
+    width: 160px;
+    height: 160px;    
+    border: 2px solid orange;
+  }
+}
+.check {
+  display: none;
+}

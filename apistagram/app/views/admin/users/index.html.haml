@@ -1,0 +1,12 @@
+%table.table#users
+  %tr
+    %th Id
+    %th UId
+    %th Provider
+    %th Name
+    %th Email
+    %th Photo
+    %th Actions
+  - @users.each do |user|
+    %tr{:id => "user_#{user.id}"}
+      = render :partial => 'user', :locals => {:user => user}

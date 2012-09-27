@@ -1,13 +1,14 @@
 module IInstagram
   class IInstagram
 
-    attr_accessor :tag, :token, :response, :data, :photos, :max_id
+    attr_accessor :tag, :token, :response, :data, :photos, :max_photo_id
   
     def initialize(args)
       if args
-        self.token = args[:token]
-        self.tag   = args[:tag]
-        self.photos = []
+        self.token        = args[:token]
+        self.tag          = args[:tag]
+        self.max_photo_id = args[:max_photo_id]
+        self.photos       = []
       end
       authenticate
     end
@@ -22,8 +23,8 @@ module IInstagram
     def get_grams
       begin
         10.times do |i|
-          if max_id
-            self.response = Instagram.tag_recent_media(tag, :max_id => max_id)
+          if max_photo_id
+            self.response = Instagram.tag_recent_media(tag, :max_id => max_photo_id)
           else
             self.response = Instagram.tag_recent_media(tag)
           end
@@ -36,10 +37,13 @@ module IInstagram
                                 "username" => media.user.username
                                }
             end
-            max_id = self.data.last.id
+            max_photo_id = self.data.last.id
           end
         end
-        self.photos
+        self.photos.each do |ipic|
+          Iphoto.create!(ipic) rescue nil
+        end
+        Setup.set_max_photo_id(max_photo_id)
       rescue Exception => e
         raise e
       end
