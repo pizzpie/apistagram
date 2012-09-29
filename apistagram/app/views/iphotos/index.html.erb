@@ -5,38 +5,8 @@
 <div class="photo_line">
   <%@iphotos.each do |iphoto|%>
     <!-- Individual photo div -->
-    <div class="photo_thumb">
-      <div class="thumb">
-        <div class="thumb-off">
-          <a href="single.html" class="outerLink"><%=image_tag iphoto.url, :alt => "", :width => 286, :height => 239%></a>
-        </div>
-        <div class="thumb-hover">
-        </div>
-        
-        <div class="call-text">
-          <%=link_to (content_tag(:span, 'Click here to see full size')), iphoto_path(iphoto)%>
-        </div>
-      </div>
-      
-      <!-- Photo stats div -->
-      <div class="thumb_stats">
-        <div class="comment-stat">
-          <a href="single.html" title="Leave a comment"> <%=image_tag "comment-stat-icon.jpg", :class=>"imgmiddle", :alt=>"comment-stat-icon", :width=>"16", :height=>"15"%>
-          <span class="vert">12</span> </a>
-        </div>
-        <div class="like-stat">
-          <%like_icon = current_user.likes?(iphoto) ? 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon-on.jpg' : 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg'%>
-          <%=link_to image_tag(like_icon, :id => 'myLikeIndex', :class => 'imgmiddle', :alt => 'like-stat-icon'), favorite_path(iphoto.id), :title=>"Click to like image"%>
-          <!-- <span class="vert">45</span> -->
-        </div> 
-      </div>
-      
-      <!-- Photo username div -->
-      
-      <div class="photo_username">
-        <a href="user.html" title="View user profile"> <h3><%=iphoto.username%></h3> </a>
-      </div>
-    <!-- Close photo thumb div -->
+    <div class="photo_thumb" id='photo_<%=iphoto.id%>'>
+      <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
     </div>
   <%end%>
 </div>

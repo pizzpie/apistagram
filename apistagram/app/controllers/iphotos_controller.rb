@@ -83,8 +83,11 @@ class IphotosController < ApplicationController
 
   def favorite
     @iphoto = Iphoto.find(params[:id])
-    if @iphoto.favorites.find_or_create_by_user_id(current_user.id)
-      redirect_to iphotos_url, :notice => "You successfully marked the photo favorite"
+    @iphoto.favorites.find_or_create_by_user_id(current_user.id)
+    respond_to do |format|
+      format.html { redirect_to iphotos_url }
+      format.json { head :no_content }
+      format.js {}
     end
   end
 end
