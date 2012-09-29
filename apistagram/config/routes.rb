@@ -20,4 +20,5 @@ Apistagram::Application.routes.draw do
   end
 
   match 'tatstagrams/:type'			=> 'iphotos#index'
+  match 'iphotos/:id/favorite'  => 'iphotos#favorite', :via => 'get', :as => 'favorite'
 end
