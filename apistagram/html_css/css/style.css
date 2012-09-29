@@ -62,7 +62,8 @@ table {
 html, body {
 	text-align: center;
 	height: 100%;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+	font-family: adobe-clean,"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 13px;
 	line-height: 0px;
 	color: black;
@@ -642,7 +643,6 @@ margin-left: 9px;
 }
 
 #footer {
-	
 	height: 275px;
 	width: 960px;
 	margin: 0 auto;
@@ -1002,20 +1002,25 @@ h2 {
 .r-side-single {
 	float: right;
 	width: 360px;
+	margin-right: 6px;
 }
 
 .like-button{
-	margin-bottom: 15px;	
+	padding-bottom: 15px;
+	border-bottom: 1px solid #cbcbcb;	
+	padding-top: 15px;
+	float: left;
 }
 
 .user-thumbnail {
 	margin-left: 0px;
-	border-bottom: 1px solid #cbcbcb;
-	border-top: 1px solid #cbcbcb;
+	/* border-bottom: 1px solid #cbcbcb;
+	border-top: 1px solid #cbcbcb; */
 	float: left;
 	width: 360px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	/* padding-top: 15px; */
+	padding-bottom: 25px;
+	border-bottom: 1px solid #cbcbcb;
 }
 
 .user-container {
@@ -1039,7 +1044,7 @@ h2 {
 }
 
 .user-content {
-	min-height: 15px;
+	min-height: 12px;
 }
 
 .user-content a, 
@@ -1053,10 +1058,20 @@ h2 {
 	text-decoration: underline;
 }
 
+.user_links {
+	float: left;
+	text-align: left;
+}
+
+.ulink {
+	float: left;
+	padding-right: 5px;
+}
+
 .image-stats {
 	float: left;
-	margin-top: 15px;
-	border-bottom: 1px solid #cbcbcb;
+	margin-top: 0px;
+	margin-bottom: 15px;
 	width: 360px;
 }
 
@@ -1068,20 +1083,24 @@ h2 {
 }
 
 .image-stats a:hover {
-	color: #464646;
+	color: #ed2245;
+	
 }
 
 .stat {
 	text-align: left;
-	padding-bottom: 15px;
+	padding-bottom: 12px;
+	padding-left: 4px;
+	padding-top: 12px;
+	border-bottom: 1px solid #cbcbcb;
 }
 
 .vert-header {
 	vertical-align: middle;
 	font-weight: bold;
-	font-size: 22px;
-	padding-left: 8px;
-	padding-bottom: 4px;
+	font-size: 17px;
+	padding-left: 10px;
+	padding-bottom: 3px;
 }
 
 .share-image {
