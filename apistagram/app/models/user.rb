@@ -38,4 +38,8 @@ class User < ActiveRecord::Base
       tatsagram.delay.get_grams
     end
   end
+
+  def likes?(photo)
+    self.favorites.find_by_iphoto_id(photo.id)
+  end
 end

@@ -25,8 +25,9 @@
           <span class="vert">12</span> </a>
         </div>
         <div class="like-stat">
-          <a href="/iphotos/<%=iphoto.id%>/favorite" title="Click to like image" > <%=image_tag "http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg", :id=>"myLikeIndex", :class=>"imgmiddle", :alt=>"like-stat-icon" %>
-          <span class="vert">45</span></a>
+          <%like_icon = current_user.likes?(iphoto) ? 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon-on.jpg' : 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg'%>
+          <%=link_to image_tag(like_icon, :id => 'myLikeIndex', :class => 'imgmiddle', :alt => 'like-stat-icon'), favorite_path(iphoto.id), :title=>"Click to like image"%>
+          <!-- <span class="vert">45</span> -->
         </div> 
       </div>
       
