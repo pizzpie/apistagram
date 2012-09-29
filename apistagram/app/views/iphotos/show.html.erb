@@ -1,30 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="single_line_title">
+  <h1>
+    <%=link_to "#{@iphoto.username}'s", '#'%> photo
+  </h1>
+</div>
 
-<p>
-  <b>I:</b>
-  <%= @iphoto.i_id %>
-</p>
+<!-- left side of single image page -->
 
-<p>
-  <b>Url:</b>
-  <%= @iphoto.url %>
-</p>
-
-<p>
-  <b>Username:</b>
-  <%= @iphoto.username %>
-</p>
-
-<p>
-  <b>Tag:</b>
-  <%= @iphoto.tag_id %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @iphoto.status %>
-</p>
-
-
-<%= link_to 'Edit', edit_iphoto_path(@iphoto) %> |
-<%= link_to 'Back', iphotos_path %>
+<div class="l-side-single">
+  <!-- large image div -->
+  <div class="large-image">
+    <%= image_tag @iphoto.url, :alt => "#{@iphoto.username}'s photo" %>
+    <!-- image sharing -->      
+    <div id="i_social">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="tatstagram" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.tatstagram.com&media=http%3A%2F%2Fwww.tatstagram.com%2F%23" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+      <g:plusone size="medium" annotation="none"></g:plusone>
+      <div class="fb-like" data-href="http://www.tatstagram.com/#" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial"></div>
+    </div> 
+    <!-- Like image -->
+    <div class="imagelike">
+      <img src="images/likeit.png" alt="likeit" width="70" height="41" />
+      <a href="" onClick="changeImage(); return false;"> <img id="myImage" src="http://www.craigmorrison.ca/tatagram/images/heart-icon-off.jpg"> </a>
+    </div>
+  </div>
+  <!-- banner -->
+  <div class="single-banner">
+    <img src="images/banner2.gif" alt="Banner Placeholder" />
+  </div>
+</div>

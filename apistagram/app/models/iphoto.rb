@@ -12,6 +12,9 @@ class Iphoto < ActiveRecord::Base
 
   self.per_page = 18
 
+  has_many :favorites
+  has_many :fans, :through => :favorites, :source => :user
+
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
     photo_ids     ||= []
     all_photo_ids = all_photo_ids.split(" ")

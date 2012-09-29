@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   validates :uid,
             :uniqueness => true
 
+  has_many :favorites
+  has_many :favorite_photos, :through => :favorites, :source => :iphoto
+
   def self.authenticate(auth)
     user        = self.where(:provider => auth['provider'], :uid => auth['uid']).first
     user        ||= self.new(:provider => auth['provider'], :uid => auth['uid'])
