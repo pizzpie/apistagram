@@ -1,1 +1,96 @@
-users profile
+<!-- Left side user profile div -->
+<div class="user-lside">
+  <!-- user thumbnail div -->
+  <div class="user-profile-thumbnail">
+    <div class="user-thumb">
+        <img src="images/comment-thumb.jpg" alt="comment thumb" />
+    </div>
+    <div class="user-container">
+      <div class="username">
+        <h2><a href="#">instagram_user</a></h2>
+      </div>  
+      <div class="user-content">
+        <p>Suzie McDonaldson</p>
+      </div>  
+      <div class="user_links">
+        <div class="ulink">
+          <a href="#"> <img src="images/user-rss-off.gif" alt="RSS feed" oversrc="images/user-rss-on.gif" title="Follow RSS Feed"/> </a>
+        </div>
+        <div class="ulink">
+          <a href="#"> <img src="images/user-homepage-off.gif" alt="Visit website" oversrc="images/user-homepage-on.gif" title="Visit website"/> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- User stats -->
+  <div class="user-stats">
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p>44</p>
+      </div>
+      <div class="stack-cat">
+        <p>comments</p>
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p>320</p>
+      </div>
+      <div class="stack-cat">
+        <p>likes</p>
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p>256</p>
+      </div>
+      <div class="stack-cat">
+        <p>Tatstagrams</p>
+      </div>
+    </div>
+  </div>
+  <!-- Rectangle -->  
+  <div class="user-square">
+    <%=image_tag('250x250.jpg', :alt => 'rectangle_ad')%>
+  </div>
+</div>
+
+<!-- Right side user profile -->
+<div class="user-rside">
+  <%counter = 1%>
+  <%@iphotos.each do |iphoto|%>
+    <div class="userpic-container">
+      <div class="user_photo_thumb">
+        <%=render :partial => 'iphotos/iphoto', :locals => {:iphoto => iphoto}%>
+      </div>
+    </div>
+  <%end%>
+  
+  <!-- Pagination -->
+  <div class="pagination">
+    <div class="pagenum-div-last-user">
+      <a href="#" class="pagenum"> <img src="images/next.png" /> </a>
+    </div>
+    <div class="pagenum-div">
+      <a href="#" class="pagenum"> <img src="images/prev.png" /> </a>
+    </div>
+    <div class="pagenum-div">
+      <a href="#" class="pagenum">...</a>
+    </div>  
+    <div class="pagenum-div">
+      <a href="#" class="pagenum">5</a>
+    </div>
+    <div class="pagenum-div">
+      <a href="#" class="pagenum">4</a>
+    </div>
+    <div class="pagenum-div"> 
+      <a href="#" class="pagenum">3</a>
+    </div>
+    <div class="pagenum-div">
+      <a href="#" class="pagenum">2</a>
+    </div>
+    <div class="pagenum-div">
+      <a href="#" class="pagenum-active">1</a>
+    </div>
+  </div>
+</div>

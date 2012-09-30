@@ -1,0 +1,11 @@
+<div class="thumb_stats">
+  <div class="comment-stat">
+    <%=comment_link(iphoto, user)%>
+  </div>
+  <div class="like-stat">
+    <%=heart_link(iphoto, user)%>
+  </div> 
+</div>
+<div class="photo_username">
+  <%=link_to content_tag(:h3, iphoto.username), user_path(iphoto.username), :title => "View #{iphoto.username}'s profile"%>
+</div>

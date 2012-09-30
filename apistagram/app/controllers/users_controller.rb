@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+  before_filter :find_user
+
   def show
-    @user = User.find_by_name(params[:id])
+    @iphotos = @user.favorite_photos.limit(8).page(params[:page]) #right now displaying favorites, will change to photos later
   end
 
   # payal says: commented the other actions as currently only view profile action is required.
@@ -29,4 +31,10 @@ class UsersController < ApplicationController
 
   #   redirect_to users_url
   # end
+
+  private
+    def find_user
+      @user = User.find_by_name(params[:id])
+      redirect_to iphotos_path, :notice => "User not registered with us!" unless @user
+    end
 end
