@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :favorites
   has_many :favorite_photos, :through => :favorites, :source => :iphoto
+  has_many :comments
 
   def self.authenticate(auth)
     user        = self.where(:provider => auth['provider'], :uid => auth['uid']).first
