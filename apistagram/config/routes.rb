@@ -4,6 +4,8 @@ Apistagram::Application.routes.draw do
   resources  :auths,
              :iphotos
 
+  resources :users, :only => [:show]             
+
   match '/auth/:provider/callback'  => 'auths#create'
   match '/auth/failure'             => 'auths#failure'
   match '/signin'                   => 'auths#new',      :as => :signin

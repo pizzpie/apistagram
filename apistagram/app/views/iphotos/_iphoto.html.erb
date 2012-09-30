@@ -24,6 +24,6 @@
 <!-- Photo username div -->
 
 <div class="photo_username">
-  <a href="user.html" title="View user profile"> <h3><%=iphoto.username%></h3> </a>
+  <%=link_to content_tag(:h3, iphoto.username), user_path(iphoto.username), :title => "View #{iphoto.username}'s profile"%>
 </div>
 <!-- Close photo thumb div -->
