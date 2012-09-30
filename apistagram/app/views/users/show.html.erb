@@ -1,54 +1,6 @@
 <!-- Left side user profile div -->
 <div class="user-lside">
-  <!-- user thumbnail div -->
-  <div class="user-profile-thumbnail">
-    <div class="user-thumb">
-        <img src="images/comment-thumb.jpg" alt="comment thumb" />
-    </div>
-    <div class="user-container">
-      <div class="username">
-        <h2><a href="#">instagram_user</a></h2>
-      </div>  
-      <div class="user-content">
-        <p>Suzie McDonaldson</p>
-      </div>  
-      <div class="user_links">
-        <div class="ulink">
-          <a href="#"> <img src="images/user-rss-off.gif" alt="RSS feed" oversrc="images/user-rss-on.gif" title="Follow RSS Feed"/> </a>
-        </div>
-        <div class="ulink">
-          <a href="#"> <img src="images/user-homepage-off.gif" alt="Visit website" oversrc="images/user-homepage-on.gif" title="Visit website"/> </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- User stats -->
-  <div class="user-stats">
-    <div class="stat-stack">
-      <div class="stack-number">
-        <p>44</p>
-      </div>
-      <div class="stack-cat">
-        <p>comments</p>
-      </div>
-    </div>
-    <div class="stat-stack">
-      <div class="stack-number">
-        <p>320</p>
-      </div>
-      <div class="stack-cat">
-        <p>likes</p>
-      </div>
-    </div>
-    <div class="stat-stack">
-      <div class="stack-number">
-        <p>256</p>
-      </div>
-      <div class="stack-cat">
-        <p>Tatstagrams</p>
-      </div>
-    </div>
-  </div>
+  <%=render :partial => 'users/user_info', :locals => {:user => @user}%>
   <!-- Rectangle -->  
   <div class="user-square">
     <%=image_tag('250x250.jpg', :alt => 'rectangle_ad')%>
