@@ -17,9 +17,7 @@
     <span class="vert">12</span> </a>
   </div>
   <div class="like-stat">
-    <%like_icon = current_user.likes?(iphoto) ? 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon-on.jpg' : 'http://www.craigmorrison.ca/tatagram/images/like-stat-icon.jpg'%>
-    <%=link_to heart_link(like_icon, iphoto.fans.count), favorite_path(iphoto.id), :title=>"Click to like image", 'data-remote' => true%>
-    <!-- <span class="vert">45</span> -->
+    <%=heart_link(iphoto, current_user)%>
   </div> 
 </div>
 
