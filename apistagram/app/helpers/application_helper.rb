@@ -10,4 +10,14 @@ module ApplicationHelper
       content_tag(:span, count)
     end
   end
+
+  def comment_link(iphoto, c_user)
+    if c_user
+      link_to(image_tag('comment-stat-icon.jpg', :class => 'imgmiddle', :alt => 'comment-stat-icon', :width => 16, :height => 15) +
+      content_tag(:span, iphoto.comment_threads.count), iphoto_path(iphoto), :title => 'Leave a comment')
+    else
+      image_tag('comment-stat-icon.jpg', :class => 'imgmiddle', :alt => 'comment-stat-icon', :width => 16, :height => 15) +
+      content_tag(:span, iphoto.comment_threads.count)
+    end
+  end
 end

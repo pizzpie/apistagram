@@ -1,4 +1,7 @@
 class Iphoto < ActiveRecord::Base
+
+  acts_as_commentable
+  
   attr_accessible :i_id, :status, :tag_id, :url, :username
 
   validates :i_id, :url, :username,

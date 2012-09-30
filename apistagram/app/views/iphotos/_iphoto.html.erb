@@ -13,8 +13,7 @@
 <!-- Photo stats div -->
 <div class="thumb_stats">
   <div class="comment-stat">
-    <a href="single.html" title="Leave a comment"> <%=image_tag "comment-stat-icon.jpg", :class=>"imgmiddle", :alt=>"comment-stat-icon", :width=>"16", :height=>"15"%>
-    <span class="vert">12</span> </a>
+    <%=comment_link(iphoto, current_user)%>
   </div>
   <div class="like-stat">
     <%=heart_link(iphoto, current_user)%>
