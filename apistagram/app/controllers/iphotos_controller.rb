@@ -97,4 +97,16 @@ class IphotosController < ApplicationController
       format.js {}
     end
   end
+
+  def add_comment
+    @iphoto = Iphoto.find(params[:id])
+    @user_who_commented = current_user
+    if current_user 
+      @comment = Comment.build_from( @iphoto, @user_who_commented.id, params[:comment])
+      @comment.save
+      redirect_to iphoto_url(@iphoto)
+    else
+      redirect_to '/auth/instagram'
+    end
+  end
 end

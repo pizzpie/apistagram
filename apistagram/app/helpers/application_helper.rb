@@ -7,7 +7,7 @@ module ApplicationHelper
     else
       like_icon = 'like-stat-icon.jpg'
       image_tag(like_icon, :id => 'myLikeIndex', :class => 'imgmiddle', :alt => 'like-stat-icon') +
-      content_tag(:span, count)
+      content_tag(:span, iphoto.fans.count)
     end
   end
 

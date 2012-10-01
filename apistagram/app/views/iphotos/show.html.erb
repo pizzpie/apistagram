@@ -26,6 +26,22 @@
   </div>
   <!-- banner -->
   <div class="single-banner">
-    <img src="images/banner2.gif" alt="Banner Placeholder" />
+    <%=image_tag 'banner2.gif', :alt => 'Banner Placeholder'%>
+  </div>
+
+  <!-- Comments section -->
+  <div class="comments">
+    <div class="comments-header">
+      <div class="number-comments">
+        <h2><%=@iphoto.comment_threads.count%> Comments</h2>
+      </div>
+      <div class="leave-comment-top">
+        <a href="#add_comment"><p>leave a comment</p></a>
+      </div>  
+    </div>
+    <%@iphoto.comment_threads.each do |comment|%>
+      <%=render :partial => 'comment', :locals => {:comment => comment}%>
+    <%end%> 
+    <%=render 'comment_form'%>
   </div>
 </div>

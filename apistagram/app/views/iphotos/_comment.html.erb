@@ -1,0 +1,24 @@
+<!-- START OF ACTUAL COMMENT -->
+<div class="acomment">
+  <div class="user-thumb">
+    <%=image_tag comment.user.image_url(:thumb), :alt => "#{comment.user.name}'s thumb"%>
+  </div>
+  <div class="comment-container">
+    <div class="comment-username">
+      <h2><%=link_to comment.user.name, user_url(comment.user)%></h2>
+    </div>
+    <div class="comment-body">
+      <%=comment.body%>
+    </div>
+    <div class="comment-date">
+      <p><%="#{time_ago_in_words(comment.created_at)} ago"%></p>
+    </div>
+    <!-- If user is logged in, show delete comment div -->
+    <div class="delete-comment">
+      <a href="single.html" title="Delete a comment (only if one of users own photos or users own comment">
+        <%=image_tag 'cross.gif', :class=>'imgmiddle', :alt => 'delete comment'%>
+        <span class="vert">delete comment</span>
+    </a> 
+    </div>
+  </div>  
+</div>
