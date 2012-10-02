@@ -24,4 +24,5 @@ Apistagram::Application.routes.draw do
   match 'tatstagrams/:type'			  => 'iphotos#index'
   match 'iphotos/:id/favorite'    => 'iphotos#favorite', :via => 'get', :as => 'favorite'
   match 'iphotos/:id/add_comment' => 'iphotos#add_comment', :via => :post, :as => 'add_comment'
+  match 'login'                   => 'auths#new', :as => 'login'
 end

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # payal says: commented the other actions as currently only view profile action is required.
   # def index
   #   @users = User.all
-  # end  
+  # end
 
   # def edit
   #   @user = User.find(params[:id])
