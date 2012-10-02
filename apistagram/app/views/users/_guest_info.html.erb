@@ -1,0 +1,14 @@
+<!-- user thumbnail div -->
+<div class="user-profile-thumbnail">
+  <div class="user-thumb">
+    <%=image_tag 'comment-thumb.jpg', :alt => "#{user}'s photo", :width => 82, :height => 82%>
+  </div>
+  <div class="user-container">
+    <div class="username">
+      <h2><%=link_to user, user_path(user)%></h2>
+    </div>  
+    <div class="user-content">
+      <p><%=user%></p>
+    </div> 
+  </div>
+</div>

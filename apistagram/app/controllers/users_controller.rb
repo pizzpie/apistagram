@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
-    @iphotos = @user.favorite_photos.limit(8).page(params[:page]) #right now displaying favorites, will change to photos later
+    @iphotos = Iphoto.where(:username => params[:id]).paginate(:page => params[:page], :per_page => 8) #right now displaying favorites, will change to photos later
   end
 
   # payal says: commented the other actions as currently only view profile action is required.
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
   private
     def find_user
       @user = User.find_by_name(params[:id])
-      redirect_to iphotos_path, :notice => "User not registered with us!" unless @user
+      unless @user
+        @user = params[:id]
+      end
+
+      redirect_to iphotos_url unless @user
     end
 end

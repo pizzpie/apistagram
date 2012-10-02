@@ -1,6 +1,6 @@
 <!-- Left side user profile div -->
 <div class="user-lside">
-  <%=render :partial => 'users/user_info', :locals => {:user => @user}%>
+  <%=render :partial => guest_or_user_template(@user), :locals => {:user => @user}%>
   <!-- Rectangle -->  
   <div class="user-square">
     <%=image_tag(@ad[0], :alt => @ad[1])%>
@@ -11,15 +11,16 @@
 <div class="user-rside">
   <%counter = 1%>
   <%@iphotos.each do |iphoto|%>
-    <div class="userpic-container">
+    <div class="userpic-container" style="overflow:hidden;">
       <div class="user_photo_thumb">
         <%=render :partial => 'iphotos/iphoto', :locals => {:iphoto => iphoto}%>
       </div>
     </div>
   <%end%>
+
+  <%=will_paginate(@iphotos)%>
   
-  <!-- Pagination -->
-  <div class="pagination">
+<!--   <div class="pagination">
     <div class="pagenum-div-last-user">
       <a href="#" class="pagenum"> <img src="images/next.png" /> </a>
     </div>
@@ -44,5 +45,5 @@
     <div class="pagenum-div">
       <a href="#" class="pagenum-active">1</a>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -20,4 +20,9 @@ module ApplicationHelper
       content_tag(:span, iphoto.comment_threads.count)
     end
   end
+
+  def header_ad
+    ad = AppConfiguration['ads']['header']
+    image_tag ad[0], :alt => ad[1]
+  end
 end
