@@ -49,7 +49,7 @@
             <ul class="nav">
               <li><%= link_to "Users", admin_users_path  %></li>
               <li><%= link_to "Photos", admin_iphotos_path  %></li>
-              <%= link_to "Fetch New Photos", admin_fetch_photos_path, :class=> "btn btn-primary btn-primary" %>
+              <%= link_to "Fetch New Photos", admin_fetch_photos_path, :class=> "btn btn-primary btn-primary", :method => :post %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

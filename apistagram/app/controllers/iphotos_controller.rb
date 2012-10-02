@@ -1,6 +1,7 @@
 class IphotosController < ApplicationController
 
   def index
+    current_user.get_grams if current_user
     @iphotos = Iphoto.all
   end
 
