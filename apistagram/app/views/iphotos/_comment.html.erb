@@ -1,5 +1,5 @@
 <!-- START OF ACTUAL COMMENT -->
-<div class="acomment">
+<div class="acomment" id="comment_<%=comment.id%>">
   <div class="user-thumb">
     <%=image_tag comment.user.image_url(:thumb), :alt => "#{comment.user.name}'s thumb"%>
   </div>
@@ -13,12 +13,10 @@
     <div class="comment-date">
       <p><%="#{time_ago_in_words(comment.created_at)} ago"%></p>
     </div>
-    <!-- If user is logged in, show delete comment div -->
-    <div class="delete-comment">
-      <a href="single.html" title="Delete a comment (only if one of users own photos or users own comment">
-        <%=image_tag 'cross.gif', :class=>'imgmiddle', :alt => 'delete comment'%>
-        <span class="vert">delete comment</span>
-    </a> 
-    </div>
+    <%if current_user and current_user.name == @iphoto.username%>
+      <div class="delete-comment">
+        <%=remove_comment(@iphoto, comment)%>
+      </div>
+    <%end%>
   </div>  
 </div>

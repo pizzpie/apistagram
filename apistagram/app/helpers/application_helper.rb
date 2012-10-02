@@ -25,4 +25,9 @@ module ApplicationHelper
     ad = AppConfiguration['ads']['header']
     image_tag ad[0], :alt => ad[1]
   end
+
+  def remove_comment(iphoto, comment)
+    str = (image_tag 'cross.gif', :class=>'imgmiddle', :alt => 'delete comment') + content_tag(:span, 'delete comment', :class => "vert")
+    link_to str, remove_comment_path(iphoto, comment), :method => :delete, 'data-remote' => true
+  end
 end

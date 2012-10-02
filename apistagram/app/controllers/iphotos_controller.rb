@@ -44,7 +44,18 @@ class IphotosController < ApplicationController
       @comment.save
       redirect_to iphoto_url(@iphoto)
     else
-      redirect_to '/auth/instagram'
+      redirect_to login_url
+    end
+  end
+
+  def remove_comment
+    @iphoto = Iphoto.find(params[:id])
+    @comment = @iphoto.comment_threads.find_by_id(params[:comment_id])
+    if @comment and current_user.name == @iphoto.username || current_user == @comment.user
+      @comment.destroy
+      return render 'remove_comment.js.erb'
+    else
+      return render :nothing => true
     end
   end
 end
