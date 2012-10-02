@@ -9,6 +9,16 @@ class IphotosController < ApplicationController
     @iphoto = Iphoto.find(params[:id])
   end
 
+  def destroy
+    @iphoto = Iphoto.find_by_id(params[:id])
+    if current_user.name == @iphoto.username
+      @iphoto.destroy 
+      redirect_to iphotos_url, :notice => "Photo removed successfully!"
+    else
+      redirect_to iphoto_url, :notice =>  "You do not have access to this photo edit permissions."
+    end
+  end
+
   def favorite
     @iphoto = Iphoto.find(params[:id])
     favorite = @iphoto.favorites.find_by_user_id(current_user.id)

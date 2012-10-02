@@ -80,6 +80,12 @@
       <%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
       <span class="vert-header">Report Photo</span> </a>
     </div>
+    <%if current_user.name == @iphoto.username%>
+      <div class="stat">
+        <%=link_to image_tag('single-delete.gif', :class => 'imgmiddle'), iphoto_url(@iphoto), :method => :delete %>
+        <span class="vert-header">Delete Photo</span> </a>
+      </div>
+    <%end%>
   </div> 
   <!-- more from user -->
   <div class="more-from-user">

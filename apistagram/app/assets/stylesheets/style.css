@@ -62,7 +62,8 @@ table {
 html, body {
 	text-align: center;
 	height: 100%;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+	font-family: adobe-clean,"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 13px;
 	line-height: 0px;
 	color: black;
@@ -100,8 +101,9 @@ html, body {
 /* Header */
 
 #header_wrapper {
-	background-image: url(/assets/header-bg-dark.gif);
+	background-image: url(../images/header-bg-dark.gif);
 	border-bottom: 1px solid black;
+	min-width: 960px;
 }
 
 #header {
@@ -136,24 +138,27 @@ html, body {
 
 #logged_in {
 	min-width: 160px;
-	max-width: 170px;
-	height: 38px;
+	max-width: 190px;
+	height: 50px;
+	width: 170px;
 	float: right;
-	margin-top: 20px;
-	margin-right: 5px;
+	margin-top: 14px;
+	margin-right: 0px;
 	background-color: #ed2245;
-	border: 1px solid black;
+	border: 1px solid #e63f5c;
 	text-align: left;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
 	overflow: hidden;
 
 }
 
 .loggedin-user-thumb {
 	float: left;
-	width: 38px;
-	height: 38px;
+	width: 45px;
+	height: 45px;
+	padding-top: 3px;
+	padding-left: 3px;
 }
 
 .loggedin-username {
@@ -641,7 +646,6 @@ margin-left: 9px;
 }
 
 #footer {
-	
 	height: 275px;
 	width: 960px;
 	margin: 0 auto;
@@ -1001,20 +1005,25 @@ h2 {
 .r-side-single {
 	float: right;
 	width: 360px;
+	margin-right: 6px;
 }
 
 .like-button{
-	margin-bottom: 15px;	
+	padding-bottom: 15px;
+	border-bottom: 1px solid #cbcbcb;	
+	padding-top: 15px;
+	float: left;
 }
 
 .user-thumbnail {
 	margin-left: 0px;
-	border-bottom: 1px solid #cbcbcb;
-	border-top: 1px solid #cbcbcb;
+	/* border-bottom: 1px solid #cbcbcb;
+	border-top: 1px solid #cbcbcb; */
 	float: left;
 	width: 360px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	/* padding-top: 15px; */
+	padding-bottom: 25px;
+	border-bottom: 1px solid #cbcbcb;
 }
 
 .user-container {
@@ -1038,7 +1047,7 @@ h2 {
 }
 
 .user-content {
-	min-height: 15px;
+	min-height: 12px;
 }
 
 .user-content a, 
@@ -1052,10 +1061,20 @@ h2 {
 	text-decoration: underline;
 }
 
+.user_links {
+	float: left;
+	text-align: left;
+}
+
+.ulink {
+	float: left;
+	padding-right: 5px;
+}
+
 .image-stats {
 	float: left;
-	margin-top: 15px;
-	border-bottom: 1px solid #cbcbcb;
+	margin-top: 0px;
+	margin-bottom: 15px;
 	width: 360px;
 }
 
@@ -1067,20 +1086,24 @@ h2 {
 }
 
 .image-stats a:hover {
-	color: #464646;
+	color: #ed2245;
+	
 }
 
 .stat {
 	text-align: left;
-	padding-bottom: 15px;
+	padding-bottom: 12px;
+	padding-left: 4px;
+	padding-top: 12px;
+	border-bottom: 1px solid #cbcbcb;
 }
 
 .vert-header {
 	vertical-align: middle;
 	font-weight: bold;
-	font-size: 22px;
-	padding-left: 8px;
-	padding-bottom: 4px;
+	font-size: 17px;
+	padding-left: 10px;
+	padding-bottom: 3px;
 }
 
 .share-image {
@@ -1103,6 +1126,8 @@ h2 {
 	float: left;
 	text-align: left;
 	margin-top: 25px;
+	border-bottom: 1px solid #cbcbcb;
+	padding-bottom: 25px;
 }
 
 .more-user-title {
@@ -1119,6 +1144,12 @@ h2 {
 	
 }
 
+
+.large-rec {
+	margin-top: 30px;
+	padding-left: 10px;
+	float: left;
+}
 
 
 #i_social {
@@ -1165,6 +1196,53 @@ h2 {
 	width: 75px;
 	padding-top: 28px;
 	display: inline-block;
+}
+
+
+.user_menu {
+	float: left;
+	text-align: left;
+
+	width: 240px;
+	padding-left: 5px;
+}
+
+.user-delete {
+	height: 50px;
+	padding-bottom: 10px;	
+	border-bottom: 1px solid #cbcbcb;
+	padding-top: 20px;
+}
+
+.user-headers {
+	width: 240px;
+	height: 14px;
+}
+
+.title {
+	font-weight: bold;
+	float: left;
+	font-size: 15px;
+}
+
+.delete {
+	float: right;
+	font-size: 12px;
+}
+
+.delete a {
+	color: #ed2245;
+	text-decoration: none;
+}
+
+.delete a:hover {
+	text-decoration: underline;
+}
+
+
+.user-desc {
+	line-height: 17px;
+	font-size: 12px;
 }
 
 .user-stats {
@@ -1228,4 +1306,55 @@ h2 {
 
 .delete-image a:hover {
 	color: #616161;
+}
+
+#legal {
+	text-align: left;
+	line-height: 21px;
+	margin-top: 90px;
+	padding-left: 15px;
+}
+
+#legal h1{
+	font-size: 21px;
+	font-weight: bold;
+}
+
+#legal h2 {
+	font-size: 14px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#legal h3 {
+	font-weight: bold;
+	font-size: 15px;
+	padding-bottom: 5px;
+	padding-top: 20px;
+}
+
+#legal p {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#legal ol {
+	list-style: decimal;
+	margin-left: 50px;
+}
+
+#legal ul {
+	list-style: circle;
+	margin-left: 50px;
+}
+
+#legal li {
+	padding-left: 10px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	
+}
+
+#legal b {
+	font-weight: bold;
 }
