@@ -1,25 +1,4 @@
-<!-- user thumbnail div -->
-<div class="user-profile-thumbnail">
-  <div class="user-thumb">
-    <%=image_tag user.image_url(:thumb), :alt => "#{user.name}'s photo", :width => 82, :height => 82%>
-  </div>
-  <div class="user-container">
-    <div class="username">
-      <h2><%=link_to user.name, user_path(user.name)%></h2>
-    </div>  
-    <div class="user-content">
-      <p><%=user.name%></p>
-    </div>  
-    <div class="user_links">
-      <div class="ulink">
-        <%=link_to image_tag('user-rss-off.gif', :alt => 'RSS feed', :oversrc=>"images/user-rss-on.gif"), :title=> "Follow RSS Feed"%>
-      </div>
-      <div class="ulink">
-        <%=link_to image_tag('user-homepage-off.gif', :alt => 'Visit website', :oversrc=>"images/user-homepage-on.gif"), :title=> "Visit website"%>
-      </div>
-    </div>
-  </div>
-</div>
+<%=render 'users/profile'%>
 <!-- User stats -->
 <div class="user-stats">
   <div class="stat-stack">

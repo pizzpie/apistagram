@@ -52,17 +52,17 @@
 
   <!-- user thumbnail div -->
   
-  <%=render :partial => 'users/user_info', :locals => {:user => @iphoto.user}%>
+  <%=render :partial => 'users/profile', :locals => {:user => @iphoto.user}%>
 
   <!-- stats div -->
   <div class="image-stats">
     <div class="stat">
       <%=image_tag 'single-heart.gif', :class => 'imgmiddle'%>
-      <span class="vert-header">299 likes</span>
+      <span class="vert-header"><%=@iphoto.fans.count%> likes</span>
     </div>
     <div class="stat">
       <%=image_tag 'single-comment.gif', :class => 'imgmiddle'%>
-      <span class="vert-header">14 comments</span>
+      <span class="vert-header"><%=@iphoto.comment_threads.count%> comments</span>
     </div>  
     <div class="stat">
       <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>
