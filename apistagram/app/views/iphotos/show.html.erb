@@ -26,7 +26,7 @@
   </div>
   <!-- banner -->
   <div class="single-banner">
-    <%=image_tag 'banner2.gif', :alt => 'Banner Placeholder'%>
+    <%=image_tag @ads['left_section'][0], :alt => @ads['left_section'][1]%>
   </div>
 
   <!-- Comments section -->
@@ -94,6 +94,6 @@
   </div>
   <!-- 336x280 -->
   <div class="large-rec">
-    <%=image_tag '336x280.jpg', :alt=>"336x280", :width=>"343", :height=>"287"%>
+    <%=image_tag @ads['right_section'][0], :alt => @ads['right_section'][1], :width=>"343", :height=>"287"%>
   </div>
 </div>

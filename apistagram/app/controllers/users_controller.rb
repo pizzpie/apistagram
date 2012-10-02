@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :find_user
 
   def show
+    @ad = AppConfiguration['ads']['user_profile_page']['left_section']
     @iphotos = @user.favorite_photos.limit(8).page(params[:page]) #right now displaying favorites, will change to photos later
   end
 

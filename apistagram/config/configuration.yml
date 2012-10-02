@@ -6,3 +6,13 @@ development:
   admin_user: 'craig'
   admin_password: 'tatsagram'
   copyright_text: 'Tatsagram 2012'
+  ads: 
+    header: ['banner.gif', 'Banner Placeholder']
+    home_page:
+      whats_hot: ['728x90.jpg', 'Banner Placeholder']
+      popular: ['728x90-2.jpg', 'Banner Placeholder']
+    user_profile_page:
+      left_section: ['250x250.jpg', 'Rectangle Placeholder']
+    iphoto_page:
+      left_section: ['banner2.gif', 'Banner Placeholder']
+      right_section: ['336x280.jpg', 'Banner Placeholder']

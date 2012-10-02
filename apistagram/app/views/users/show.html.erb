@@ -3,7 +3,7 @@
   <%=render :partial => 'users/user_info', :locals => {:user => @user}%>
   <!-- Rectangle -->  
   <div class="user-square">
-    <%=image_tag('250x250.jpg', :alt => 'rectangle_ad')%>
+    <%=image_tag(@ad[0], :alt => @ad[1])%>
   </div>
 </div>
 
