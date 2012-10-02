@@ -9,14 +9,13 @@
 
 <!-- Right side user profile -->
 <div class="user-rside">
-  <%counter = 1%>
-  <%@iphotos.each do |iphoto|%>
-    <div class="userpic-container" style="overflow:hidden;">
+  <div class="userpic-container" style="overflow:hidden;">
+    <%@iphotos.each do |iphoto|%>  
       <div class="user_photo_thumb">
         <%=render :partial => 'iphotos/iphoto', :locals => {:iphoto => iphoto}%>
       </div>
-    </div>
-  <%end%>
+    <%end%>
+  </div>
 
   <%=will_paginate(@iphotos)%>
   

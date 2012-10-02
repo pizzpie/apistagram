@@ -18,6 +18,8 @@ class Iphoto < ActiveRecord::Base
   has_many :favorites
   has_many :fans, :through => :favorites, :source => :user
 
+  # scope :recent_photos, lambda{ |username| where(username: name) unless username.nil? }
+
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
     photo_ids     ||= []
     all_photo_ids = all_photo_ids.split(" ")

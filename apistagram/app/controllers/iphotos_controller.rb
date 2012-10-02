@@ -7,6 +7,7 @@ class IphotosController < ApplicationController
   def show
     @ads = AppConfiguration['ads']['iphoto_page']
     @iphoto = Iphoto.find(params[:id])
+    @recent_photos = Iphoto.where("username = ?", @iphoto.username).limit(6)
   end
 
   def destroy
