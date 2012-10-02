@@ -30,7 +30,7 @@ class IphotosController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to iphotos_url }
+      format.html { redirect_to iphoto_url(@iphoto) }
       format.json { head :no_content }
       format.js {}
     end
