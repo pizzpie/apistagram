@@ -30,4 +30,8 @@ module ApplicationHelper
     str = (image_tag 'cross.gif', :class=>'imgmiddle', :alt => 'delete comment') + content_tag(:span, 'delete comment', :class => "vert")
     link_to str, remove_comment_path(iphoto, comment), :method => :delete, 'data-remote' => true
   end
+
+  def user_profile_link(user)
+    user.class.to_s == "User" ? 'users/profile' : 'users/guest_info'
+  end
 end

@@ -51,8 +51,7 @@
 <div class="r-side-single">
 
   <!-- user thumbnail div -->
-  
-  <%=render :partial => 'users/profile', :locals => {:user => @iphoto.user}%>
+  <%=render :partial => user_profile_link(@iphoto.user), :locals => {:user => (@iphoto.user ? @iphoto.user : @iphoto.username)}%>
 
   <!-- stats div -->
   <div class="image-stats">
