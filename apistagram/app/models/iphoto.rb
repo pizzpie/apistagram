@@ -39,4 +39,8 @@ class Iphoto < ActiveRecord::Base
     
     [approved_count, removed_count]
   end
+
+  def user
+    User.first
+  end
 end

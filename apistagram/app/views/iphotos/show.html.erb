@@ -9,7 +9,7 @@
 <div class="l-side-single">
   <!-- large image div -->
   <div class="large-image">
-    <%= image_tag @iphoto.url, :alt => "#{@iphoto.username}'s photo" %>
+    <%= image_tag @iphoto.url, :alt => "#{@iphoto.username}'s photo", :width=> 518 %>
     <!-- image sharing -->      
     <div id="i_social">
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="tatstagram" data-count="none">Tweet</a>
@@ -43,5 +43,57 @@
       <%=render :partial => 'comment', :locals => {:comment => comment}%>
     <%end%> 
     <%=render 'comment_form'%>
+  </div>
+</div>
+
+<!-- right side of single image page -->
+
+<div class="r-side-single">
+
+  <!-- user thumbnail div -->
+  
+  <%=render :partial => 'users/user_info', :locals => {:user => @iphoto.user}%>
+
+  <!-- stats div -->
+  <div class="image-stats">
+    <div class="stat">
+      <%=image_tag 'single-heart.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">299 likes</span>
+    </div>
+    <div class="stat">
+      <%=image_tag 'single-comment.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">14 comments</span>
+    </div>  
+    <div class="stat">
+      <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">Tweet this</span> </a>
+    </div>
+    <div class="stat">
+      <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">Share on Facebook</span> </a>
+    </div>
+    <div class="stat">
+      <%=image_tag 'single-link.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">http://tatstagr.am/fpqf</span> </a>
+    </div>
+    <div class="stat">
+      <%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">Report Photo</span> </a>
+    </div>
+  </div> 
+  <!-- more from user -->
+  <div class="more-from-user">
+    <div class="more-user-title">
+      <h2>More from this user</h2>
+    </div>
+    <%-6.times do%>
+      <div class="more-thumb">
+        <a href="#"><%=image_tag 'more-thumb.jpg'%></a>
+      </div>
+    <%end%>
+  </div>
+  <!-- 336x280 -->
+  <div class="large-rec">
+    <%=image_tag '336x280.jpg', :alt=>"336x280", :width=>"343", :height=>"287"%>
   </div>
 </div>
