@@ -41,6 +41,6 @@ class Iphoto < ActiveRecord::Base
   end
 
   def user
-    User.first
+    User.find_by_name(username)
   end
 end
