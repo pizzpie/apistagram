@@ -11,7 +11,7 @@
 <div class="user-rside">
   <div class="userpic-container" style="overflow:hidden;">
     <%@iphotos.each do |iphoto|%>  
-      <div class="user_photo_thumb">
+      <div class="user_photo_thumb" id="photo_<%=iphoto.id%>">
         <%=render :partial => 'iphotos/iphoto', :locals => {:iphoto => iphoto}%>
       </div>
     <%end%>
@@ -19,7 +19,7 @@
 
   <%=will_paginate(@iphotos)%>
   
-<!--   <div class="pagination">
+  <div class="pagination">
     <div class="pagenum-div-last-user">
       <a href="#" class="pagenum"> <img src="images/next.png" /> </a>
     </div>
@@ -44,5 +44,5 @@
     <div class="pagenum-div">
       <a href="#" class="pagenum-active">1</a>
     </div>
-  </div> -->
+  </div>
 </div>
