@@ -2,7 +2,7 @@ class IphotosController < ApplicationController
 
   def index
     current_user.get_grams if current_user
-    @iphotos = Iphoto.limit(21)
+    @iphotos = Iphoto.limit(21).order('created_at desc')
   end
 
   def show
