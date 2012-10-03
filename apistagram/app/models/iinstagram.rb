@@ -22,8 +22,8 @@ module IInstagram
   
     def get_grams
       begin
-        10.times do |i|
-          if max_photo_id
+        4.times do |i|
+          unless max_photo_id.blank?
             self.response = Instagram.tag_recent_media(tag, :max_id => max_photo_id)
           else
             self.response = Instagram.tag_recent_media(tag)
@@ -32,18 +32,31 @@ module IInstagram
           if self.data.count > 0
             self.data.each do |media|
               self.photos   << {
-                                "i_id" => media.id,
-                                "url"  => media.images.standard_resolution.url,
-                                "username" => media.user.username
+                                  :i_id => media.id,
+                                  :url  => media.images.standard_resolution.url,
+                                  :username => media.user.username
                                }
             end
-            max_photo_id = self.data.last.id
+            self.max_photo_id = self.data.last.id
           end
         end
         self.photos.each do |ipic|
-          Iphoto.create!(ipic) rescue nil
+          begin
+            puts ipic
+            Iphoto.create!(ipic)
+          rescue Exception => e
+            puts e.message
+            puts e
+          end
         end
-        Setup.set_max_photo_id(max_photo_id)
+        begin
+          max_photo = Setup.find_or_create_by_key_name("max_photo_id")
+          max_photo.update_attributes(:key_val => max_photo_id)
+        rescue Exception => e
+          puts e.message
+          puts e.debug
+        end
+        # Setup.set_max_photo_id(max_photo_id)
       rescue Exception => e
         raise e
       end

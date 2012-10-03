@@ -35,9 +35,13 @@ class User < ActiveRecord::Base
 
   def get_grams
     Tag.all.each do |tag|
-      tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => Setup.max_photo_id)
-      tatsagram.delay.get_grams
+      self.delay.fetch_grams(tag)
     end
+  end
+
+  def fetch_grams(tag)
+    tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => Setup.max_photo_id)
+    tatsagram.get_grams
   end
 
   def likes?(photo)
