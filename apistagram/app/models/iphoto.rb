@@ -18,8 +18,6 @@ class Iphoto < ActiveRecord::Base
   has_many :favorites
   has_many :fans, :through => :favorites, :source => :user
 
-  # scope :recent_photos, lambda{ |username| where(username: name) unless username.nil? }
-
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
     photo_ids     ||= []
     all_photo_ids = all_photo_ids.split(" ")
@@ -44,5 +42,23 @@ class Iphoto < ActiveRecord::Base
 
   def user
     User.find_by_name(username)
+  end
+
+  def self.fetch_index_listing
+    newest  = self.order('created_at desc').limit(6)
+    hottest = []
+    arr = Favorite.group(:iphoto_id).count.keys
+
+    if arr.count > 6
+      [0..5].each do |i|
+        hottest << Iphoto.find_by_id(arr[i])
+      end
+    else
+      hottest.each do |i|
+        hottest << Iphoto.find_by_id(i)
+      end
+    end
+
+    return [newest, hottest]
   end
 end

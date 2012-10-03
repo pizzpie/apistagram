@@ -3,7 +3,33 @@
   <h1>What's Hot</h1>
 </div>
 <div class="photo_line">
+  <%@hottest.each do |iphoto|%>
+    <!-- Individual photo div -->
+    <div class="photo_thumb" id='photo_<%=iphoto.id%>'>
+      <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
+    </div>
+  <%end%>
+</div>
+
+<!-- Div for title of photos -->
+<div class="photo_line_title">
+  <h1>Most Popular</h1>
+</div>
+<div class="photo_line">
   <%@iphotos.each do |iphoto|%>
+    <!-- Individual photo div -->
+    <div class="photo_thumb" id='photo_<%=iphoto.id%>'>
+      <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
+    </div>
+  <%end%>
+</div>
+
+<!-- Div for title of photos -->
+<div class="photo_line_title">
+  <h1>Newest</h1>
+</div>
+<div class="photo_line">
+  <%@newest.each do |iphoto|%>
     <!-- Individual photo div -->
     <div class="photo_thumb" id='photo_<%=iphoto.id%>'>
       <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
