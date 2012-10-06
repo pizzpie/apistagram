@@ -4,6 +4,7 @@ class IphotosController < ApplicationController
   def index
     current_user.get_grams if current_user
     if params[:category]
+      @category = params[:category]
       @iphotos = Iphoto.fetch_index_listing(params[:category]).paginate(:page => params[:page], :per_page => 21)
     else
       @iphotos = Iphoto.limit(6).order('created_at desc')
