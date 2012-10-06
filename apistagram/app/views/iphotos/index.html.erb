@@ -1,22 +1,6 @@
 <!-- Div for title of photos -->
 <div class="photo_line_title">
-  <h1>What's Hot</h1>
-</div>
-<div class="photo_line">
-  <%@hottest.each_with_index do |iphoto, i|%>
-    <!-- Individual photo div -->
-    <div class="photo_thumb photo_<%=iphoto.id%>">
-      <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
-    </div>
-      <%- if i%3 == 0%>
-        <div class="clear"></div>
-      <%end%>     
-  <%end%>
-</div>
-
-<!-- Div for title of photos -->
-<div class="photo_line_title">
-  <h1>Most Popular</h1>
+  <h1><%= @title %></h1>
 </div>
 <div class="photo_line">
   <%@iphotos.each_with_index do |iphoto, i|%>
@@ -26,22 +10,13 @@
     </div>
     <%- if i%3 == 0%>
       <div class="clear"></div>
-    <%end%>      
+    <%end%>
+    <%- if i == 8%>
+      <%=listing_ad('whats_hot')%>
+    <%end%>  
+    <%- if i == 14%>
+      <%=listing_ad('popular')%>
+    <%end%>
   <%end%>
 </div>
-
-<!-- Div for title of photos -->
-<div class="photo_line_title">
-  <h1>Newest</h1>
-</div>
-<div class="photo_line">
-  <%@newest.each_with_index do |iphoto, i|%>
-    <!-- Individual photo div -->
-    <div class="photo_thumb photo_<%=iphoto.id%>">
-      <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
-    </div>
-    <%- if i%3 == 0%>
-      <div class="clear"></div>
-    <%end%>    
-  <%end%>
-</div>
+<%=will_paginate(@iphotos)%>

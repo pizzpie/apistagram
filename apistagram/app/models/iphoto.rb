@@ -44,21 +44,31 @@ class Iphoto < ActiveRecord::Base
     User.find_by_name(username)
   end
 
-  def self.fetch_index_listing
-    newest  = self.order('created_at desc').limit(6)
-    hottest = []
-    arr = Favorite.group(:iphoto_id).count.keys
-
-    if arr.count > 6
-      [0..5].each do |i|
-        hottest << Iphoto.find_by_id(arr[i])
+  def self.fetch_index_listing(category = nil)
+    if category
+      if category == "hot" || category == "most_popular"
+        hottest = []
+        arr = Favorite.group(:iphoto_id).count.keys
+        return Iphoto.where(:id => arr)
+      else
+        return self.order('created_at desc')
       end
     else
-      hottest.each do |i|
-        hottest << Iphoto.find_by_id(i)
-      end
-    end
+      newest  = self.order('created_at desc').limit(6)
+      hottest = []
+      arr = Favorite.group(:iphoto_id).count.keys
 
-    return [newest, hottest]
+      if arr.count > 6
+        [0..5].each do |i|
+          hottest << Iphoto.find_by_id(arr[i])
+        end
+      else
+        hottest.each do |i|
+          hottest << Iphoto.find_by_id(i)
+        end
+      end
+
+      return [newest, hottest]
+    end
   end
 end

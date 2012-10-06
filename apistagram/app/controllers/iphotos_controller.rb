@@ -1,9 +1,14 @@
+require 'will_paginate/array'
 class IphotosController < ApplicationController
 
   def index
     current_user.get_grams if current_user
-    @iphotos = Iphoto.limit(6).order('created_at desc')
-    @newest, @hottest = Iphoto.fetch_index_listing
+    if params[:category]
+      @iphotos = Iphoto.fetch_index_listing(params[:category]).paginate(:page => params[:page], :per_page => 21)
+    else
+      @iphotos = Iphoto.limit(6).order('created_at desc')
+      @newest, @hottest = Iphoto.fetch_index_listing
+    end
   end
 
   def show
