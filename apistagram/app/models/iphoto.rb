@@ -45,30 +45,37 @@ class Iphoto < ActiveRecord::Base
   end
 
   def self.fetch_index_listing(category = nil)
+    hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
+    pop_arr = Favorite.where("created_at >= ?", AppConfiguration['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
+
+
     if category
       if category == "hot" || category == "most_popular"
         hottest = []
-        arr = Favorite.group(:iphoto_id).count.keys
-        return Iphoto.where(:id => arr)
+        return Iphoto.where(:id => hot_arr)
+
+        popular = []
+        return Iphoto.where(:id => pop_arr)        
       else
         return self.order('created_at desc')
       end
     else
       newest  = self.order('created_at desc').limit(6)
-      hottest = []
-      arr = Favorite.group(:iphoto_id).count.keys
 
-      if arr.count > 6
-        [0..5].each do |i|
-          hottest << Iphoto.find_by_id(arr[i])
-        end
-      else
-        hottest.each do |i|
-          hottest << Iphoto.find_by_id(i)
-        end
+      hottest = []
+      hot_arr.each do |i|
+        hottest << Iphoto.find_by_id(i)
+        break if hottest.count == 9
       end
 
-      return [newest, hottest]
+
+      popular = []
+      pop_arr.each do |i|
+        popular << Iphoto.find_by_id(i)
+        break if popular.count == 6
+      end
+
+      return [newest, hottest, popular]
     end
   end
 end

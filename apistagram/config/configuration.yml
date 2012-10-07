@@ -6,6 +6,8 @@ development:
   admin_user: 'craig'
   admin_password: 'tatsagram'
   copyright_text: 'Tatsagram 2012'
+  hot_duration_in_hours: 24
+  popular_duration_in_days: 365
   ads: 
     header: ['banner.gif', 'Banner Placeholder']
     home_page:

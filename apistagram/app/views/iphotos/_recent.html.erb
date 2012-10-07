@@ -21,7 +21,7 @@
   <h1>Most Popular</h1>
 </div>
 <div class="photo_line">
-  <%@iphotos.each_with_index do |iphoto, i|%>
+  <%@popular.each_with_index do |iphoto, i|%>
     <!-- Individual photo div -->
     <div class="photo_thumb photo_<%=iphoto.id%>">
       <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
