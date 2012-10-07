@@ -22,7 +22,7 @@ module IInstagram
   
     def get_grams
       begin
-        4.times do |i|
+        1.times do |i|
           unless max_photo_id.blank?
             self.response = Instagram.tag_recent_media(tag, :max_id => max_photo_id)
           else
@@ -42,7 +42,6 @@ module IInstagram
         end
         self.photos.each do |ipic|
           begin
-            puts ipic
             Iphoto.create!(ipic)
           rescue Exception => e
             puts e.message

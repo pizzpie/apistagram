@@ -4,8 +4,8 @@ class Iphoto < ActiveRecord::Base
   
   attr_accessible :i_id, :status, :tag_id, :url, :username
 
-  # validates :i_id, :url, :username,
-  #           :presence => true
+  validates :i_id, :url, :username,
+            :presence => true
 
   # validates :i_id,
   #           :uniqueness => true
@@ -17,6 +17,23 @@ class Iphoto < ActiveRecord::Base
 
   has_many :favorites
   has_many :fans, :through => :favorites, :source => :user
+
+  before_save :create_or_update_public_id
+
+  def create_or_update_public_id
+    unless public_id
+      pub_id = SecureRandom.base64(5)
+      if check_public_id(pub_id)
+        check_public_id(pub_id)
+      else
+        self.public_id = pub_id
+      end
+    end
+  end
+
+  def check_public_id(pub_id)
+    Iphoto.find_by_public_id(pub_id)
+  end
 
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
     photo_ids     ||= []

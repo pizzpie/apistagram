@@ -14,8 +14,12 @@ class IphotosController < ApplicationController
 
   def show
     @ads = AppConfiguration['ads']['iphoto_page']
-    @iphoto = Iphoto.find(params[:id])
-    @recent_photos = Iphoto.where("username = ?", @iphoto.username).limit(6)
+    @iphoto = Iphoto.where("id = ? or public_id = ?", params[:id], params[:id]).first
+    if @iphoto
+      @recent_photos = Iphoto.where("username = ?", @iphoto.username).limit(6)
+    else
+      redirect_to iphotos_url
+    end
   end
 
   def destroy
