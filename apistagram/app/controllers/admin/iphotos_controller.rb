@@ -1,7 +1,7 @@
 class Admin::IphotosController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_admin_user
+  before_filter :authenticate_user!, :authenticate_admin_user
 
   def index
     @iphotos = Iphoto.page(params[:page])
