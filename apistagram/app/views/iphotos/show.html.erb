@@ -62,12 +62,11 @@
       <%=image_tag 'single-comment.gif', :class => 'imgmiddle'%>
       <span class="vert-header"><%=@iphoto.comment_threads.count%> comments</span>
     </div>  
-    <div class="stat">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="tatstagram" data-count="none" target='_blank' data-url='<%=AppConfiguration['host'] + "/#{@iphoto.public_id}"%>' data-hashtags='tastagram'>
+    <div class="stat" id="custom-tweet-button">
+      <a href="https://twitter.com/share" target='_blank'>
         <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>
       </a>
       <span class="vert-header">Tweet this</span>
-      </a>
     </div>
     <div class="stat">
       <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>

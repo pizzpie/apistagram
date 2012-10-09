@@ -132,9 +132,21 @@ html, body {
 	width: 165px;
 }
 
-#h_signin img {
-	padding-bottom: 10px;
+#h_signin .sign_in_btn {
+  float: left;
+  height: 32px;
+  padding-bottom: 10px;
+  width: 100%;	
+	background: url('../assets/signin-button-off.gif') no-repeat top left;
 }
+
+#h_signin .sign_in_btn:hover {
+	background: url('../assets/signin-button-on.gif') no-repeat top left;
+}
+
+/*#h_signin img {
+	padding-bottom: 10px;
+}*/
 
 #logged_in {
 	min-width: 160px;
@@ -279,15 +291,48 @@ html, body {
 	padding-right: 3px;
 }
 
+.follow-button1 a {
+	width: 34px;
+	height: 27px;
+	display: block;
+	background: url('../assets/twitter-follow-off.gif') no-repeat top left;
+}
+
+.follow-button1 a:hover {
+	background: url('../assets/twitter-follow-on.gif') no-repeat top left;
+}
+
 .follow-button2 {
 	float: left;
 	padding-top: 3px;
+}
+
+.follow-button2 a {
+	width: 34px;
+	height: 27px;
+	display: block;
+	background: url('../assets/facebook-follow-off.gif') no-repeat top left;
+}
+
+.follow-button2 a:hover {
+	background: url('../assets/facebook-follow-on.gif') no-repeat top left;
 }
 
 .follow-button3 {
 	float: left;
 	padding-top: 3px;
 	padding-left: 2px;
+}
+
+.follow-button3 a {
+	width: 34px;
+	height: 27px;
+	display: block;
+	background: url('../assets/pinterest-follow-off.gif') no-repeat top left;
+}
+
+.follow-button3 a:hover {
+	background: url('../assets/pinterest-follow-on.gif') no-repeat top left;
 }
 
 .social-share {
@@ -984,6 +1029,7 @@ h2 {
 	text-decoration: none;
 	font-size: 14px;
 	border: 0 none;
+	cursor: pointer;
 }
 
 
@@ -1012,6 +1058,7 @@ h2 {
 	float: right;
 	width: 360px;
 	margin-right: 6px;
+	overflow: hidden;
 }
 
 .like-button{
@@ -1078,6 +1125,38 @@ h2 {
 	padding-right: 5px;
 }
 
+.ulink.rss a {
+	width: 21px;
+	height: 22px;
+	display: block;
+	background: url('../assets/user-rss-off.gif') no-repeat top left;
+}
+
+.ulink.rss a:hover {
+	background: url('../assets/user-rss-on.gif') no-repeat top left;
+}
+
+.ulink.rss.disabled a {
+	cursor: default;
+	background: url('../assets/user-rss-off.gif') no-repeat top left;
+}
+
+.ulink.homepage a {
+	width: 21px;
+	height: 22px;
+	display: block;
+	background: url('../assets/user-homepage-off.gif') no-repeat top left;
+}
+
+.ulink.homepage a:hover {
+	background: url('../assets/user-homepage-on.gif') no-repeat top left;
+}
+
+.ulink.homepage.disabled a {
+	cursor: default;
+	background: url('../assets/user-homepage-off.gif') no-repeat top left;
+}
+
 .image-stats {
 	float: left;
 	margin-top: 0px;
@@ -1130,6 +1209,7 @@ h2 {
 }
 
 .more-from-user {
+	width: 100%;
 	float: left;
 	text-align: left;
 	margin-top: 25px;
@@ -1364,4 +1444,8 @@ h2 {
 
 #legal b {
 	font-weight: bold;
+}
+
+#custom-tweet-button a {
+
 }
