@@ -49,13 +49,13 @@ module IInstagram
           end
         end
         begin
-          max_photo = Setup.find_or_create_by_key_name("max_photo_id")
-          max_photo.update_attributes(:key_val => max_photo_id)
+          max_photo = Tag.find_by_name(tag)
+          max_photo.update_attributes(:max_photo_id => max_photo_id)
+          # max_photo = Setup.find_or_create_by_key_name("max_photo_id")
+          # max_photo.update_attributes(:key_val => max_photo_id)          
         rescue Exception => e
           puts e.message
-          puts e.debug
         end
-        # Setup.set_max_photo_id(max_photo_id)
       rescue Exception => e
         raise e
       end

@@ -4,18 +4,21 @@ class Iphoto < ActiveRecord::Base
   
   attr_accessible :i_id, :status, :tag_id, :url, :username
 
-  validates :i_id, :url, :username,
+  validates :url, :username,
             :presence => true
 
-  # validates :i_id,
-  #           :uniqueness => true
+  validates :i_id,
+            :presence => true,
+            :uniqueness => true
 
-  scope :pending, where("status is false")
+  scope :pending, where("status is null")
   scope :selected, where("status is true")
+  scope :listed, where("status is null or status is true")
+  scope :rejected, where("status is not null and status is false")
 
   self.per_page = 18
 
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   has_many :fans, :through => :favorites, :source => :user
 
   before_save :create_or_update_public_id
@@ -47,9 +50,9 @@ class Iphoto < ActiveRecord::Base
         
       if photo
         if photo_ids.include?(pic)
-          approved_count = approved_count + 1 if photo.update_attribute(:status, true)
+          removed_count = removed_count + 1 if photo.update_attribute(:status, false)
         else
-          removed_count = removed_count + 1 if photo.destroy
+          approved_count = approved_count + 1 if photo.update_attribute(:status, true)
         end
       end
     end
@@ -69,10 +72,10 @@ class Iphoto < ActiveRecord::Base
     if category
       if category == "hot" || category == "most_popular"
         hottest = []
-        return Iphoto.where(:id => hot_arr)
+        return Iphoto.listed.where(:id => hot_arr)
 
         popular = []
-        return Iphoto.where(:id => pop_arr)        
+        return Iphoto.listed.where(:id => pop_arr)        
       else
         return self.order('created_at desc')
       end
@@ -81,14 +84,14 @@ class Iphoto < ActiveRecord::Base
 
       hottest = []
       hot_arr.each do |i|
-        hottest << Iphoto.find_by_id(i)
+        hottest << Iphoto.listed.find_by_id(i)
         break if hottest.count == 9
       end
 
 
       popular = []
       pop_arr.each do |i|
-        popular << Iphoto.find_by_id(i)
+        popular << Iphoto.listed.find_by_id(i)
         break if popular.count == 6
       end
 

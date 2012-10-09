@@ -2,21 +2,20 @@ require 'will_paginate/array'
 class IphotosController < ApplicationController
 
   def index
-    current_user.get_grams if current_user
     if params[:category]
       @category = params[:category]
       @iphotos = Iphoto.fetch_index_listing(params[:category]).paginate(:page => params[:page], :per_page => 21)
     else
-      @iphotos = Iphoto.limit(6).order('created_at desc')
+      @iphotos = Iphoto.listed.limit(6).order('created_at desc')
       @newest, @hottest, @popular = Iphoto.fetch_index_listing
     end
   end
 
   def show
     @ads = AppConfiguration['ads']['iphoto_page']
-    @iphoto = Iphoto.where("id = ? or public_id = ?", params[:id], params[:id]).first
+    @iphoto = Iphoto.listed.where("id = ? or public_id = ?", params[:id], params[:id]).first
     if @iphoto
-      @recent_photos = Iphoto.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
+      @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
     else
       redirect_to iphotos_url
     end

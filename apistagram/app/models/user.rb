@@ -40,7 +40,8 @@ class User < ActiveRecord::Base
   end
 
   def fetch_grams(tag)
-    tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => Setup.max_photo_id)
+    tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => tag.max_photo_id)
+    #tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => Setup.max_photo_id)
     tatsagram.get_grams
   end
 

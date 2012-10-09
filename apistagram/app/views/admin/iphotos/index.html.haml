@@ -1,11 +1,14 @@
 .row
-  = form_tag admin_approve_photos_url, :class => 'form' do
-    = hidden_field_tag "all_photo_ids", @iphotos.collect {|p| p.id}
-    - @iphotos.each do |iphoto|
-      %a.span2.selector{"data-iphoto-id" => iphoto.id, :href => "#", :id => "iphoto_#{iphoto.id}"}
-        = render :partial => 'iphoto', :locals => {:image => iphoto}
-        = check_box_tag "iphoto_ids[]", iphoto.id, false, {:class=>"check"}
-    .action= submit_tag "Approve Selected Photos", :id=>"approve_photos", :class => "btn btn-large btn-primary pull-right"
+  - if @iphotos.count > 0
+    = form_tag admin_approve_photos_url, :class => 'form' do
+      = hidden_field_tag "all_photo_ids", @iphotos.collect {|p| p.id}
+      - @iphotos.each do |iphoto|
+        %a.span2.selector{"data-iphoto-id" => iphoto.id, :href => "#", :id => "iphoto_#{iphoto.id}"}
+          = render :partial => 'iphoto', :locals => {:image => iphoto}
+          = check_box_tag "iphoto_ids[]", iphoto.id, false, {:class=>"check"}
+      .action= submit_tag "Reject Selected Photos", :id=>"reject_photos", :class => "btn btn-large btn-primary pull-right"
+  - else
+    %p No photos to approve
 
 .row
   .span12

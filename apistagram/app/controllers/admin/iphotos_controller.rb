@@ -4,7 +4,7 @@ class Admin::IphotosController < ApplicationController
   before_filter :authenticate_user!, :authenticate_admin_user
 
   def index
-    @iphotos = Iphoto.page(params[:page])
+    @iphotos = Iphoto.page(params[:page]).pending
   end
   
   def approve_photos
@@ -13,7 +13,8 @@ class Admin::IphotosController < ApplicationController
     @new_count      = Iphoto.selected.count
 
     removed_count = result[1]
+    approved_count = result[0]
     
-    redirect_to admin_iphotos_path, :notice => "#{@new_count - @prev_count} photos approved and #{removed_count} removed."
+    redirect_to admin_iphotos_path, :notice => "#{approved_count} photos approved and #{removed_count} removed."
   end
 end

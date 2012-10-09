@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
-    @iphotos = Iphoto.where(:username => params[:id]).paginate(:page => params[:page], :per_page => 1) #right now displaying favorites, will change to photos later
+    @iphotos = Iphoto.listed.where(:username => params[:id]).paginate(:page => params[:page], :per_page => 1) #right now displaying favorites, will change to photos later
   end
 
   # payal says: commented the other actions as currently only view profile action is required.
