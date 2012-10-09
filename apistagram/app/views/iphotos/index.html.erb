@@ -1,7 +1,7 @@
 <%-if @category%>
   <!-- Div for title of photos -->
   <div class="photo_line_title">
-    <h1><%= @category %></h1>
+    <h1><%= @category.humanize.titleize %></h1>
   </div>
   <div class="photo_line">
     <%@iphotos.each_with_index do |iphoto, i|%>
