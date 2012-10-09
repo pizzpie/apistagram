@@ -219,7 +219,7 @@ html, body {
 	color: black;
 }
 
-#nav a:hover {
+#nav a:hover, #nav a.active {
 	color: #ed2245;
 }
 

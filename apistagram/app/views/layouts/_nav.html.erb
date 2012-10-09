@@ -6,9 +6,9 @@
     <!-- Left side of nav div -->
     <div id="l_nav">
       <p>
-        <%=link_to "What's Hot",    '/tatstagrams/hot'%> | 
-        <%=link_to "Most Popular",  '/tatstagrams/most_popular'%> | 
-        <%=link_to "Newest",        '/tatstagrams/newest'%>
+        <%=link_to "What's Hot",    '/tatstagrams/hot', :class => "#{@category == 'hot' ? 'active' : ''}"%> | 
+        <%=link_to "Most Popular",  '/tatstagrams/most_popular', :class => "#{@category == 'most_popular' ? 'active' : ''}"%> | 
+        <%=link_to "Newest",        '/tatstagrams/newest', :class => "#{@category == 'newest' ? 'active' : ''}"%>
       </p>
     </div>
     
