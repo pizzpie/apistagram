@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007053636) do
+ActiveRecord::Schema.define(:version => 20121009120727) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(:version => 20121007053636) do
     t.string   "public_id"
   end
 
+  add_index "iphotos", ["i_id"], :name => "index_iphotos_on_i_id", :unique => true
+  add_index "iphotos", ["username"], :name => "index_iphotos_on_username"
+
   create_table "setups", :force => true do |t|
     t.string   "key_name"
     t.string   "key_val"
@@ -88,5 +91,7 @@ ActiveRecord::Schema.define(:version => 20121007053636) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
 
 end
