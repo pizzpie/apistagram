@@ -29,7 +29,7 @@
   </div>
 
   <!-- Comments section -->
-  <div class="comments">
+  <div class="comments" id="all_comments">
     <div class="comments-header">
       <div class="number-comments">
         <h2><%=@iphoto.comment_threads.count%> Comments</h2>
@@ -78,7 +78,7 @@
       <%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
       <span class="vert-header">Report Photo</span> </a>
     </div>
-    <%if current_user.name == @iphoto.username%>
+    <%if logged_in? and current_user.name == @iphoto.username%>
       <div class="stat">
         <%=link_to image_tag('single-delete.gif', :class => 'imgmiddle'), iphoto_url(@iphoto), :method => :delete %>
         <span class="vert-header">Delete Photo</span> </a>

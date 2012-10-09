@@ -12,18 +12,25 @@
       <%=header_ad%>
 		</div>   
 
-		<!-- Sign in button div -->
-		<div id="h_signin">
-      <%- unless logged_in? %> 
-        <%= link_to image_tag("signin-button-off.gif", :alt => "signin-button-off", :oversrc=>"images/signin-button-on.gif"), new_auth_path%>
-			  <span class="register">or <%=link_to "register", new_auth_path%> for an account</span>
-      <%else%>
-      	<%=image_tag current_user.image_url(:thumb), :alt => current_user.name%>
-        <span class="register"><%=link_to "SignOut", signout_path%></span>
-      <%end%>
-		</div>
+    <%- if logged_in? %>
+      <div id="logged_in">
+        <div class="loggedin-user-thumb">
+          <%=image_tag current_user.image_url(:thumb), :alt => current_user.name, :width=>"45", :height=>"45"%>
+        </div>
+        <div class="loggedin-username">  
+          <a href="#"> <p><%=current_user.name%></p> </a>  
+          <p class="user-control"><%=link_to "sign out", signout_path%> | <%=link_to 'view profile', user_path(current_user)%></p>
+        </div>
+      </div>
+    <%else%>
+      <div id="h_signin">
+        <!-- , :oversrc=>"images/signin-button-on.gif" -->
+        <%= link_to image_tag("signin-button-off.gif", :alt => "signin-button-off"), new_auth_path%>
+        <span class="register">or <%=link_to "register", new_auth_path%> for an account</span>
+      </div>
+    <%end%>
 
 	<!-- Close header div -->
 	</div>	
 <!-- Close Header Wrapper Div -->
-</div>	
+</div>

@@ -1,2 +1,7 @@
-$('.photo_<%=@iphoto.id%>').html("<%=escape_javascript(render :partial => 'iphoto', :locals => {:iphoto => @iphoto})%>");
-$('#photo_<%=@iphoto.id%>').html("<%=escape_javascript(render :partial => 'iphoto', :locals => {:iphoto => @iphoto})%>");
+if("<%=@size%>" == "large") {
+  $('.imagelike').html('<%=heart_link(@iphoto, current_user, :large)%>');
+}
+else {
+  $('.photo_<%=@iphoto.id%>').html("<%=escape_javascript(render :partial => 'iphoto', :locals => {:iphoto => @iphoto})%>");
+  $('#photo_<%=@iphoto.id%>').html("<%=escape_javascript(render :partial => 'iphoto', :locals => {:iphoto => @iphoto})%>");
+}

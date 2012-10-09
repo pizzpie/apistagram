@@ -16,7 +16,7 @@ class IphotosController < ApplicationController
     @ads = AppConfiguration['ads']['iphoto_page']
     @iphoto = Iphoto.where("id = ? or public_id = ?", params[:id], params[:id]).first
     if @iphoto
-      @recent_photos = Iphoto.where("username = ?", @iphoto.username).limit(6)
+      @recent_photos = Iphoto.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
     else
       redirect_to iphotos_url
     end
@@ -33,6 +33,7 @@ class IphotosController < ApplicationController
   end
 
   def favorite
+    @size = params[:size]
     @iphoto = Iphoto.find(params[:id])
     favorite = @iphoto.favorites.find_by_user_id(current_user.id)
 
@@ -54,8 +55,11 @@ class IphotosController < ApplicationController
     @user_who_commented = current_user
     if current_user 
       @comment = Comment.build_from( @iphoto, @user_who_commented.id, params[:comment])
-      @comment.save
-      redirect_to iphoto_url(@iphoto)
+      if @comment.save
+        return render 'add_comment.js.erb'
+      else
+        return render :nothing => true
+      end
     else
       redirect_to login_url
     end

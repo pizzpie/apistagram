@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   private
     def find_user
-      @user = User.find_by_name(params[:id])
+      @user = User.where("id = ? or name = ?", params[:id], params[:id]).first
       unless @user
         @user = params[:id]
       end

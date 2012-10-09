@@ -1,6 +1,6 @@
 <%if current_user %>
   <!-- Leave a comment section - Logged in  -->
-  <%=form_tag add_comment_path(@iphoto), :id => "add_comment" do %>
+  <%=form_tag add_comment_path(@iphoto), :id => "add_comment", 'data-remote' => true do %>
     <div class="leavecomment">
       <div class="leave-title">
         <h2>Leave a comment</h2>

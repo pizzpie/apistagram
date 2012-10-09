@@ -101,7 +101,7 @@ html, body {
 /* Header */
 
 #header_wrapper {
-	background-image: url(../images/header-bg-dark.gif);
+	background-image: url(../assets/header-bg-dark.gif);
 	border-bottom: 1px solid black;
 	min-width: 960px;
 }
@@ -310,14 +310,17 @@ html, body {
 /* Photo Thumb Section */
 
 .photo_line {
-	height: 279px;
+/*	height: 279px;
 	width: 960px;
 	margin-top: 5px;
-	margin-bottom: 12px;
+	margin-bottom: 12px;*/
 	clear: both;
 }
 
 .photo_line_title {
+	width: 960px;
+	margin-top: 5px;
+	margin-bottom: 12px;	
 	text-align: left;
 	margin-top: 0px;
 	padding-top: 10px;
@@ -371,9 +374,11 @@ html, body {
 	color: #b91c37;
 }
 
-.photo_thumb{
+.photo_thumb{	
 	width: 304px;
-	height: 268px;
+	height: 279px;
+	margin-top: 5px;
+	margin-bottom: 12px;	
 	margin-left: 7px;
 	margin-right: 7px;
 	padding-top: 7px;
@@ -978,6 +983,7 @@ h2 {
 	font-weight: bold;
 	text-decoration: none;
 	font-size: 14px;
+	border: 0 none;
 }
 
 
@@ -1031,6 +1037,7 @@ h2 {
 	padding-top: 10px;
 	text-align: left;
 	margin-left: 15px;
+	width: 50%;
 }
 
 .username {

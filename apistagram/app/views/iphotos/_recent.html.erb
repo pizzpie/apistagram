@@ -8,9 +8,9 @@
     <div class="photo_thumb photo_<%=iphoto.id%>">
       <%=render :partial => 'iphoto', :locals => {:iphoto => iphoto}%>
     </div>
-      <%- if i%3 == 0%>
-        <div class="clear"></div>
-      <%end%>     
+    <%- if i%3 == 0%>
+      <div class="clear"></div>
+    <%end%>     
   <%end%>
 </div>
 
