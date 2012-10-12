@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <%if current_user %>
   <!-- Leave a comment section - Logged in  -->
   <%=form_tag add_comment_path(@iphoto), :id => "add_comment", 'data-remote' => true do %>
@@ -6,7 +7,8 @@
         <h2>Leave a comment</h2>
       </div>
       <div class="text-area">
-        <%=text_area_tag :comment, "", :class=>'textbox', :id => 'text-input-area'%>      
+        <%= text_area_tag :comment, "", :class => "tinymce textbox", :id => 'text-input-area' %>
+        <%= tinymce %>
       </div>
       <div class="submit-button">
         <%=submit_tag 'POST COMMENT', :class => 'comment-button-style'%>

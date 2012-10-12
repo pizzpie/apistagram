@@ -38,9 +38,11 @@
         <a href="#add_comment"><p>leave a comment</p></a>
       </div>  
     </div>
-    <%@iphoto.comment_threads.each do |comment|%>
-      <%=render :partial => 'comment', :locals => {:comment => comment}%>
-    <%end%> 
+    <div id="comment_list">
+      <%@iphoto.comment_threads.each do |comment|%>
+        <%=render :partial => 'comment', :locals => {:comment => comment}%>
+      <%end%> 
+    </div>
     <%=render 'comment_form'%>
   </div>
 </div>

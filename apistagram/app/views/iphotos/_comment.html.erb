@@ -8,7 +8,7 @@
       <h2><%=link_to comment.user.name, user_url(comment.user)%></h2>
     </div>
     <div class="comment-body">
-      <%=comment.body%>
+      <%=raw comment.body%>
     </div>
     <div class="comment-date">
       <p><%="#{time_ago_in_words(comment.created_at)} ago"%></p>
