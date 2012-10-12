@@ -14,7 +14,10 @@
   <%end%>
 </div>
 
-<%=listing_ad('whats_hot')%>
+<div class="more">
+  <%=link_to "More What's Hot →",  '/tatstagrams/hot'%>
+</div>
+<div class="ad"><%=listing_ad('whats_hot')%></div>
 
 <!-- Div for title of photos -->
 <div class="photo_line_title">
@@ -32,7 +35,10 @@
   <%end%>
 </div>
 
-<%=listing_ad('popular')%>
+<div class="more">
+  <%=link_to "More Most Popular →",  '/tatstagrams/most_popular'%>
+</div>
+<div class="ad"><%=listing_ad('popular')%></div>
 
 <!-- Div for title of photos -->
 <div class="photo_line_title">
@@ -48,4 +54,7 @@
       <div class="clear"></div>
     <%end%>    
   <%end%>
+</div>
+<div class="more">
+  <%=link_to "More Newest →", '/tatstagrams/newest'%>
 </div>

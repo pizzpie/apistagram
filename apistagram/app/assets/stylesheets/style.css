@@ -360,6 +360,7 @@ html, body {
 	margin-top: 5px;
 	margin-bottom: 12px;*/
 	clear: both;
+	overflow: hidden;
 }
 
 .photo_line_title {
@@ -370,7 +371,7 @@ html, body {
 	margin-top: 0px;
 	padding-top: 10px;
 	padding-left: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 5px;
 	padding-right: 10px;
 	clear: right;
 	display: inline-block;
@@ -421,7 +422,7 @@ html, body {
 
 .photo_thumb{	
 	width: 304px;
-	height: 279px;
+	height: 270px;
 	margin-top: 5px;
 	margin-bottom: 12px;	
 	margin-left: 7px;
@@ -442,6 +443,10 @@ html, body {
 
 .thumb_stats a{
 	text-decoration: none;
+}
+
+.thumb_stats a span.vert {
+	padding-left: 3px;
 }
 
 
@@ -614,13 +619,16 @@ margin-left: 9px;
 	color: #ed2245;
 }
 
+.ad {
+	margin-bottom: 25px;
+}
+
 .more {
-	margin-top: 10px;
-	padding-top: 10px;
+	line-height: 14px;
 	padding-right: 10px;
-	height: 10px;
 	text-align: right;
 	font-size: 12px;
+	margin: 10px 0 20px
 }
 
 .more a {
