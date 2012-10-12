@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
 
-  before_filter :find_user
+  before_filter :find_user, :only => :destroy
+  before_filter :find_user_or_username, :except => :destroy
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
-    @iphotos = Iphoto.listed.where(:username => params[:id]).paginate(:page => params[:page], :per_page => 1) #right now displaying favorites, will change to photos later
+    username = @user.class.to_s == 'User' ? @user.name : @user
+    @iphotos = Iphoto.listed.where("username = ?", username).paginate(:page => params[:page], :per_page => 6) #right now displaying favorites, will change to photos later
   end
 
   # payal says: commented the other actions as currently only view profile action is required.
@@ -26,20 +28,38 @@ class UsersController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
+  def remove_all_photos
+    if current_user == @user
+      username = @user.class.to_s == 'User' ? @user.name : @user
+      @iphotos = Iphoto.where("username = ?", username)
+      @iphotos.destroy_all
+      redirect_to user_url(@user), :notice => "All the photos are deleted."
+    else
+      redirect_to users_url, :notice => "UnAuthorized Access!!!"
+    end
+  end
 
-  #   redirect_to users_url
-  # end
+  def destroy
+    if current_user == @user
+      @user.destroy
+      redirect_to iphotos_path, :notice => "Your account is deleted successfully! We are sorry to see you go :("
+    else
+      redirect_to iphotos_path, :notice => "UnAuthorized Access!!!"
+    end
+  end
 
   private
-    def find_user
+    def find_user_or_username
       @user = User.where("id = ? or name = ?", params[:id], params[:id]).first
       unless @user
         @user = params[:id]
       end
 
-      redirect_to iphotos_url unless @user
+      redirect_to iphotos_url unless @user      
     end
+
+    def find_user
+      @user = User.where("id = ? or name = ?", params[:id], params[:id]).first
+      redirect_to iphotos_url unless @user      
+    end    
 end

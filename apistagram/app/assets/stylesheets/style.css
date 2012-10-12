@@ -1466,7 +1466,7 @@ h2 {
 	float: left;
 	margin: 3px;
 }
-.pagination .current, .pagination a, .pagination .disabled {
+.pagination .current, .pagination a, .pagination .disabled, .pagination span.gap {
 	border-radius: 50px 50px 50px 50px;
   color: white;
   display: block;

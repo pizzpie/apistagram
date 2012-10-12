@@ -1,0 +1,31 @@
+<%if @user == current_user%>
+  <div class="user_menu">
+    <div class="user-delete">
+      <div class="user-headers">
+        <div class="title">
+          <b>Remove all photos</b>
+        </div>
+        <div class="delete">
+          <%=link_to 'Remove', remove_all_photos_path(@user), :confirm => 'Are you sure you want to remove all photos associated with this user? This action cannot be undone!', :method => :delete%>
+        </div>
+      </div>
+      <div class="user-desc">
+        <p>Remove all photos from Tatstagram associated with your account.</p>
+      </div>  
+    </div>
+
+    <div class="user-delete">
+      <div class="user-headers">
+        <div class="title">
+          <b>Delete account</b>
+        </div>
+        <div class="delete">
+          <%=link_to 'Delete', remove_user_path(@user), :confirm => 'Are you sure you want to delete your account? This action cannot be undone! We are sorry to see you going :(', :method => :delete%>
+        </div>
+      </div>
+      <div class="user-desc">
+        <p>Delete your account associated with Tatstagram.</p>
+      </div>
+    </div>
+  </div>
+<%end%>

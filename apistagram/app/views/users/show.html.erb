@@ -1,6 +1,7 @@
 <!-- Left side user profile div -->
 <div class="user-lside">
   <%=render :partial => guest_or_user_template(@user), :locals => {:user => @user}%>
+  <%=render 'destroy'%>
   <!-- Rectangle -->  
   <div class="user-square">
     <%=image_tag(@ad[0], :alt => @ad[1])%>
