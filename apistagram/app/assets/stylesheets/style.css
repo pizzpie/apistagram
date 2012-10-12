@@ -647,8 +647,6 @@ margin-left: 9px;
 .pagination {
 	margin-bottom: 100px;
 	margin-top: 25px;
-
-
 }
 
 .pagenum-div {
@@ -1457,3 +1455,42 @@ h2 {
 #custom-tweet-button a {
 
 }
+
+.pagination {
+  text-align: center;
+  cursor: default; 
+  overflow: hidden;
+  float: right;
+}
+.pagination a, .pagination span, .pagination em {
+	float: left;
+	margin: 3px;
+}
+.pagination .current, .pagination a, .pagination .disabled {
+	border-radius: 50px 50px 50px 50px;
+  color: white;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  width: 35px;
+  background-color: #ED2245;
+}
+.pagination a {
+	background-color: #A8A8A8;
+  text-decoration: none;
+  color: white; 
+}
+.pagination a:hover, .pagination a:focus {
+  background-color: #ED2245;
+}
+.pagination .disabled {
+  color: white; 
+}
+.pagination .previous_page, .pagination .next_page {
+	line-height: 38px;
+}
+

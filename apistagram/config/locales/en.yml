@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  will_paginate:
+    previous_label: "<img src='../assets/prev.png' />"
+    next_label: "<img src='../assets/next.png' />"
+    page_gap: "&hellip;"
