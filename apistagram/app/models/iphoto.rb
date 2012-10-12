@@ -21,6 +21,8 @@ class Iphoto < ActiveRecord::Base
   has_many :favorites, :dependent => :destroy
   has_many :fans, :through => :favorites, :source => :user
 
+  scope :by_username, lambda{ |username| where(username: username) unless username.nil? }
+
   before_save :create_or_update_public_id
 
   def create_or_update_public_id

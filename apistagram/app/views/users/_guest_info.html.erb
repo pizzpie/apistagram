@@ -1,5 +1,5 @@
 <!-- user thumbnail div -->
-<div class="user-profile-thumbnail">
+<div class="user-profile-thumbnail user-thumbnail">
   <div class="user-thumb">
     <%=image_tag 'comment-thumb.jpg', :alt => "#{user}'s photo", :width => 82, :height => 82%>
   </div>
@@ -18,5 +18,33 @@
         <%=link_to '', :title=> "Visit website"%>
       </div>
     </div>    
+  </div>
+</div>
+
+<!-- User stats -->
+<div class="user-stats">
+  <div class="stat-stack">
+    <div class="stack-number">
+      <p>0</p>
+    </div>
+    <div class="stack-cat">
+      <p>comments</p>
+    </div>
+  </div>
+  <div class="stat-stack">
+    <div class="stack-number">
+      <p>0</p>
+    </div>
+    <div class="stack-cat">
+      <p>likes</p>
+    </div>
+  </div>
+  <div class="stat-stack">
+    <div class="stack-number">
+      <p><%=Iphoto.by_username(user).count%></p>
+    </div>
+    <div class="stack-cat">
+      <p>Photos</p>
+    </div>
   </div>
 </div>

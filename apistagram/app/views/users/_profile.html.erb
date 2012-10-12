@@ -8,7 +8,7 @@
       <h2><%=link_to user.name, user_path(user.name)%></h2>
     </div>  
     <div class="user-content">
-      <p><%=user.name%></p>
+      <p><%=user.full_name || user.name%></p>
     </div>  
     <div class="user_links">
       <div class="ulink rss">
