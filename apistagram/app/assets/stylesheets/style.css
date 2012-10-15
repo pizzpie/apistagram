@@ -1147,7 +1147,7 @@ h2 {
 
 .ulink.rss.disabled a {
 	cursor: default;
-	background: url('../assets/user-rss-off.gif') no-repeat top left;
+	background: url('../assets/user-rss-grey.gif') no-repeat top left;
 }
 
 .ulink.homepage a {
@@ -1163,7 +1163,7 @@ h2 {
 
 .ulink.homepage.disabled a {
 	cursor: default;
-	background: url('../assets/user-homepage-off.gif') no-repeat top left;
+	background: url('../assets/user-homepage-grey.gif') no-repeat top left;
 }
 
 .image-stats {
