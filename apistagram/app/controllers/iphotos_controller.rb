@@ -23,7 +23,7 @@ class IphotosController < ApplicationController
 
   def destroy
     @iphoto = Iphoto.find_by_id(params[:id])
-    if current_user.name == @iphoto.username #|| current_user.is_admin?
+    if current_user.is_admin? || current_user.name == @iphoto.username 
       @iphoto.destroy 
       redirect_to iphotos_url, :notice => "Photo removed successfully!"
     else
