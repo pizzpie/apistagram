@@ -10,6 +10,13 @@ Apistagram::Application.routes.draw do
   match '/auth/failure'             => 'auths#failure'
   match '/signin'                   => 'auths#new',      :as => :signin
   match '/signout'                  => 'auths#destroy',  :as => :signout
+  match '/contact'                  => 'users#contact'
+  match '/advertize'                => 'users#advertize'
+  match '/report'                   => 'users#report'
+
+  match '/contact'                  => 'users#contact',  :as => :contact, :via => :post
+  match '/advertize'                => 'users#advertize',  :as => :advertize, :via => :post
+  match '/report'                   => 'users#report',  :as => :report, :via => :post
 
   namespace :admin do
     resources :users, :only => [:index, :destroy]

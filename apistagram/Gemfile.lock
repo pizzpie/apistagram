@@ -65,6 +65,8 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fancybox-rails (0.1.4)
+      railties (>= 3.1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     faraday_middleware (0.8.8)
@@ -192,6 +194,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   delayed_job_active_record
+  fancybox-rails
   haml
   instagram
   jquery-rails

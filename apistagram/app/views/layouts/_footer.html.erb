@@ -8,10 +8,10 @@
       <%=image_tag 'balls.png', :alt => "balls", :class=>"balls"%>
       <h1>Important Links</h1>
       <ul>
-        <a href="#"><li>Contact Us</li></a>
-        <a href="#"><li>Advertise</li></a>
+        <a href="/contact" class='fancybox'><li>Contact Us</li></a>
+        <a href="/advertize" class='fancybox'><li>Advertise</li></a>
         <a href="#"><li>Legal Stuff</li></a>
-        <a href="#"><li>Report an Image</li></a>
+        <a href="/report" class='fancybox'><li>Report an Image</li></a>
         <li class="legal">© 2012 <a href="#">Vagabond Digital</a></li>
       </ul>
     </div>
@@ -70,19 +70,25 @@
 
 <!-- Share button scripts -->
 <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=141939898390";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=141939898390";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-  <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("a.fancybox").fancybox();
+  });
+</script>>

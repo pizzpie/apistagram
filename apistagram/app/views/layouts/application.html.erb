@@ -11,6 +11,7 @@
     <%=render 'layouts/nav'%>
     <div id="container">
       <%=render 'layouts/social'%>
+      <%=flash[:notice]%>
       <%= yield %>
     </div>
     <%=render 'layouts/footer'%>

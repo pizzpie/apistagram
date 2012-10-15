@@ -1,3 +1,6 @@
+/*
+	*= require fancybox
+*/
 @charset "UTF-8";
 /* CSS Document
 
@@ -1494,3 +1497,60 @@ h2 {
 	line-height: 38px;
 }
 
+.custom_form {
+	text-align: left;
+}
+
+.custom_form .heading {
+  color: white;
+  font-size: 25px;
+  line-height: 32px;
+  padding: 8px 50px;
+  background: url('/assets/advertise.png') no-repeat 10px 8px #ed2245;
+}
+
+.custom_form .field, .submit-button {
+	margin: 10px;
+}
+
+.custom_form label {
+  display: block;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.custom_form label .hint {
+	font-size: 12px;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.custom_form .text {
+	padding: 5px;
+	width: 525px;
+}
+
+.custom_form textarea {
+	color: #545454;
+}
+
+.custom_form input[type="text"] {
+	color: #545454;
+	font-size: 16px;
+	font-weight: normal;
+	border: 1px solid #CBCBCB;
+}
+
+.custom_form input[type='text']:focus {
+	box-shadow: 0 0 4px #FFB9C5 inset;
+}
+
+.grey {
+	background-color: #a6a6a6;
+}
+
+#fancybox-content {
+	width: 587px !important; 
+	border-width: 0px !important;
+}

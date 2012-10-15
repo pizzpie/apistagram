@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :find_user, :only => :destroy
-  before_filter :find_user_or_username, :except => :destroy
+  before_filter :find_user_or_username, :except => [:destroy, :contact]
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
@@ -47,6 +47,69 @@ class UsersController < ApplicationController
       redirect_to iphotos_path, :notice => "UnAuthorized Access!!!"
     end
   end
+
+  def advertize
+    unless request.post?
+      render :template => 'users/advertize.html.erb', :layout => false
+    else
+      @contact = params[:contact]
+      @errors = []
+      if @contact
+        ['name', 'email', 'company'].each do |field|
+          @errors << "#{field.titleize} cannot be blank." if @contact[field].blank?
+        end
+        if @errors.empty?
+          Notifier.advertize(@contact, 'Advertisement').deliver
+          flash[:notice] = "Details sent successfully."
+          render 'success.js.erb'
+        else
+          render 'errors.js.erb'
+        end
+      end
+    end
+  end
+
+  def contact
+    unless request.post?
+      render :template => 'users/contact.html.erb', :layout => false
+    else
+      @contact = params[:contact]
+      @errors = []
+      if @contact
+        ['name', 'email'].each do |field|
+          @errors << "#{field.titleize} cannot be blank." if @contact[field].blank?
+        end
+        if @errors.empty?
+          Notifier.contact(@contact, 'Contact').deliver
+          flash[:notice] = "Contact sent successfully."
+          render 'contact.js.erb'
+        else
+          render 'errors.js.erb'
+        end
+      end
+    end
+  end  
+
+  def report
+    unless request.post?
+      render :template => 'users/report.html.erb', :layout => false
+    else
+      @contact = params[:contact]
+      @errors = []
+      if @contact
+        ['name', 'email', 'photo_url'].each do |field|
+          @errors << "#{field.titleize} cannot be blank." if @contact[field].blank?
+        end
+        if @errors.empty?
+          Notifier.advertize(@contact, 'Report Photo').deliver
+          flash[:notice] = "Details sent successfully."
+          render 'success.js.erb'
+        else
+          render 'errors.js.erb'
+        end
+      end
+    end
+  end  
 
   private
     def find_user_or_username

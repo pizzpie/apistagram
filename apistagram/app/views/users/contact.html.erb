@@ -1,0 +1,23 @@
+<%=form_tag contact_path, :id => "contact_form", :class => 'custom_form', :remote => true do %>
+  <div class="heading">Contact Tastagram</div>
+
+  <div class="field">
+    <label>Name <span class="hint">(required)</span></label>
+    <%= text_field :contact, :name, :class => "text" %>
+  </div>
+
+  <div class="field">
+    <label>Email <span class="hint">(required)</span></label>
+    <%= text_field :contact, :email, :class => "text" %>
+  </div>
+  
+  <div class="field">
+    <label>Message</label>
+    <%= text_area :contact, :message, :class => "textbox", :id => 'text-input-area', :rows => '5' %>
+  </div>
+
+  <div class="submit-button">
+    <%=submit_tag 'SEND', :class => 'comment-button-style'%>
+    <%=link_to 'CANCEL', '', :class => 'comment-button-style grey'%>
+  </div>
+<%end%> 

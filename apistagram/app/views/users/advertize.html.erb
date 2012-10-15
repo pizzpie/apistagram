@@ -1,0 +1,28 @@
+<%=form_tag advertize_path, :id => "ad_form", :class => 'custom_form', :remote => true do %>
+  <div class="heading">Advertise with us</div>
+
+  <div class="field">
+    <label>Name <span class="hint">(required)</span></label>
+    <%= text_field :contact, :name, :class => "text" %>
+  </div>
+
+  <div class="field">
+    <label>Email <span class="hint">(required)</span></label>
+    <%= text_field :contact, :email, :class => "text" %>
+  </div>
+
+  <div class="field">
+    <label>Company Name/URL <span class="hint">(required)</span></label>
+    <%= text_field :contact, :company, :class => "text" %>
+  </div>
+  
+  <div class="field">
+    <label>Comments</label>
+    <%= text_area :contact, :comment, :class => "textbox", :id => 'text-input-area', :rows => '5' %>
+  </div>
+
+  <div class="submit-button">
+    <%=submit_tag 'SEND', :class => 'comment-button-style'%>
+    <%=link_to 'CANCEL', '', :class => 'comment-button-style grey'%>
+  </div>
+<%end%> 

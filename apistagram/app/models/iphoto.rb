@@ -67,10 +67,10 @@ class Iphoto < ActiveRecord::Base
   end
 
   def self.fetch_index_listing(category = nil)
-    hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
+    # hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
     # pop_arr = Favorite.where("created_at >= ?", AppConfiguration['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
 
-    # hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
+    hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
     pop_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys    
 
 

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     if auth['info']
       user.remote_image_url   = auth['info']["image"]     || ""
       user.name               = auth['info']['nickname']  || ""
-      user.fullname           = auth['info']['name']      || ""
+      user.full_name          = auth['info']['name']      || ""
       user.email              = auth['info']['email']     || ""
     end
 

@@ -1,0 +1,28 @@
+<%=form_tag report_path, :id => "report_form", :class => 'custom_form', :remote => true do %>
+  <div class="heading">Report Photo</div>
+
+  <div class="field">
+    <label>Name <span class="hint">(required)</span></label>
+    <%= text_field :contact, :name, :class => "text" %>
+  </div>
+
+  <div class="field">
+    <label>Email <span class="hint">(required)</span></label>
+    <%= text_field :contact, :email, :class => "text" %>
+  </div>
+
+  <div class="field">
+    <label>URL of photo <span class="hint">(required)</span></label>
+    <%= text_field :contact, :photo_url, :class => "text" %>
+  </div>
+  
+  <div class="field">
+    <label>Reason for reporting</label>
+    <%= text_area :contact, :reason, :class => "textbox", :id => 'text-input-area', :rows => '5' %>
+  </div>
+
+  <div class="submit-button">
+    <%=submit_tag 'SEND', :class => 'comment-button-style'%>
+    <%=link_to 'CANCEL', '', :class => 'comment-button-style grey'%>
+  </div>
+<%end%> 
