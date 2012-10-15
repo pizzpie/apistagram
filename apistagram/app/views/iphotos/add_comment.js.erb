@@ -1,3 +1,4 @@
 $('#comment_list').append("<%=escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>")
 $('#text-input-area').val('');
+$('.number-comments h2').html("<%=@iphoto.comment_threads.count%> Comments");
 tinyMCE.activeEditor.setContent('');
