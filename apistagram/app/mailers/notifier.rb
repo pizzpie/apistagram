@@ -1,8 +1,8 @@
 class Notifier < ActionMailer::Base
-  default from: "team@tastagram.com"
+  default from: AppConfiguration['admin_email']
 
   def contact(contact, type)
-    recipients    = ["admin@tastagram.com"]
+    recipients    = [AppConfiguration['admin_email']]
     @name         = contact['name']
     @email        = contact['email']
     @company      = contact['company']

@@ -21,30 +21,32 @@
   </div>
 </div>
 
-<!-- User stats -->
-<div class="user-stats">
-  <div class="stat-stack">
-    <div class="stack-number">
-      <p>0</p>
+<%unless @iphoto%>
+  <!-- User stats -->
+  <div class="user-stats">
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p>0</p>
+      </div>
+      <div class="stack-cat">
+        <p>comments</p>
+      </div>
     </div>
-    <div class="stack-cat">
-      <p>comments</p>
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p>0</p>
+      </div>
+      <div class="stack-cat">
+        <p>likes</p>
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="stack-number">
+        <p><%=Iphoto.by_username(user).count%></p>
+      </div>
+      <div class="stack-cat">
+        <p>Photos</p>
+      </div>
     </div>
   </div>
-  <div class="stat-stack">
-    <div class="stack-number">
-      <p>0</p>
-    </div>
-    <div class="stack-cat">
-      <p>likes</p>
-    </div>
-  </div>
-  <div class="stat-stack">
-    <div class="stack-number">
-      <p><%=Iphoto.by_username(user).count%></p>
-    </div>
-    <div class="stack-cat">
-      <p>Photos</p>
-    </div>
-  </div>
-</div>
+<%end%>

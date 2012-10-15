@@ -1,5 +1,6 @@
 development:
   host: 'http://localhost:4000'
+  admin_email: 'craig@craigmorrison.ca'
   instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
   instagram_client_secret: '35adea6e74c94bb5bf256f2ddcbf8962'
   tags: ['tattoos', 'tattoo', 'apistagram', 'tattoosofinstagram']

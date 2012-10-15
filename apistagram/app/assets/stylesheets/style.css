@@ -1281,7 +1281,7 @@ h2 {
 
 .user-profile-thumbnail {
 	float: left;
-	width: 250px;
+	width: 100%;
 	min-height: 105px;
 	padding-bottom: 10px;
 	padding-left: 5px;
