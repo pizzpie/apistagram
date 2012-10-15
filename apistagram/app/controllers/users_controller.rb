@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :find_user, :only => :destroy
-  before_filter :find_user_or_username, :except => [:destroy, :contact]
+  before_filter :find_user_or_username, :except => [:destroy, :contact, :advertize, :report]
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
@@ -82,14 +82,15 @@ class UsersController < ApplicationController
         if @errors.empty?
           Notifier.contact(@contact, 'Contact').deliver
           flash[:notice] = "Contact sent successfully."
-          render 'contact.js.erb'
+          render 'success.js.erb'
         else
           render 'errors.js.erb'
         end
       end
     end
-  end  
+  end 
 
+   
   def report
     unless request.post?
       render :template => 'users/report.html.erb', :layout => false
@@ -101,15 +102,15 @@ class UsersController < ApplicationController
           @errors << "#{field.titleize} cannot be blank." if @contact[field].blank?
         end
         if @errors.empty?
-          Notifier.advertize(@contact, 'Report Photo').deliver
-          flash[:notice] = "Details sent successfully."
+          Notifier.contact(@contact, 'Contact').deliver
+          flash[:notice] = "Report sent successfully."
           render 'success.js.erb'
         else
           render 'errors.js.erb'
         end
       end
     end
-  end  
+  end 
 
   private
     def find_user_or_username

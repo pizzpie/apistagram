@@ -1509,6 +1509,14 @@ h2 {
   background: url('/assets/advertise.png') no-repeat 10px 8px #ed2245;
 }
 
+#contact_form .heading {
+  background: url('/assets/contact.png') no-repeat 17px 14px #ed2245;
+}
+
+#report_form .heading {
+  background: url('/assets/report.png') no-repeat 14px 9px #ed2245;
+}
+
 .custom_form .field, .submit-button {
 	margin: 10px;
 }
