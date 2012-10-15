@@ -1562,3 +1562,16 @@ h2 {
 	width: 587px !important; 
 	border-width: 0px !important;
 }
+
+#notice {
+	width: 100%;
+	float: left;
+}
+
+#notice .notice {
+  background-color: #71b763;
+  color: #FAFAFA;
+  font-size: 18px;
+  line-height: 40px;
+  margin: 20px 0;
+}
