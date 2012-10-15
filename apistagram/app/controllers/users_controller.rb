@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   # end
 
   def remove_all_photos
-    if current_user == @user
+    if current_user.is_admin? || current_user == @user
       username = @user.class.to_s == 'User' ? @user.name : @user
       @iphotos = Iphoto.where("username = ?", username)
       @iphotos.destroy_all
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if current_user == @user
+    if current_user.is_admin? || current_user == @user
       @user.destroy
       redirect_to iphotos_path, :notice => "Your account is deleted successfully! We are sorry to see you go :("
     else
