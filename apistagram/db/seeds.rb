@@ -10,3 +10,9 @@
 AppConfiguration['tags'].each do |tag|
 	tag = Tag.create(:name => tag)
 end
+
+user = User.first
+
+if user
+  user.update_attribute(:is_admin, true)
+end
