@@ -72,15 +72,15 @@
     </div>
     <div class="stat">
       <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
-      <span class="vert-header">Share on Facebook</span> </a>
+      <span class="vert-header">Share on Facebook</span>
     </div>
     <div class="stat">
       <%=image_tag 'single-link.gif', :class => 'imgmiddle'%>
-      <span class="vert-header"><%= link_to AppConfiguration['host'] + "/#{@iphoto.public_id}", AppConfiguration['host'] + "/#{@iphoto.public_id}"%></span> </a>
+      <span class="vert-header"><%= link_to AppConfiguration['host'] + "/#{@iphoto.public_id}", AppConfiguration['host'] + "/#{@iphoto.public_id}"%></span>
     </div>
     <div class="stat">
-      <%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
-      <span class="vert-header">Report Photo</span> </a>
+      <a href="/report" class='fancybox'><%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
+      <span class="vert-header">Report Photo</span></a>
     </div>
     <%if logged_in? and current_user.name == @iphoto.username%>
       <div class="stat">
