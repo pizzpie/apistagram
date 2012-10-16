@@ -80,8 +80,8 @@ class Iphoto < ActiveRecord::Base
     # hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
     # pop_arr = Favorite.where("created_at >= ?", AppConfiguration['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
 
-    hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
-    pop_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys    
+    hot_arr = Favorite.order('updated_at DESC').group(:iphoto_id).count.keys
+    pop_arr = Favorite.order('updated_at DESC').group(:iphoto_id).count.keys    
 
 
     if category
@@ -89,16 +89,16 @@ class Iphoto < ActiveRecord::Base
         return Iphoto.listed.where(:id => hot_arr)
       elsif category == "most_popular"
         if sort_order and ["month", "week", "today"].include?(sort_order)
-          pop_arr   = Favorite.where('created_at >= ?', get_duration(sort_order)).order('created_at DESC').group(:iphoto_id).count.keys 
+          pop_arr   = Favorite.where('updated_at >= ?', get_duration(sort_order)).order('updated_at DESC').group(:iphoto_id).count.keys 
           Iphoto.listed.where(:id => pop_arr)
         else
           return Iphoto.listed.where(:id => pop_arr)
         end        
       else
-        return self.order('created_at desc')
+        return self.order('updated_at desc')
       end
     else
-      newest  = self.order('created_at desc').limit(6)
+      newest  = self.order('updated_at desc').limit(6)
 
       hottest = Iphoto.listed.where(:id => [hot_arr]).limit(9)
       # hot_arr.each do |i|
