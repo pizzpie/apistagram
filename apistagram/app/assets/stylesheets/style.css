@@ -1031,7 +1031,7 @@ h2 {
 }
 
 .submit-button {
-	margin-top: 35px;
+	margin-top: 10px;
 }
 
 .comment-button-style {
@@ -1587,4 +1587,13 @@ h2 {
 
 .comment-body a:hover {
   color: #b91c37;
+}
+
+#public_link {
+	width: 85%;
+  font-size: 17px;  
+}
+
+input[type='text']#public_link:focus {
+	box-shadow: 0 0 4px #FFB9C5 inset;
 }

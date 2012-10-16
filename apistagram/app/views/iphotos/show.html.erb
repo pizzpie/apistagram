@@ -70,13 +70,16 @@
       </a>
       <span class="vert-header">Tweet this</span>
     </div>
-    <div class="stat">
-      <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
+<!--     <div class="stat">
+      <%#=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
       <span class="vert-header">Share on Facebook</span>
-    </div>
+    </div> -->
     <div class="stat">
       <%=image_tag 'single-link.gif', :class => 'imgmiddle'%>
-      <span class="vert-header"><%= link_to AppConfiguration['host'] + "/#{@iphoto.public_id}", AppConfiguration['host'] + "/#{@iphoto.public_id}"%></span>
+      <span class="vert-header">
+        <%#= link_to AppConfiguration['host'] + "/#{@iphoto.public_id}", AppConfiguration['host'] + "/#{@iphoto.public_id}"%>
+        <%=text_field_tag :public_link, AppConfiguration['host'] + "/#{@iphoto.public_id}", :class => "displayLink"%>
+      </span>
     </div>
     <div class="stat">
       <a href="/report" class='fancybox'><%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
