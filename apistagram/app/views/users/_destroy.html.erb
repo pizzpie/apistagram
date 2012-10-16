@@ -1,4 +1,4 @@
-<%if current_user.is_admin? || @user == current_user%>
+<%if current_user and current_user.is_admin? || @user == current_user%>
   <div class="user_menu">
     <div class="user-delete">
       <div class="user-headers">
