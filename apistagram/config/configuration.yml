@@ -9,6 +9,9 @@ development:
   copyright_text: 'Tatsagram 2012'
   hot_duration_in_hours: 24
   popular_duration_in_days: 365
+  hot: "What's Hot"
+  newest: "Newest Shots"
+  most_popular: "Most Popular"
   ads: 
     header: ['banner.gif', 'Banner Placeholder']
     home_page:

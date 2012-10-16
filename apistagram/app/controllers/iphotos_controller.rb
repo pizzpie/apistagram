@@ -4,9 +4,10 @@ class IphotosController < ApplicationController
   def index
     if params[:category]
       @category = params[:category]
-      @iphotos = Iphoto.fetch_index_listing(params[:category]).paginate(:page => params[:page], :per_page => 21)
+      @sort     = params[:sort]
+      @iphotos  = Iphoto.fetch_index_listing(params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
     else
-      @iphotos = Iphoto.listed.limit(6).order('created_at desc')
+      @iphotos  = Iphoto.listed.limit(6).order('created_at desc')
       @newest, @hottest, @popular = Iphoto.fetch_index_listing
     end
   end

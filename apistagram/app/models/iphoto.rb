@@ -66,7 +66,17 @@ class Iphoto < ActiveRecord::Base
     User.find_by_name(username)
   end
 
-  def self.fetch_index_listing(category = nil)
+  def self.get_duration(sort_order)
+    if sort_order == "month"
+      return 1.month.ago(Time.now)
+    elsif sort_order == "week"
+      return 1.week.ago(Time.now)
+    else
+      return 1.day.ago(Time.now)
+    end
+  end
+
+  def self.fetch_index_listing(category = nil, sort_order = nil)
     # hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
     # pop_arr = Favorite.where("created_at >= ?", AppConfiguration['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
 
@@ -78,7 +88,12 @@ class Iphoto < ActiveRecord::Base
       if category == "hot"
         return Iphoto.listed.where(:id => hot_arr)
       elsif category == "most_popular"
-        return Iphoto.listed.where(:id => pop_arr)        
+        if sort_order and ["month", "week", "today"].include?(sort_order)
+          pop_arr   = Favorite.where('created_at >= ?', get_duration(sort_order)).order('created_at DESC').group(:iphoto_id).count.keys 
+          Iphoto.listed.where(:id => pop_arr)
+        else
+          return Iphoto.listed.where(:id => pop_arr)
+        end        
       else
         return self.order('created_at desc')
       end
