@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorite_photos, :through => :favorites, :source => :iphoto
   has_many :comments
+  has_many :commented_photos, :through => :comments, :source => :iphoto,
+                      :conditions => "comments.commentable_type = 'Iphoto'"
 
   def self.authenticate(auth)
     user        = self.where(:provider => auth['provider'], :uid => auth['uid']).first

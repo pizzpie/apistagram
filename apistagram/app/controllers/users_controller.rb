@@ -6,7 +6,15 @@ class UsersController < ApplicationController
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
     username = @user.class.to_s == 'User' ? @user.name : @user
-    @iphotos = Iphoto.listed.where("username = ?", username).paginate(:page => params[:page], :per_page => 6) #right now displaying favorites, will change to photos later
+    if ["likes", "commented"].include?(params[:sort]) and @user.class.to_s == 'User'
+      if params[:sort] == "likes"
+        @iphotos = @user.favorite_photos.paginate(:page => params[:page], :per_page => 6)
+      else
+        @iphotos = @user.commented_photos.paginate(:page => params[:page], :per_page => 6)
+      end
+    else
+      @iphotos = Iphoto.listed.by_username(username).paginate(:page => params[:page], :per_page => 6)
+    end
   end
 
   # payal says: commented the other actions as currently only view profile action is required.

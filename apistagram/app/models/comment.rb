@@ -10,6 +10,9 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, :polymorphic => true
 
+  belongs_to :iphoto,  :class_name => "Iphoto",
+                       :foreign_key => "commentable_id"
+
   # NOTE: Comments belong to a user
   belongs_to :user
 

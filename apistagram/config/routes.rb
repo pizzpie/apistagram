@@ -18,6 +18,8 @@ Apistagram::Application.routes.draw do
   match '/advertize'                => 'users#advertize',  :as => :advertize, :via => :post
   match '/report'                   => 'users#report',  :as => :report, :via => :post
 
+  match '/users/:id/photos/:sort'   => 'users#show'
+
   namespace :admin do
     resources :users, :only => [:index, :destroy]
     resources :iphotos

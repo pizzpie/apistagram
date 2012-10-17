@@ -1104,12 +1104,12 @@ h2 {
 	min-height: 22px;
 }
 
-.username a {
+.username a, .stat-stack a {
 	color: #ed2245;
 	text-decoration: none;
 }
 
-.username a:hover {
+.username a:hover, .stat-stack a:hover {
 	color: #b91c37;
 }
 
