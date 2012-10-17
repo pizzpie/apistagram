@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="description" content="Tatstagram is an Instagram web viewer for photos of ONLY tattoos. Check out some of the most popular tattoo designs on Instagram, like them, save them and comment on them.">
-    <title><%=@title || "Tatstagram - The only Instagram viewer dedicated to tattoos :: #tatstagram ::"%></title>
+    <meta name="description" content="<%=AppConfiguration['meta_tags']%>">
+    <title><%=@title || AppConfiguration['title']['default']%></title>
     <%= stylesheet_link_tag "style", :media => "all" %>
     <%=javascript_include_tag 'application'%>
     <%= csrf_meta_tags %>

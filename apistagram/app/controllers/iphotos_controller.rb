@@ -6,7 +6,7 @@ class IphotosController < ApplicationController
       @category = params[:category]
       @sort     = params[:sort]
       @iphotos  = Iphoto.fetch_index_listing(params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
-      @title    = "Tatstagram - #{AppConfiguration[@category]} Instagram photos of tattoos :: #tatstagram :: "
+      @title    = AppConfiguration['title'][@category]
     else
       @iphotos  = Iphoto.listed.limit(6).order('created_at desc')
       @newest, @hottest, @popular = Iphoto.fetch_index_listing

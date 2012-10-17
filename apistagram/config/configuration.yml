@@ -12,6 +12,13 @@ development:
   hot: "What's Hot"
   newest: "Newest Shots"
   most_popular: "Most Popular"
+  meta_tags:
+    "Tatstagram is an Instagram web viewer for photos of ONLY tattoos. Check out some of the most popular tattoo designs on Instagram, like them, save them and comment on them."
+  title:
+    default: "Tatstagram - The only Instagram viewer dedicated to tattoos :: #tatstagram ::"
+    hot: "Tatstagram - Hottest Instagram photos of tattoos :: #tatstagram :: "
+    newest: "Tatstagram - Newest Instagram photos of tattoos :: #tatstagram :: "
+    most_popular: "Tatstagram - Most Popular Instagram photos of tattoos :: #tatstagram :: "    
   ads: 
     header: ['banner.gif', 'Banner Placeholder']
     home_page:
