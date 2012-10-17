@@ -1,7 +1,5 @@
 require 'will_paginate/array'
 class IphotosController < ApplicationController
-  
-  before_filter :set_title
 
   def index
     if params[:category]

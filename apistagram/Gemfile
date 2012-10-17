@@ -12,6 +12,7 @@ gem "twitter-bootstrap-rails"
 gem 'will_paginate-bootstrap'
 gem 'will_paginate', '~> 3.0'
 gem 'acts_as_commentable_with_threading'
+gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'haml'
 # forms
