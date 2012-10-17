@@ -20,7 +20,7 @@
     </div>
     <div class="stat-stack">
       <div class="stack-number">
-        <p><%=Iphoto.by_username(user.name).listed.count%></p>
+        <p><%=link_to Iphoto.by_username(user.name).listed.count, user_path(user)%></p>
       </div>
       <div class="stack-cat">
         <p>photos</p>
