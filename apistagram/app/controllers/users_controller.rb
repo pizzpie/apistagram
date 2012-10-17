@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :find_user, :only => :destroy
   before_filter :find_user_or_username, :except => [:destroy, :contact, :advertize, :report]
+  before_filter :set_title
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
@@ -133,5 +134,10 @@ class UsersController < ApplicationController
     def find_user
       @user = User.where("id = ? or name = ?", params[:id], params[:id]).first
       redirect_to iphotos_url unless @user      
-    end    
+    end  
+
+    def set_title
+      username = @user.class.to_s == 'User' ? @user.name : @user
+      @title = "Tatstagram - #{username}'s' photos ::#tatstagram::"
+    end  
 end

@@ -1,11 +1,14 @@
 require 'will_paginate/array'
 class IphotosController < ApplicationController
+  
+  before_filter :set_title
 
   def index
     if params[:category]
       @category = params[:category]
       @sort     = params[:sort]
       @iphotos  = Iphoto.fetch_index_listing(params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
+      @title    = "Tatstagram - #{AppConfiguration[@category]} Instagram photos of tattoos :: #tatstagram :: "
     else
       @iphotos  = Iphoto.listed.limit(6).order('created_at desc')
       @newest, @hottest, @popular = Iphoto.fetch_index_listing
