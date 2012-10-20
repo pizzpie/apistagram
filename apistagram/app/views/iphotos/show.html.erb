@@ -67,18 +67,22 @@
     <div class="stat" id="custom-tweet-button">
       <a href="https://twitter.com/share" target='_blank'>
         <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>
+        <span class="vert-header">Tweet this</span>
       </a>
-      <span class="vert-header">Tweet this</span>
     </div>
-<!--     <div class="stat">
-      <%#=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
-      <span class="vert-header">Share on Facebook</span>
-    </div> -->
+    <div class="stat">
+      <%
+        fb_share_link = 'http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=TatstagramSharing'
+      %>
+      <a onclick="window.open('<%=fb_share_link%>','linkname','height=320, width=600,scrollbars=no')" href="javascript:void(0)">
+        <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>
+        <span class="vert-header">Share on Facebook</span>
+      </a>
+    </div>
     <div class="stat">
       <%=image_tag 'single-link.gif', :class => 'imgmiddle'%>
       <span class="vert-header">
-        <%#= link_to AppConfiguration['host'] + "/#{@iphoto.public_id}", AppConfiguration['host'] + "/#{@iphoto.public_id}"%>
-        <%=text_field_tag :public_link, AppConfiguration['host'] + "/#{@iphoto.public_id}", :class => "displayLink"%>
+        <%=text_field_tag :public_link, @iphoto.share_link, :class => "displayLink"%>
       </span>
     </div>
     <div class="stat">

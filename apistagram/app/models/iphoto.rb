@@ -40,6 +40,10 @@ class Iphoto < ActiveRecord::Base
     Iphoto.find_by_public_id(pub_id)
   end
 
+  def share_link
+    AppConfiguration['host'] + "/#{public_id}"
+  end
+
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
     photo_ids     ||= []
     all_photo_ids = all_photo_ids.split(" ")
