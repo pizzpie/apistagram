@@ -22,24 +22,31 @@
     <%=render 'layouts/footer'%>
 
     <script>
-      // wait for page to load
-      $(document).ready(function() {
-        // add fixBroken code to all images on the document
-        $('img').fixBroken();
-      });
+      // $.fn.fixBroken = function(){
+      //   return this.each(function(){
+      //     var tag = $(this);
+      //     var alt_img = '/assets/fallback/thumb_default.png';
+      //     tag.error(function() { // this adds the onerror event to images
+      //       // tag.attr("src",alt_img); // change the src attribute of the image
+      //       $(tag).parents('.photoHolder').hide();
+      //       $(tag).parents('.more-thumb').hide();
+      //       return true;
+      //     });
+      //   });
+      // };
 
-      $.fn.fixBroken = function(){
+
+      $.fn.broken = function(){
         return this.each(function(){
-          var tag = $(this);
-          var alt_img = '/assets/fallback/thumb_default.png';
-          tag.error(function() { // this adds the onerror event to images
-            // tag.attr("src",alt_img); // change the src attribute of the image
-            $(tag).parents('.photoHolder').hide();
-            $(tag).parents('.more-thumb').hide();
-            return true;
-          });
+          if(!this.complete || (typeof this.naturalWidth != 'undefined' && this.naturalWidth == 0))
+            $(this).parents('.photoHolder').hide();
+            $(this).parents('.more-thumb').hide();
         });
       };
+
+      $(window).load(function () {
+        $('img').broken();
+      });
     </script>
   </body>
 </html>
