@@ -22,14 +22,15 @@
     <%=render 'layouts/footer'%>
 
     <script>
+
+
       // $.fn.fixBroken = function(){
       //   return this.each(function(){
       //     var tag = $(this);
-      //     var alt_img = '/assets/fallback/thumb_default.png';
       //     tag.error(function() { // this adds the onerror event to images
-      //       // tag.attr("src",alt_img); // change the src attribute of the image
-      //       $(tag).parents('.photoHolder').hide();
-      //       $(tag).parents('.more-thumb').hide();
+      //       tag.attr("src", '/assets/fallback/thumb_default.png'); // change the src attribute of the image
+      //       // $(tag).parents('.photoHolder').hide();
+      //       // $(tag).parents('.more-thumb').hide();
       //       return true;
       //     });
       //   });
@@ -38,14 +39,15 @@
 
       $.fn.broken = function(){
         return this.each(function(){
-          if(!this.complete || (typeof this.naturalWidth != 'undefined' && this.naturalWidth == 0))
-            $(this).parents('.photoHolder').remove();
-            $(this).parents('.more-thumb').remove();
+          if(!this.complete || (typeof this.naturalWidth != 'undefined' && this.naturalWidth == 0)) {
+            $(this).attr("src", '/assets/fallback/thumb_default.png');
+            $(this).parents('.thumb:first').find('.call-text').remove(); 
+          }
         });
       };
 
       $(window).load(function () {
-        $('img').broken();
+        $('.iImg').broken();
       });
     </script>
   </body>
