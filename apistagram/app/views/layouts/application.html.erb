@@ -40,7 +40,7 @@
       $.fn.broken = function(){
         return this.each(function(){
           if(!this.complete || (typeof this.naturalWidth != 'undefined' && this.naturalWidth == 0)) {
-            $(this).attr("src", '/assets/fallback/thumb_default.png');
+            $(this).attr("src", '/assets/fallback/content_removed.gif');
             $(this).parents('.thumb:first').find('.call-text').remove(); 
           }
         });
