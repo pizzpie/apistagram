@@ -39,8 +39,8 @@
       $.fn.broken = function(){
         return this.each(function(){
           if(!this.complete || (typeof this.naturalWidth != 'undefined' && this.naturalWidth == 0))
-            $(this).parents('.photoHolder').hide();
-            $(this).parents('.more-thumb').hide();
+            $(this).parents('.photoHolder').remove();
+            $(this).parents('.more-thumb').remove();
         });
       };
 
