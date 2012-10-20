@@ -65,8 +65,8 @@
       <span class="vert-header"><%=@iphoto.comment_threads.count%> comments</span>
     </div>  
     <div class="stat" id="custom-tweet-button">
-      <a href="https://twitter.com/share" target='_blank'>
-        <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>
+      <a class="imgmiddle meta-act-link meta-tweet" href="http://twitter.com/intent/tweet?text=<%= url_for(@iphoto.share_link) %>">  
+        <%=image_tag 'single-twitter.gif', :class => 'imgmiddle'%>       
         <span class="vert-header">Tweet this</span>
       </a>
     </div>
@@ -102,7 +102,7 @@
     </div>
     <%@recent_photos.each do |pic|%>
       <div class="more-thumb">
-        <%=link_to image_tag(pic.url, :width => 110, :height => 110, :alt => ''), iphoto_url(pic)%>
+        <%=link_to image_tag(pic.url, :width => 110, :height => 110, :alt => '', :class => 'iImg'), iphoto_url(pic)%>
       </div>
     <%end%>
   </div>
