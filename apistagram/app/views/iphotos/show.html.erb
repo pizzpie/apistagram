@@ -72,7 +72,7 @@
     </div>
     <div class="stat">
       <%
-        fb_share_link = 'http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=TatstagramSharing'
+        fb_share_link = url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=TatstagramSharing')
       %>
       <a onclick="window.open('<%=fb_share_link%>','linkname','height=320, width=600,scrollbars=no')" href="javascript:void(0)">
         <%=image_tag 'single-facebook.gif', :class => 'imgmiddle'%>

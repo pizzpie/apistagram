@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   before_filter :find_user, :only => :destroy
-  before_filter :find_user_or_username, :except => [:destroy, :contact, :advertize, :report]
-  before_filter :set_title
+  before_filter :find_user_or_username, :except => [:destroy, :contact, :advertize, :report, :legal]
+  before_filter :set_title, :except => :legal
 
   def show
     @ad = AppConfiguration['ads']['user_profile_page']['left_section']
@@ -120,6 +120,8 @@ class UsersController < ApplicationController
       end
     end
   end 
+
+  def legal;end
 
   private
     def find_user_or_username
