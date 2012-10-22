@@ -1,6 +1,6 @@
 require 'iinstagram'
 class User < ActiveRecord::Base
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   include IInstagram
 
   attr_accessible :uid,
@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
     user        ||= self.new(:provider => auth['provider'], :uid => auth['uid'])
     user.token  = auth['credentials']['token']
     if auth['info']
-      user.remote_image_url   = auth['info']["image"]     || "" unless auth['info']["image"] == "http://images.instagram.com/profiles/anonymousUser.jpg"
-      user.name               = auth['info']['nickname']  || ""
-      user.full_name          = auth['info']['name']      || ""
-      user.email              = auth['info']['email']     || ""
+      # user.image     = auth['info']["image"]     || "" unless auth['info']["image"] == "http://images.instagram.com/profiles/anonymousUser.jpg"
+      user.name      = auth['info']['nickname']  || ""
+      user.full_name = auth['info']['name']      || ""
+      user.email     = auth['info']['email']     || ""
     end
 
     user.save!
@@ -50,5 +50,9 @@ class User < ActiveRecord::Base
 
   def likes?(photo)
     self.favorites.find_by_iphoto_id(photo.id)
+  end
+
+  def image_url
+    self.image? ? self.image : "fallback/thumb_default.png"
   end
 end

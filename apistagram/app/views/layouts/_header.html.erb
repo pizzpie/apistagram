@@ -15,7 +15,7 @@
     <%- if logged_in? %>
       <div id="logged_in">
         <div class="loggedin-user-thumb">
-          <%=image_tag current_user.image_url(:thumb), :alt => current_user.name, :width=>"45", :height=>"45"%>
+          <%=image_tag current_user.image_url, :alt => current_user.name, :width=>"45", :height=>"45"%>
         </div>
         <div class="loggedin-username">  
           <a href="#"> <p><%=current_user.name%></p> </a>  
