@@ -140,6 +140,6 @@ class UsersController < ApplicationController
 
     def set_title
       username = @user.class.to_s == 'User' ? @user.name : @user
-      @title = "Tatstagram - #{username}'s' photos ::#tatstagram::"
+      @title = "Cakesta - #{username}'s' photos ::#cakesta::"
     end  
 end

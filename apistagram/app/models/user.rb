@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     user        ||= self.new(:provider => auth['provider'], :uid => auth['uid'])
     user.token  = auth['credentials']['token']
     if auth['info']
-      # user.image     = auth['info']["image"]     || "" unless auth['info']["image"] == "http://images.instagram.com/profiles/anonymousUser.jpg"
+      user.image     = auth['info']["image"]     || "" unless auth['info']["image"] == "http://images.instagram.com/profiles/anonymousUser.jpg"
       user.name      = auth['info']['nickname']  || ""
       user.full_name = auth['info']['name']      || ""
       user.email     = auth['info']['email']     || ""
