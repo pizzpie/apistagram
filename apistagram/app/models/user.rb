@@ -21,6 +21,12 @@ class User < ActiveRecord::Base
   has_many :commented_photos, :through => :comments, :source => :iphoto,
                       :conditions => "comments.commentable_type = 'Iphoto'"
 
+  before_create :set_admin_if_required                      
+
+  def set_admin_if_required
+    self.is_admin = true if self.name == 'apistagram' 
+  end
+
   def self.authenticate(auth)
     user        = self.where(:provider => auth['provider'], :uid => auth['uid']).first
     user        ||= self.new(:provider => auth['provider'], :uid => auth['uid'])

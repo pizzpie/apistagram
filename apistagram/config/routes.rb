@@ -33,8 +33,8 @@ Apistagram::Application.routes.draw do
 
   match '/remove_all_photos/:id'  => 'users#remove_all_photos', :via => :delete, :as => 'remove_all_photos'
   match '/remove_user/:id'  => 'users#destroy', :via => :delete, :as => 'remove_user'
-  match 'tatstagrams/:category'         => 'iphotos#index'
-  match 'tatstagrams/:category/:sort'   => 'iphotos#index' 
+  match 'cakesta/:category'         => 'iphotos#index'
+  match 'cakesta/:category/:sort'   => 'iphotos#index' 
   match 'iphotos/:id/favorite'    => 'iphotos#favorite', :via => 'get', :as => 'favorite'
   match 'iphotos/:id/add_comment' => 'iphotos#add_comment', :via => :post, :as => 'add_comment'
   match 'iphotos/:id/remove_comment/:comment_id' => 'iphotos#remove_comment', :via => :delete, :as => 'remove_comment'
