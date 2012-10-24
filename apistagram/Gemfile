@@ -31,6 +31,6 @@ gem 'jquery-rails'
 gem 'fancybox-rails'
 
 group :development do
-  gem 'debugger'
+  # gem 'debugger'
   gem 'thin'
 end
