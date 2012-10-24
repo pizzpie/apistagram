@@ -1,0 +1,21 @@
+development: &development
+  adapter: mysql2
+  encoding: utf8
+  database: apistagram_development
+  pool: 5
+  username: root
+  password: root  
+test: &test
+  adapter: mysql2
+  encoding: utf8
+  database: apistagram_test
+  pool: 5
+  username: root
+  password: root
+production: &production
+  adapter: mysql2
+  encoding: utf8
+  database: apistagram_production
+  pool: 5
+  username: root
+  password: root

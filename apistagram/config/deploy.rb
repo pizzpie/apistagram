@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-set :deploy_to, "~/home/deployer/sites/#{application}"
+set :deploy_to, "/home/deployer/sites/#{application}"
 
 role :web, "66.175.221.151"                          # Your HTTP server, Apache/etc
 role :app, "66.175.221.151"                          # This may be the same as your `Web` server
