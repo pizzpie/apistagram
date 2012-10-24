@@ -28,10 +28,6 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
 
-  # task :bundle_gems do
-  #   run "cd #{deploy_to}/current/apistagram && bundle install"
-  # end
-
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
@@ -41,20 +37,13 @@ namespace :deploy do
   # task :symlink_shared, :roles => :app do
   #   run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
   # end
-
-  task :custom_setup, :roles => :app do
-    bundler.bundle_new_release
-    run "/bin/ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
-    run "cd #{current_release}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
-    migrate
-  end
 end
 
 namespace :bundler do
   task :create_symlink, :roles => :app do
     shared_dir = File.join(shared_path, 'bundle')
-    release_dir = File.join("#{current_release}/apistagram", '.bundle')
-    run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
+    release_dir = File.join(current_release, '.bundle')
+    run("mkdir -p #{shared_dir} && ln -s #{shared_dir} '#{release_dir}/apistagram'")
   end
 
   task :bundle_new_release, :roles => :app do
@@ -71,5 +60,9 @@ namespace :bundler do
   end
 end
 
-
-after "deploy:update_code", "deploy:custom_setup"
+after "deploy:update_code" do
+  bundler.bundle_new_release
+  run "/bin/ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
+  run "cd '#{current_release}/apistagram' && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
+  migrate
+end
