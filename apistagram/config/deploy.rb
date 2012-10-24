@@ -43,6 +43,31 @@ namespace :deploy do
   end
 end
 
-after "deploy", 'deploy:bundle_gems'
-after 'deploy:update_code', 'deploy:symlink_shared'
-after 'deploy:symlink_shared', 'deploy:bundle_gems'
+namespace :bundler do
+  task :create_symlink, :roles => :app do
+    shared_dir = File.join(shared_path, 'bundle')
+    release_dir = File.join("#{current_release}/apistagram", '.bundle')
+    run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
+  end
+
+  task :bundle_new_release, :roles => :app do
+    bundler.create_symlink
+    run "cd #{release_path}/apistagram && sudo bundle install --without test development"
+  end
+
+  task :lock, :roles => :app do
+    run "cd #{current_release}/apistagram && bundle lock;"
+  end
+
+  task :unlock, :roles => :app do
+    run "cd #{current_release}/apistagram && bundle unlock;"
+  end
+end
+
+
+after "deploy:update_code" do
+  bundler.bundle_new_release
+  run "/bin/ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
+  run "cd #{current_release}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
+  migrate
+end
