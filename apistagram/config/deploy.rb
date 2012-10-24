@@ -28,18 +28,25 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
 
-  task :bundle_gems do
-    run "cd #{deploy_to}/current/apistagram && bundle install"
-  end
+  # task :bundle_gems do
+  #   run "cd #{deploy_to}/current/apistagram && bundle install"
+  # end
 
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
-  desc "Symlink shared resources on each release - not used"
-  task :symlink_shared, :roles => :app do
-    run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
+  # desc "Symlink shared resources on each release - not used"
+  # task :symlink_shared, :roles => :app do
+  #   run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
+  # end
+
+  task :custom_setup, :roles => :app do
+    bundler.bundle_new_release
+    run "/bin/ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
+    run "cd #{current_release}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
+    migrate
   end
 end
 
@@ -52,22 +59,17 @@ namespace :bundler do
 
   task :bundle_new_release, :roles => :app do
     bundler.create_symlink
-    run "cd #{release_path}/apistagram && sudo bundle install --without test development"
+    run "cd '#{release_path}/apistagram' && sudo bundle install --without test development"
   end
 
   task :lock, :roles => :app do
-    run "cd #{current_release}/apistagram && bundle lock;"
+    run "cd '#{current_release}/apistagram' && bundle lock;"
   end
 
   task :unlock, :roles => :app do
-    run "cd #{current_release}/apistagram && bundle unlock;"
+    run "cd '#{current_release}/apistagram' && bundle unlock;"
   end
 end
 
 
-after "deploy:update_code" do
-  bundler.bundle_new_release
-  run "/bin/ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
-  run "cd #{current_release}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
-  migrate
-end
+after "deploy:update_code", "deploy:custom_setup"
