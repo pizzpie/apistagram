@@ -44,4 +44,5 @@ namespace :deploy do
 end
 
 after "deploy", 'deploy:bundle_gems'
-after 'deploy:update_code', 'deploy:symlink_shared', 'deploy:bundle_gems'
+after 'deploy:update_code', 'deploy:symlink_shared'
+after 'deploy:symlink_shared', 'deploy:bundle_gems'
