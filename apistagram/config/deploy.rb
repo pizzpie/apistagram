@@ -36,8 +36,8 @@ namespace :deploy do
   desc "Symlink shared resources on each release - not used"
   task :symlink_shared, :roles => :app do
     run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
-    run "cd #{release_path}/apistagram && sudo bundle install --without test development"
-    run "cd #{release_path}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
+    # run "cd #{release_path}/apistagram && sudo bundle install --without test development"
+    # run "cd #{release_path}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
 
     # migrate
   end 
