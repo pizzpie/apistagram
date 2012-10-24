@@ -2,7 +2,7 @@ set :application, "cakesta"
 set :repository,  "git@github.com:CraigMCF/apistagram.git"
 
 set :scm, :git
-set :user, "deploy"
+set :user, "deployer"
 set :branch, "master"
 
 set :use_sudo, false
@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-set :deploy_to, "~/sites/#{application}"
+set :deploy_to, "~/home/deployer/sites/#{application}"
 
 role :web, "66.175.221.151"                          # Your HTTP server, Apache/etc
 role :app, "66.175.221.151"                          # This may be the same as your `Web` server
@@ -28,6 +28,10 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
 
+  task :bundle_gems do
+    run "cd #{deploy_to}/current && bundle install vendor/gems"
+  end
+
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
@@ -39,4 +43,5 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+after "deploy", 'deploy:bundle_gems'
+after 'deploy:update_code', 'deploy:symlink_shared', 'deploy:bundle_gems'
