@@ -29,7 +29,7 @@ namespace :deploy do
   task :stop do ; end
 
   task :bundle_gems do
-    run "cd #{deploy_to}/current/apistagram && bundle install vendor/gems"
+    run "cd #{deploy_to}/current/apistagram && bundle install"
   end
 
   desc "Restarting Passenger with restart.txt"
