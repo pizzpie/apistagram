@@ -39,10 +39,10 @@ namespace :deploy do
 
   desc "Symlink shared resources on each release - not used"
   task :symlink_shared, :roles => :app do
-    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
   end
 end
 
 after "deploy", 'deploy:bundle_gems'
-after 'deploy:update_code', 'deploy:create_symlink'
+after 'deploy:update_code', 'deploy:symlink_shared'
 after 'deploy:symlink_shared', 'deploy:bundle_gems'
