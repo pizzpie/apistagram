@@ -2,8 +2,8 @@ development:
   host: 'http://localhost:4000'
   admin_username: 'apistagram'
   admin_email: 'craig@craigmorrison.ca'
-  instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
-  instagram_client_secret: '35b61a97b602469486f27af20db73ea7'
+  instagram_client_id: 'd4c0d780aa374f28889e0e4dc28402eb'
+  instagram_client_secret: '4834c8731b164da9b034faef50b88ead'
   tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
   admin_user: 'craig'
   admin_password: 'cakesta'
@@ -61,4 +61,4 @@ production:
       left_section: ['250x250.jpg', 'Rectangle Placeholder']
     iphoto_page:
       left_section: ['banner2.gif', 'Banner Placeholder']
-      right_section: ['336x280.jpg', 'Banner Placeholder']      
+      right_section: ['336x280.jpg', 'Banner Placeholder']
