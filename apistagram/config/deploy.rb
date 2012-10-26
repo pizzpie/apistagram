@@ -34,15 +34,14 @@ namespace :deploy do
 
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+    run "#{try_sudo} touch #{File.join(current_path,'apistagram', 'tmp','restart.txt')}"
   end
 
   desc "Symlink shared resources on each release - not used"
   task :symlink_shared, :roles => :app do
     run "ln -nfs #{shared_path}/database.yml #{release_path}/apistagram/config/database.yml"
     # run "cd #{release_path}/apistagram && sudo bundle install --without test development"
-    # run "cd #{release_path}/apistagram && rake RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile"
-
+    run "cd #{release_path}/apistagram && rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
     # migrate
   end 
 end
