@@ -31,7 +31,7 @@ development:
       left_section: ['banner2.gif', 'Banner Placeholder']
       right_section: ['336x280.jpg', 'Banner Placeholder']
 production:
-  host: 'http://66.175.221.151/'
+  host: 'http://cakesta.com/'
   admin_username: 'apistagram'
   admin_email: 'craig@craigmorrison.ca'
   instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
