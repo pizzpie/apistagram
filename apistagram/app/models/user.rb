@@ -44,7 +44,9 @@ class User < ActiveRecord::Base
 
   def get_grams
     Tag.all.each do |tag|
-      self.delay.fetch_grams(tag)
+      100.times do |i|
+        self.delay.fetch_grams(tag)
+      end
     end
   end
 
