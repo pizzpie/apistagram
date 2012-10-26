@@ -97,7 +97,7 @@ class Iphoto < ActiveRecord::Base
       elsif category == "most_popular"
         if sort_order and ["month", "week", "today"].include?(sort_order)
           # pop_arr = Favorite.where('created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('COUNT(id) desc')
-          return pop_arr.where('created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('count(favorites.id) desc')
+          return pop_arr.where('favorites.created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('count(favorites.id) desc')
           # Iphoto.listed.where(:id => pop_arr)
         else
           return pop_arr.group(:iphoto_id).order('count(favorites.id) desc')#Iphoto.listed.where(:id => pop_arr)
