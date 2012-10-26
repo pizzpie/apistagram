@@ -25,8 +25,12 @@ role :db,  "66.175.221.151", :primary => true        # This is where Rails migra
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
+  task :start do
+    run "cd #{release_path}/apistagram && RAILS_ENV=production script/delayed_job stop"
+  end
+  task :stop do
+    run "cd #{release_path}/apistagram && RAILS_ENV=production script/delayed_job start"
+  end
 
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
