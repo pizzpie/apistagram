@@ -87,19 +87,20 @@ class Iphoto < ActiveRecord::Base
     # hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
     # pop_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys    
 
-    hot_arr = Favorite.group(:iphoto_id).count.keys
-    pop_arr = Favorite.group(:iphoto_id).count.keys  
-
+    hot_arr = Iphoto.joins(:favorites).where('iphotos.id = favorites.iphoto_id')
+    # pop_arr = Favorite.group(:iphoto_id).order('COUNT(id) desc').count.keys
+    pop_arr = hot_arr
 
     if category
       if category == "hot"
-        return Iphoto.listed.where(:id => hot_arr)
+        return hot_arr.group(:iphoto_id).order('count(favorites.id) desc') #Iphoto.listed.where(:id => hot_arr)
       elsif category == "most_popular"
         if sort_order and ["month", "week", "today"].include?(sort_order)
-          pop_arr   = Favorite.where('created_at >= ?', get_duration(sort_order)).order('created_at DESC').group(:iphoto_id).count.keys 
-          Iphoto.listed.where(:id => pop_arr)
+          # pop_arr = Favorite.where('created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('COUNT(id) desc')
+          return pop_arr.where('created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('count(favorites.id) desc')
+          # Iphoto.listed.where(:id => pop_arr)
         else
-          return Iphoto.listed.where(:id => pop_arr)
+          return pop_arr.group(:iphoto_id).order('count(favorites.id) desc')#Iphoto.listed.where(:id => pop_arr)
         end        
       else
         return self.order('created_at desc')
@@ -107,7 +108,8 @@ class Iphoto < ActiveRecord::Base
     else
       newest  = self.order('created_at desc').limit(6)
 
-      hottest = Iphoto.listed.where(:id => [hot_arr]).limit(9)
+      # hottest = Iphoto.listed.where(:id => [hot_arr]).limit(9)
+      hottest = hot_arr.group(:iphoto_id).order('count(favorites.id) desc').limit(9)
       # hot_arr.each do |i|
       #   hottest << Iphoto.listed.find_by_id(i)
       #   break if hottest.count == 9
@@ -119,7 +121,8 @@ class Iphoto < ActiveRecord::Base
       # end
 
       popular = []
-      popular = Iphoto.listed.where(:id => [pop_arr]).limit(6)
+      # popular = Iphoto.listed.where(:id => [pop_arr]).limit(6)
+      popular = pop_arr.group(:iphoto_id).order('count(favorites.id) desc').limit(6)
       # pop_arr.each do |i|
       #   popular << Iphoto.listed.find_by_id(i)
       #   break if popular.count == 6

@@ -97,6 +97,7 @@
 }
 
 .cirkuitSkin .mceIframeContainer {
+	padding: 10px;
 	border-top: 1px solid #CCC;
 	border-bottom: 1px solid #CCC;
 	/*height: 100%; 5/22/2010 - Joe Rozzi - taken out comparing to default theme ui.css */
