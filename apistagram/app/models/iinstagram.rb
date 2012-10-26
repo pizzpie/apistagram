@@ -23,7 +23,8 @@ module IInstagram
     def get_grams
       begin
         unless max_photo_id.blank?
-          self.response = Instagram.tag_recent_media(tag, :max_id => max_photo_id)
+          self.response = Instagram.tag_recent_media(tag, :max_tag_id => max_photo_id)
+          # self.response = Instagram.tag_recent_media(tag, :max_id => max_photo_id)
         else
           self.response = Instagram.tag_recent_media(tag)
         end
