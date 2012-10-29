@@ -7,6 +7,7 @@ class Notifier < ActionMailer::Base
     @email        = contact['email']
     @company      = contact['company']
     @comments     = contact['comments']
+    @photo_url     = contact['photo_url']
     mail(:subject => "#{type} Received", :to => recipients)
   end
 end

@@ -68,7 +68,7 @@ class UsersController < ApplicationController
           @errors << "#{field.titleize} cannot be blank." if @contact[field].blank?
         end
         if @errors.empty?
-          Notifier.advertize(@contact, 'Advertisement').deliver
+          Notifier.contact(@contact, 'Advertisement').deliver
           flash[:notice] = "Details sent successfully."
           render 'success.js.erb'
         else
