@@ -50,7 +50,13 @@ Apistagram::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-
+  ActionMailer::Base.smtp_settings = {  
+    :address              => 'mail.cakesta.com',
+    :port                 => 587,  
+    :domain               => 'cakesta.com', 
+    :enable_starttls_auto => true,  
+    :openssl_verify_mode  => 'none' # Only use this option for a self-signed and/or wildcard certificate
+  }
   # Enable threaded mode
   # config.threadsafe!
 
