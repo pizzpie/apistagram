@@ -1,7 +1,7 @@
 development:
   host: 'http://localhost:4000'
   admin_username: 'apistagram'
-  admin_email: 'craig@craigmorrison.ca'
+  admin_email: 'payal@notionq.com'
   instagram_client_id: 'd4c0d780aa374f28889e0e4dc28402eb'
   instagram_client_secret: '4834c8731b164da9b034faef50b88ead'
   tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
@@ -33,7 +33,7 @@ development:
 production:
   host: 'http://cakesta.com'
   admin_username: 'apistagram'
-  admin_email: 'craig@craigmorrison.ca'
+  admin_email: 'payal@notionq.com'
   instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
   instagram_client_secret: '35b61a97b602469486f27af20db73ea7'
   tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
