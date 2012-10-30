@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     if current_user and current_user.is_admin? || current_user == @user
       username = @user.class.to_s == 'User' ? @user.name : @user
       @iphotos = Iphoto.where("username = ?", username)
-      @iphotos.destroy_all
+      @iphotos.update_all({:status => false})
       redirect_to user_url(@user), :notice => "All the photos are deleted."
     else
       redirect_to users_url, :notice => "UnAuthorized Access!!!"

@@ -17,6 +17,7 @@
       <a href="http://pinterest.com/pin/create/button/?url=<%=url_for(@iphoto.share_link)%>&media=<%=url_for(@iphoto.url)%>&description=Cakesta" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
       <g:plusone size="medium" annotation="none"></g:plusone>
       <div class="fb-like" data-href="<%=url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=CakestaSharing')%>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial" data-rel="<%=@iphoto.url%>"></div>
+
     </div> 
     <!-- Like image -->
     <div class="imagelike">
