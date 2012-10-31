@@ -16,7 +16,7 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       <a href="http://pinterest.com/pin/create/button/?url=<%=url_for(@iphoto.share_link)%>&media=<%=url_for(@iphoto.url)%>&description=Cakesta" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
       <g:plusone size="medium" annotation="none"></g:plusone>
-      <div class="fb-like" data-href="<%#=url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=CakestaSharing')%>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial" data-rel="<%=@iphoto.url%>"></div>
+      <div class="fb-like" data-href="<%=url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=CakestaSharing')%>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial" data-rel="<%=url_for(@iphoto.url)%>"></div>
 
 <!--       <span class='st_pinterest_hcount' displayText='Pinterest' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
       <span class='st_twitter_hcount' displayText='Tweet' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
