@@ -6,7 +6,7 @@
   </div>
   
   <div class="call-text">
-    <%=link_to (content_tag(:span, 'Click here to see full size')), iphoto_path(iphoto)%>
+    <%=link_to (content_tag(:span, 'Click here to see full size')), iphoto.share_link%>
   </div>
 </div>
 <%=render :partial => 'iphotos/stats', :locals => {:iphoto => iphoto, :user => current_user}%>

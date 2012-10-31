@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   before_filter :set_title, :except => :legal
 
   def show
-    @ad = AppConfiguration['ads']['user_profile_page']['left_section']
     username = @user.class.to_s == 'User' ? @user.name : @user
     if ["likes", "commented"].include?(params[:sort]) and @user.class.to_s == 'User'
       if params[:sort] == "likes"

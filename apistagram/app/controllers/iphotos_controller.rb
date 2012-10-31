@@ -14,7 +14,6 @@ class IphotosController < ApplicationController
   end
 
   def show
-    @ads = AppConfiguration['ads']['iphoto_page']
     @iphoto = Iphoto.listed.where("id = ? or public_id = ?", params[:id], params[:id]).first
     if @iphoto
       @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
