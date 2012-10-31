@@ -86,7 +86,7 @@
       </span>
     </div>
     <div class="stat">
-      <a href="/report" class='fancybox'><%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
+      <a href="/report?purl=<%=url_for(@iphoto.share_link)%>" class='fancybox'><%=image_tag 'single-report.gif', :class => 'imgmiddle'%>
       <span class="vert-header">Report Photo</span></a>
     </div>
     <%if logged_in? and (current_user.is_admin? || current_user.name == @iphoto.username)%>

@@ -101,6 +101,8 @@ class UsersController < ApplicationController
    
   def report
     unless request.post?
+      @purl = params[:purl]
+      @purl ||= ""
       render :template => 'users/report.html.erb', :layout => false
     else
       @contact = params[:contact]
