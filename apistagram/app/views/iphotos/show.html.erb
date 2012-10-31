@@ -17,12 +17,6 @@
       <a href="http://pinterest.com/pin/create/button/?url=<%=url_for(@iphoto.share_link)%>&media=<%=url_for(@iphoto.url)%>&description=Cakesta" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
       <g:plusone size="medium" annotation="none"></g:plusone>
       <div class="fb-like" data-href="<%=url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=CakestaSharing')%>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial" data-rel="<%=url_for(@iphoto.url)%>"></div>
-
-<!--       <span class='st_pinterest_hcount' displayText='Pinterest' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
-      <span class='st_twitter_hcount' displayText='Tweet' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
-      <span class='st_googleplus_hcount' displayText='Google +' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
-      <span class='st_fblike_hcount' displayText='Facebook Like' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span> -->
-      <!-- <span class='st_fbsend_hcount' displayText='Facebook Send'></span> -->
     </div> 
     <!-- Like image -->
     <div class="imagelike">
@@ -31,18 +25,7 @@
   </div>
   <!-- banner -->
   <div class="single-banner">
-    <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8647050956160590";
-    /* CAKESTA - Single Image Banner */
-    google_ad_slot = "5203727866";
-    google_ad_width = 468;
-    google_ad_height = 60;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
-    <%#=image_tag @ads['left_section'][0], :alt => @ads['left_section'][1]%>
+    <%=render :partial => 'shared/ads', :locals => {:ad => :iphoto_left_section}%>
   </div>
 
   <!-- Comments section -->
@@ -125,17 +108,6 @@
   </div>
   <!-- 336x280 -->
   <div class="large-rec">
-    <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8647050956160590";
-    /* CAKESTA - Single Rectangle */
-    google_ad_slot = "9727108864";
-    google_ad_width = 336;
-    google_ad_height = 280;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
-    <%#=image_tag @ads['right_section'][0], :alt => @ads['right_section'][1], :width=>"343", :height=>"287"%>
+    <%=render :partial => 'shared/ads', :locals => {:ad => :iphoto_right_section}%>
   </div>
 </div>

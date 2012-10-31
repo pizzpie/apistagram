@@ -18,18 +18,7 @@
   <%=link_to "More What's Hot →",  '/cakesta/hot'%>
 </div>
 <div class="ad">
-  <%#=listing_ad('whats_hot')%>
-  <script type="text/javascript"><!--
-  google_ad_client = "ca-pub-8647050956160590";
-  /* CAKESTA - Category 1 Leaderboard */
-  google_ad_slot = "4547557769";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>  
+  <%=render :partial => 'shared/ads', :locals => {:ad => :whats_hot_section}%>
 </div>
 
 <!-- Div for title of photos -->
@@ -52,18 +41,7 @@
   <%=link_to "More Most Popular →",  '/cakesta/most_popular'%>
 </div>
 <div class="ad">
-  <%#=listing_ad('popular')%>
-  <script type="text/javascript"><!--
-  google_ad_client = "ca-pub-8647050956160590";
-  /* CAKESTA - Category 2 Leaderboard */
-  google_ad_slot = "7881776051";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
+  <%=render :partial => 'shared/ads', :locals => {:ad => :popular_section}%>
 </div>
 
 <!-- Div for title of photos -->

@@ -9,18 +9,7 @@
 
 		<!-- Header banner ad div -->
 		<div id="h_banner">
-      <%#=header_ad%>
-      <script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8647050956160590";
-      /* CAKESTA - Header banner */
-      google_ad_slot = "8970815324";
-      google_ad_width = 468;
-      google_ad_height = 60;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script>
+      <%=render :partial => 'shared/ads', :locals => {:ad => :header}%>
 		</div>   
 
     <%- if logged_in? %>

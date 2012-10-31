@@ -3,19 +3,8 @@
   <%=render :partial => guest_or_user_template(@user), :locals => {:user => @user}%>
   <%=render 'destroy'%>
   <!-- Rectangle -->  
-  <div class="user-square">    
-    <%#=image_tag(@ad[0], :alt => @ad[1])%>  
-    <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8647050956160590";
-    /* CAKESTA - User Square */
-    google_ad_slot = "4242640399";
-    google_ad_width = 250;
-    google_ad_height = 250;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+  <div class="user-square">  
+    <%=render :partial => 'shared/ads', :locals => {:ad => :user_left_section}%>
   </div>
 </div>
 
