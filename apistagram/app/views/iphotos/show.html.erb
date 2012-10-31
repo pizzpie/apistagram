@@ -1,6 +1,3 @@
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "bc6ad369-4527-448f-b529-9a2918ec4776", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
-
 <div class="single_line_title">
   <h1>
     <%=link_to "#{@iphoto.username}'s", user_path(@iphoto.username)%> photo
@@ -15,16 +12,17 @@
     <%= image_tag @iphoto.url, :alt => "#{@iphoto.username}'s photo", :width=> 518 %>
     <!-- image sharing -->      
     <div id="i_social">
-<!--       <a href="https://twitter.com/share" class="twitter-share-button" data-via="cakesta" data-count="none">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="cakesta" data-count="none">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       <a href="http://pinterest.com/pin/create/button/?url=<%=url_for(@iphoto.share_link)%>&media=<%=url_for(@iphoto.url)%>&description=Cakesta" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
       <g:plusone size="medium" annotation="none"></g:plusone>
       <div class="fb-like" data-href="<%#=url_for('http://www.facebook.com/sharer.php?u=' + @iphoto.share_link + '&amp;t=CakestaSharing')%>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial" data-rel="<%=@iphoto.url%>"></div>
- -->
-      <span class='st_pinterest_hcount' displayText='Pinterest' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
+
+<!--       <span class='st_pinterest_hcount' displayText='Pinterest' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
       <span class='st_twitter_hcount' displayText='Tweet' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
       <span class='st_googleplus_hcount' displayText='Google +' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
-      <span class='st_fblike_hcount' displayText='Facebook Like' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span>
+      <span class='st_fblike_hcount' displayText='Facebook Like' st_url="<%=url_for(@iphoto.share_link)%>" st_image="<%=url_for(@iphoto.url)%>"></span> -->
+      <!-- <span class='st_fbsend_hcount' displayText='Facebook Send'></span> -->
     </div> 
     <!-- Like image -->
     <div class="imagelike">
