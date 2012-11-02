@@ -27,8 +27,9 @@ class Iphoto < ActiveRecord::Base
 
   def create_or_update_public_id
     unless public_id
-      pub_id = SecureRandom.base64(5)
+      pub_id = SecureRandom.hex(3)
       if check_public_id(pub_id)
+        pub_id = SecureRandom.hex(3)
         check_public_id(pub_id)
       else
         self.public_id = pub_id

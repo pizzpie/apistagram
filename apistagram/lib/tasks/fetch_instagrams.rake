@@ -13,4 +13,11 @@ namespace :db do
       puts "No administrator found by name #{uname}"
     end
   end
+
+  task :reset_public_ids => :environment do
+    Iphoto.all.each do |iphoto|
+      pub_id = SecureRandom.hex(3)
+      iphoto.update_attribute(:public_id, pub_id)
+    end
+  end
 end
