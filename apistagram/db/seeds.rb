@@ -7,8 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-AppConfiguration['tags'].each do |tag|
-	tag = Tag.create(:name => tag)
+partners = Partner.create([{name: 'cakesta'}, {name: 'tatstagram'}])
+
+Partner.all.each do |partner|
+  AppConfiguration[partner.name]['tags'].each do |tag|
+    tag = partner.tags.create(:name => tag)
+  end
 end
 
 user = User.first

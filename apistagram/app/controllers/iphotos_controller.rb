@@ -6,15 +6,14 @@ class IphotosController < ApplicationController
       @category = params[:category]
       @sort     = params[:sort]
       @iphotos  = Iphoto.fetch_index_listing(params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
-      @title    = AppConfiguration['title'][@category]
+      @title    = Thread.current[:site_configuration]['title'][@category]
     else
-      @iphotos  = Iphoto.listed.limit(6).order('created_at desc')
       @newest, @hottest, @popular = Iphoto.fetch_index_listing
     end
   end
 
   def show
-    @iphoto = Iphoto.listed.where("id = ? or public_id = ?", params[:id], params[:id]).first
+    @iphoto = Iphoto.listed.where("public_id = ? or id = ?", params[:id], params[:id]).first
     if @iphoto
       @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
     else

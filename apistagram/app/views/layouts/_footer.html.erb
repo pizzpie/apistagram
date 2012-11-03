@@ -22,17 +22,17 @@
       <h1>Connect with us</h1>
       <ul>
         <li>
-          <a href="https://twitter.com/cakestadotcom">
+          <a href="https://twitter.com/<%=Thread.current[:site_configuration]['social']['tw']%>">
             <%=image_tag 'twitter-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Twitter
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/cakesta">
+          <a href="https://www.facebook.com/<%=Thread.current[:site_configuration]['social']['fb']%>">
             <%=image_tag 'facebook-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Facebook
           </a>
         </li>
         <li>
-          <a href="http://pinterest.com/cakestadotcom">
+          <a href="http://pinterest.com/<%=Thread.current[:site_configuration]['social']['pin']%>">
             <%=image_tag 'pinterest-icon.png', :alt=>"twitter-icon", :width=>"24", :height=>"24", :class=>"imgmiddle"%> Pinterest
           </a>
         </li>

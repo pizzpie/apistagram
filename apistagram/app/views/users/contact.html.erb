@@ -1,5 +1,5 @@
 <%=form_tag contact_path, :id => "contact_form", :class => 'custom_form', :remote => true do %>
-  <div class="heading">Contact Cakesta</div>
+  <div class="heading">Contact <%=Thread.current[:site_configuration]['app_name']%></div>
 
   <div class="field">
     <label>Name <span class="hint">(required)</span></label>
@@ -20,4 +20,4 @@
     <%=submit_tag 'SEND', :class => 'comment-button-style'%>
     <%=link_to 'CANCEL', '', :class => 'comment-button-style grey'%>
   </div>
-<%end%> 
+<%end%>

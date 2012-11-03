@@ -15,7 +15,7 @@ module IInstagram
   
     def authenticate
       Instagram.configure do |config|
-        config.client_id = AppConfiguration['instagram_client_id']
+        config.client_id = Thread.current[:site_configuration]['instagram_client_id']
         config.access_token = token
       end
     end

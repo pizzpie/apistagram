@@ -141,6 +141,6 @@ class UsersController < ApplicationController
 
     def set_title
       username = @user.class.to_s == 'User' ? @user.name : @user
-      @title = "Cakesta - #{username}'s' photos ::#cakesta::"
+      @title = "#{Thread.current[:site_configuration]['app_name'].titleize} - #{username}'s' photos ::#{Thread.current[:site_configuration]['app_name']}::"
     end  
 end

@@ -6,15 +6,15 @@
     <!-- Left side of nav div -->
     <div id="l_nav">
       <p>
-        <%=link_to "What's Hot",    '/cakesta/hot', :class => "#{@category == 'hot' ? 'active' : ''}"%> | 
-        <%=link_to "Most Popular",  '/cakesta/most_popular', :class => "#{@category == 'most_popular' ? 'active' : ''}"%> | 
-        <%=link_to "Newest",        '/cakesta/newest', :class => "#{@category == 'newest' ? 'active' : ''}"%>
+        <%=link_to "What's Hot",    "/#{Thread.current[:site_configuration]['app_name']}/hot", :class => "#{@category == 'hot' ? 'active' : ''}"%> | 
+        <%=link_to "Most Popular",  "/#{Thread.current[:site_configuration]['app_name']}/most_popular", :class => "#{@category == 'most_popular' ? 'active' : ''}"%> | 
+        <%=link_to "Newest",        "/#{Thread.current[:site_configuration]['app_name']}/newest", :class => "#{@category == 'newest' ? 'active' : ''}"%>
       </p>
     </div>
     
     <!-- Right side of nav div -->
     <div id="r_nav">
-      <p>Tag <span class="bold-pink">#cakesta</span> on your <span class="bold">Instagram</span> photos to appear on the site!</p>
+      <p>Tag <span class="bold-pink">#<%=Thread.current[:site_configuration]['app_name']%></span> on your <span class="bold">Instagram</span> photos to appear on the site!</p>
     </div>
   <!-- Close nav div -->
   </div>

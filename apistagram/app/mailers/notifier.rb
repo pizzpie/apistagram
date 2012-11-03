@@ -1,8 +1,8 @@
 class Notifier < ActionMailer::Base
-  default from: AppConfiguration['admin_email']
+  default from: Thread.current[:site_configuration]['admin_email']
 
   def contact(contact, type)
-    recipients    = [AppConfiguration['admin_email']]
+    recipients    = [Thread.current[:site_configuration]['admin_email']]
     @name         = contact['name']
     @email        = contact['email']
     @company      = contact['company']

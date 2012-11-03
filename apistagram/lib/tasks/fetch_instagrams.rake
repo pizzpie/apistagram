@@ -1,7 +1,7 @@
 namespace :db do
   desc "Fill database with instagram photos"
   task :fetch_instagrams => :environment do
-    uname = AppConfiguration['admin_username']
+    uname = Thread.current[:site_configuration]['admin_username']
     user  = User.find_by_name(uname)
     if user
       if user.get_grams

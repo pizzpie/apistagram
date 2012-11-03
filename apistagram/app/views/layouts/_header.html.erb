@@ -4,7 +4,7 @@
 	<div id="header">
 		<!-- Logo div -->
 		<div id="h_logo">
-		  <%= link_to image_tag("logo.png", :alt => "Cakesta - Share your Instagram photos"), root_url%>
+		  <%= link_to image_tag("#{Thread.current[:site_configuration]['app_name']}.png", :alt => "#{Thread.current[:site_configuration]['app_name']} - Share your Instagram photos"), root_url%>
 		</div>
 
 		<!-- Header banner ad div -->

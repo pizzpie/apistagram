@@ -15,7 +15,7 @@
 </div>
 
 <div class="more">
-  <%=link_to "More What's Hot →",  '/cakesta/hot'%>
+  <%=link_to "More What's Hot →",  "/#{Thread.current[:site_configuration]['app_name']}/hot"%>
 </div>
 <div class="ad">
   <%=render :partial => 'shared/ads', :locals => {:ad => :whats_hot_section}%>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="more">
-  <%=link_to "More Most Popular →",  '/cakesta/most_popular'%>
+  <%=link_to "More Most Popular →",  "/#{Thread.current[:site_configuration]['app_name']}/most_popular"%>
 </div>
 <div class="ad">
   <%=render :partial => 'shared/ads', :locals => {:ad => :popular_section}%>
@@ -60,5 +60,5 @@
   <%end%>
 </div>
 <div class="more">
-  <%=link_to "More Newest →", '/cakesta/newest'%>
+  <%=link_to "More Newest →", "/#{Thread.current[:site_configuration]['app_name']}/newest"%>
 </div>

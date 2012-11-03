@@ -1,19 +1,19 @@
 <%-if @category%>
   <%if @category == "most_popular"%>
     <div class="photo_line_title_pop">
-      <h1><%= AppConfiguration[@category] %></h1>
+      <h1><%= Thread.current[:site_configuration][@category] %></h1>
     </div>
     <div class="sub-nav">
       <p>
-        <a href="/cakesta/most_popular/all"><span class="<%=@sort == 'all' ? 'active' : ''%>">All Time</span></a> | 
-        <a href="/cakesta/most_popular/month"><span class="<%=@sort == 'month' ? 'active' : ''%>">This Month</span></a> | 
-        <a href="/cakesta/most_popular/week"><span class="<%=@sort == 'week' ? 'active' : ''%>">This Week</span></a> | 
-        <a href="/cakesta/most_popular/today"><span class="<%=@sort == 'today' ? 'active' : ''%>">Today</span></a>
+        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/all"><span class="<%=@sort == 'all' ? 'active' : ''%>">All Time</span></a> | 
+        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/month"><span class="<%=@sort == 'month' ? 'active' : ''%>">This Month</span></a> | 
+        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/week"><span class="<%=@sort == 'week' ? 'active' : ''%>">This Week</span></a> | 
+        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/today"><span class="<%=@sort == 'today' ? 'active' : ''%>">Today</span></a>
       </p>
     </div>
   <%else%>
     <div class="photo_line_title">
-      <h1><%= AppConfiguration[@category] %></h1>
+      <h1><%= Thread.current[:site_configuration][@category] %></h1>
     </div>
   <%end%>
   <div class="photo_line">

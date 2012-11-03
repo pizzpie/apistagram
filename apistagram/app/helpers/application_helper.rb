@@ -35,13 +35,9 @@ module ApplicationHelper
   end
 
   def header_ad
-    ad = AppConfiguration['ads']['header']
-    image_tag ad[0], :alt => ad[1]
   end
 
   def listing_ad(section)
-    ad = AppConfiguration['ads']['home_page'][section]
-    link_to image_tag(ad[0], :alt => ad[1]), '#'
   end  
 
   def remove_comment(iphoto, comment)

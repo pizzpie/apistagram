@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015180949) do
+ActiveRecord::Schema.define(:version => 20121103160735) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121015180949) do
     t.integer  "rgt"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "partner_id",       :default => 1
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
@@ -49,8 +50,9 @@ ActiveRecord::Schema.define(:version => 20121015180949) do
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.integer  "iphoto_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "partner_id", :default => 1
   end
 
   create_table "iphotos", :force => true do |t|
@@ -59,13 +61,21 @@ ActiveRecord::Schema.define(:version => 20121015180949) do
     t.string   "username"
     t.integer  "tag_id"
     t.boolean  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "public_id"
+    t.integer  "partner_id", :default => 1
   end
 
   add_index "iphotos", ["i_id"], :name => "index_iphotos_on_i_id", :unique => true
+  add_index "iphotos", ["partner_id"], :name => "index_iphotos_on_partner_id"
   add_index "iphotos", ["username"], :name => "index_iphotos_on_username"
+
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "setups", :force => true do |t|
     t.string   "key_name"
@@ -76,10 +86,13 @@ ActiveRecord::Schema.define(:version => 20121015180949) do
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "max_photo_id"
+    t.integer  "partner_id",   :default => 1
   end
+
+  add_index "tags", ["partner_id"], :name => "index_tags_on_partner_id"
 
   create_table "users", :force => true do |t|
     t.string   "uid"
@@ -88,12 +101,14 @@ ActiveRecord::Schema.define(:version => 20121015180949) do
     t.string   "email"
     t.string   "image"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "full_name"
     t.boolean  "is_admin"
+    t.integer  "partner_id", :default => 1
   end
 
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
+  add_index "users", ["partner_id"], :name => "index_users_on_partner_id"
 
 end

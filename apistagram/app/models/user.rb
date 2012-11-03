@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
                   :token,
                   :image, 
                   :provider, 
+                  :partner_id,
                   :remote_image_url
 
   validates :uid, :provider,
@@ -20,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :commented_photos, :through => :comments, :source => :iphoto,
                       :conditions => "comments.commentable_type = 'Iphoto'"
+  belongs_to :partner
 
   before_create :set_admin_if_required                      
 

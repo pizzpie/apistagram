@@ -2,7 +2,7 @@ class Iphoto < ActiveRecord::Base
 
   acts_as_commentable
   
-  attr_accessible :i_id, :status, :tag_id, :url, :username
+  attr_accessible :i_id, :status, :tag_id, :url, :username, :partner_id
 
   validates :url, :username,
             :presence => true
@@ -11,6 +11,8 @@ class Iphoto < ActiveRecord::Base
             :presence => true,
             :uniqueness => true
 
+  # default_scope where(:partner_id => 2)
+  belongs_to :partner
   scope :pending, where("status is null")
   scope :selected, where("status is true")
   scope :listed, where("status is null or status is true")
@@ -42,7 +44,7 @@ class Iphoto < ActiveRecord::Base
   end
 
   def share_link
-    AppConfiguration['host'] + "/#{public_id}"
+    Thread.current[:site_configuration]['host'] + "/#{public_id}"
   end
 
   def self.update_all_with_callbacks(photo_ids, all_photo_ids)
@@ -82,7 +84,7 @@ class Iphoto < ActiveRecord::Base
   end
 
   def self.get_hottest_pics(dtime, counter = 1)
-    duration = AppConfiguration['hot_duration_in_hours'] * counter
+    duration = Thread.current[:site_configuration]['hot_duration_in_hours'] * counter
     time = duration.hours.ago(dtime)
     arr = Iphoto.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', time).limit(9)
     if !arr || arr.count < 9
@@ -94,14 +96,14 @@ class Iphoto < ActiveRecord::Base
   end
 
   def self.fetch_index_listing(category = nil, sort_order = nil)
-    # hot_arr = Favorite.where("created_at >= ?", AppConfiguration['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
-    # pop_arr = Favorite.where("created_at >= ?", AppConfiguration['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
+    # hot_arr = Favorite.where("created_at >= ?", Thread.current[:site_configuration]['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
+    # pop_arr = Favorite.where("created_at >= ?", Thread.current[:site_configuration]['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
 
     # hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
     # pop_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys    
 
     hot_arr = self.get_hottest_pics(Time.now)
-    pop_arr = Iphoto.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', AppConfiguration['popular_duration_in_days'].day.ago(Date.today))
+    pop_arr = Iphoto.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', Thread.current[:site_configuration]['popular_duration_in_days'].day.ago(Date.today))
     # pop_arr = hot_arr
 
     if category
