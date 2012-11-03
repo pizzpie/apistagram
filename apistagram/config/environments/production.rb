@@ -53,7 +53,7 @@ Apistagram::Application.configure do
   ActionMailer::Base.smtp_settings = {  
     :address              => 'localhost',
     :port                 => 25,  
-    :domain               => Thread.current[:site_configuration]['host'], 
+    :domain               => 'cakesta.com', 
     :enable_starttls_auto => true,  
     :openssl_verify_mode  => 'none' # Only use this option for a self-signed and/or wildcard certificate
   }

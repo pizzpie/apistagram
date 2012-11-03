@@ -34,7 +34,7 @@ namespace :deploy do
 
   desc "Restarting Passenger with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'apistagram', 'tmp','restart.txt')}"
+    # run "#{try_sudo} touch #{File.join(current_path,'apistagram', 'tmp','restart.txt')}"
   end
 
   desc "Symlink shared resources on each release - not used"
