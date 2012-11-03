@@ -54,28 +54,56 @@ development:
       tw: 'tatstagram'
       pin: 'tatstagram'      
 production:
-  host: 'http://cakesta.com'
-  admin_username: 'apistagram'
-  admin_email: 'craig@craigmorrison.ca'
-  instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
-  instagram_client_secret: '35b61a97b602469486f27af20db73ea7'
-  tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
-  admin_user: 'craig'
-  admin_password: 'cakesta'
-  copyright_text: 'Cakesta 2012'
-  hot_duration_in_hours: 24
-  popular_duration_in_days: 365
-  hot: "What's Hot"
-  newest: "Newest Shots"
-  most_popular: "Most Popular"
-  meta_tags:
-    "Cakesta is an Instagram web viewer for photos of ONLY cakes. Check out some of the most popular cakes on Instagram, like them, save them and comment on them."
-  title:
-    default: "Cakesta - The only Instagram viewer dedicated to cakes :: #cakesta ::"
-    hot: "Cakesta - Hottest Instagram photos of cakes :: #cakesta :: "
-    newest: "Cakesta - Newest Instagram photos of cakes :: #cakesta :: "
-    most_popular: "Cakesta - Most Popular Instagram photos of cakes :: #cakesta :: "    
-  social:
-    fb: 'cakesta'
-    tw: 'cakestadotcom'
-    pin: 'cakestadotcom'
+  cakesta:
+    host: 'http://cakesta.com'
+    admin_username: 'apistagram'
+    admin_email: 'craig@craigmorrison.ca'
+    instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
+    instagram_client_secret: '35b61a97b602469486f27af20db73ea7'
+    tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
+    admin_user: 'craig'
+    admin_password: 'cakesta'
+    copyright_text: 'Cakesta 2012'
+    hot_duration_in_hours: 24
+    popular_duration_in_days: 365
+    hot: "What's Hot"
+    newest: "Newest Shots"
+    most_popular: "Most Popular"
+    meta_tags:
+      "Cakesta is an Instagram web viewer for photos of ONLY cakes. Check out some of the most popular cakes on Instagram, like them, save them and comment on them."
+    title:
+      default: "Cakesta - The only Instagram viewer dedicated to cakes :: #cakesta ::"
+      hot: "Cakesta - Hottest Instagram photos of cakes :: #cakesta :: "
+      newest: "Cakesta - Newest Instagram photos of cakes :: #cakesta :: "
+      most_popular: "Cakesta - Most Popular Instagram photos of cakes :: #cakesta :: "    
+    social:
+      fb: 'cakesta'
+      tw: 'cakestadotcom'
+      pin: 'cakestadotcom'
+  tatstagram:
+    app_name: 'tatstagram'
+    host: 'http://tatstagram.com'
+    admin_username: 'tatstagram'
+    admin_email: 'craig@craigmorrison.ca'
+    instagram_client_id: 'f40b5f33899e473d8ae1ac01369fdb74'
+    instagram_client_secret: '7838259d15f7436f8cc76676d859f801'
+    tags: ['tattoo', 'tatstagram', 'tattoosofinstagram']
+    admin_user: 'craig'
+    admin_password: 'tatstagram'
+    copyright_text: 'Tatstagram 2012'
+    hot_duration_in_hours: 24
+    popular_duration_in_days: 365
+    hot: "What's Hot"
+    newest: "Newest Shots"
+    most_popular: "Most Popular"
+    meta_tags:
+      "Tatstagram is an Instagram web viewer for photos of ONLY tattoos. Check out some of the most popular tattoo on Instagram, like them, save them and comment on them."
+    title:
+      default: "Tatstagram - The only Instagram viewer dedicated to tattoos :: #tatstagram ::"
+      hot: "Tatstagram - Hottest Instagram photos of tattoos :: #tatstagram :: "
+      newest: "Tatstagram - Newest Instagram photos of tattoos :: #tatstagram :: "
+      most_popular: "Tatstagram - Most Popular Instagram photos of tattoos :: #tatstagram :: "    
+    social:
+      fb: 'tatstagram'
+      tw: 'tatstagram'
+      pin: 'tatstagram'     
