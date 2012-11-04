@@ -55,6 +55,7 @@ development:
       pin: 'tatstagram'      
 production:
   cakesta:
+    app_name: 'cakesta' 
     host: 'http://cakesta.com'
     admin_username: 'apistagram'
     admin_email: 'craig@craigmorrison.ca'

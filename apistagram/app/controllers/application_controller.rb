@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       @app_name   = request.domain.gsub('.com', '')
       @app_name ||= 'cakesta'
 
-      Thread.current[:site_configuration] ||= AppConfiguration['cakesta']
+      Thread.current[:site_configuration] ||= AppConfiguration[@app_name]
     end
 
     # def site_configuration
