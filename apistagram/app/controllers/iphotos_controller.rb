@@ -12,8 +12,18 @@ class IphotosController < ApplicationController
     end
   end
 
+  def public_show
+    @iphoto = Iphoto.listed.where("public_id = ?", params[:id]).first
+    if @iphoto
+      @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
+      render :template => 'iphotos/show'
+    else
+      redirect_to iphotos_url
+    end
+  end
+
   def show
-    @iphoto = Iphoto.listed.where("public_id = ? or id = ?", params[:id], params[:id]).first
+    @iphoto = Iphoto.listed.where("id = ?", params[:id]).first
     if @iphoto
       @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
     else
