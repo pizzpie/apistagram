@@ -5,17 +5,17 @@ class IphotosController < ApplicationController
     if params[:category]
       @category = params[:category]
       @sort     = params[:sort]
-      @iphotos  = Iphoto.fetch_index_listing(params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
+      @iphotos  = Iphoto.fetch_index_listing(partner.id, params[:category], params[:sort]).paginate(:page => params[:page], :per_page => 21)
       @title    = Thread.current[:site_configuration]['title'][@category]
     else
-      @newest, @hottest, @popular = Iphoto.fetch_index_listing
+      @newest, @hottest, @popular = Iphoto.fetch_index_listing(partner.id)
     end
   end
 
   def public_show
-    @iphoto = Iphoto.listed.where("public_id = ?", params[:id]).first
+    @iphoto = Iphoto.by_partner_id(partner.id).listed.where("public_id = ?", params[:id]).first
     if @iphoto
-      @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
+      @recent_photos = Iphoto.by_partner_id(partner.id).listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
       render :template => 'iphotos/show'
     else
       redirect_to iphotos_url
@@ -23,16 +23,16 @@ class IphotosController < ApplicationController
   end
 
   def show
-    @iphoto = Iphoto.listed.where("id = ?", params[:id]).first
+    @iphoto = Iphoto.by_partner_id(partner.id).listed.where("id = ?", params[:id]).first
     if @iphoto
-      @recent_photos = Iphoto.listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
+      @recent_photos = Iphoto.by_partner_id(partner.id).listed.where("username = ? and id != ?", @iphoto.username, @iphoto.id).limit(6)
     else
       redirect_to iphotos_url
     end
   end
 
   def destroy
-    @iphoto = Iphoto.find_by_id(params[:id])
+    @iphoto = Iphoto.by_partner_id(partner.id).where(:id => params[:id]).first
     if current_user and current_user.is_admin? || current_user.name == @iphoto.username 
       #@iphoto.destroy 
       @iphoto.update_attribute(:status, false)
@@ -44,7 +44,7 @@ class IphotosController < ApplicationController
 
   def favorite
     @size = params[:size]
-    @iphoto = Iphoto.find(params[:id])
+    @iphoto = Iphoto.by_partner_id(partner.id).where(:id => params[:id]).first
     favorite = @iphoto.favorites.find_by_user_id(current_user.id)
 
     if favorite 
@@ -61,7 +61,7 @@ class IphotosController < ApplicationController
   end
 
   def add_comment
-    @iphoto = Iphoto.find(params[:id])
+    @iphoto = Iphoto.by_partner_id(partner.id).where(:id => params[:id]).first
     @user_who_commented = current_user
     if current_user 
       @comment = Comment.build_from( @iphoto, @user_who_commented.id, params[:comment])
@@ -76,7 +76,7 @@ class IphotosController < ApplicationController
   end
 
   def remove_comment
-    @iphoto = Iphoto.find(params[:id])
+    @iphoto = Iphoto.by_partner_id(partner.id).where(:id => params[:id]).first
     @comment = @iphoto.comment_threads.find_by_id(params[:comment_id])
     if @comment and current_user.name == @iphoto.username || current_user == @comment.user
       @comment.destroy

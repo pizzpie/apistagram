@@ -1,13 +1,14 @@
 module IInstagram
   class IInstagram
 
-    attr_accessor :tag, :token, :response, :data, :photos, :max_photo_id
+    attr_accessor :tag, :token, :response, :data, :photos, :max_photo_id, :partner_id
   
     def initialize(args)
       if args
         self.token        = args[:token]
         self.tag          = args[:tag]
         self.max_photo_id = args[:max_photo_id]
+        self.partner_id   = args[:partner_id]
         self.photos       = []
       end
       authenticate
@@ -32,9 +33,10 @@ module IInstagram
         if self.data.count > 0
           self.data.each do |media|
             self.photos   << {
-                                :i_id => media.id,
-                                :url  => media.images.standard_resolution.url,
-                                :username => media.user.username
+                                :i_id       => media.id,
+                                :url        => media.images.standard_resolution.url,
+                                :username   => media.user.username,
+                                :partner_id => partner_id
                              }
           end
           self.max_photo_id = self.data.last.id

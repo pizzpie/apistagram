@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @iphotos = @user.commented_photos.paginate(:page => params[:page], :per_page => 8)
       end
     else
-      @iphotos = Iphoto.listed.by_username(username).paginate(:page => params[:page], :per_page => 8)
+      @iphotos = Iphoto.by_partner_id(partner.id).listed.by_username(username).paginate(:page => params[:page], :per_page => 8)
     end
   end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def remove_all_photos
     if current_user and current_user.is_admin? || current_user == @user
       username = @user.class.to_s == 'User' ? @user.name : @user
-      @iphotos = Iphoto.where("username = ?", username)
+      @iphotos = Iphoto.by_partner_id(partner.id).where("username = ?", username)
       @iphotos.update_all({:status => false})
       redirect_to user_url(@user), :notice => "All the photos are deleted."
     else

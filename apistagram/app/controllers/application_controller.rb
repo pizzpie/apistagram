@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
 
     def partner
-      @partner ||= Partner.find_by_name(@app_name)
+      @partner ||= Partner.find_by_name(@app_name) 
     end
 
     def logged_in?

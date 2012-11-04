@@ -6,7 +6,7 @@ class AuthsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    user = User.authenticate(auth)
+    user = User.authenticate(auth, partner)
 
     session[:user_id] = user.id
     redirect_to root_url, :notice => "Signed in!"
