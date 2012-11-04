@@ -1,7 +1,7 @@
 namespace :db do
   desc "Fill database with instagram photos"
   task :fetch_instagrams => :environment do
-    uname = Thread.current[:site_configuration]['admin_username']
+    uname = 'apistagram'
     user  = User.find_by_name(uname)
     if user
       if user.get_grams
@@ -14,10 +14,10 @@ namespace :db do
     end
   end
 
-  task :reset_public_ids => :environment do
-    Iphoto.all.each do |iphoto|
-      pub_id = SecureRandom.hex(3)
-      iphoto.update_attribute(:public_id, pub_id)
-    end
-  end
+  # task :reset_public_ids => :environment do
+  #   Iphoto.all.each do |iphoto|
+  #     pub_id = SecureRandom.hex(3)
+  #     iphoto.update_attribute(:public_id, pub_id)
+  #   end
+  # end
 end
