@@ -15,8 +15,10 @@ partners = Partner.create([{name: 'cakesta'}, {name: 'tatstagram'}])
 #   end
 # end
 
-AppConfiguration['cakesta']['tags'].each do |tag|
-  tag = partner.tags.create(:name => tag)
+Partner.all.each do |partner|
+  AppConfiguration[partner.name]['tags'].each do |tag|
+    tag = partner.tags.create(:name => tag)
+  end
 end
 
 user = User.first
