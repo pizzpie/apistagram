@@ -100,30 +100,22 @@ class Iphoto < ActiveRecord::Base
     end
   end
 
-  def self.fetch_index_listing(cpartner_id, category = nil, sort_order = nil)
-    # hot_arr = Favorite.where("created_at >= ?", Thread.current[:site_configuration]['hot_duration_in_hours'].hours.ago(Time.now)).group(:iphoto_id).count.keys
-    # pop_arr = Favorite.where("created_at >= ?", Thread.current[:site_configuration]['popular_duration_in_days'].day.ago(Date.today)).group(:iphoto_id).count.keys
-
-    # hot_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys
-    # pop_arr = Favorite.order('created_at DESC').group(:iphoto_id).count.keys    
+  def self.fetch_index_listing(cpartner_id, category = nil, sort_order = nil)   
     hot_arr = Iphoto.by_partner_id(cpartner_id).get_hottest_pics(Time.now)
     pop_arr = Iphoto.joins(:favorites).where('iphotos.partner_id = ? and favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', cpartner_id, Thread.current[:site_configuration]['popular_duration_in_days'].day.ago(Date.today))
-    # pop_arr = hot_arr
 
     if category
       if category == "hot"
         if hot_arr.empty?
           return []
         else
-          return hot_arr.group(:iphoto_id).order('count(favorites.id) desc') #Iphoto.listed.where(:id => hot_arr)
+          return hot_arr.group(:iphoto_id).order('count(favorites.id) desc')
         end
       elsif category == "most_popular"
         if sort_order and ["month", "week", "today"].include?(sort_order)
-          # pop_arr = Favorite.where('created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('COUNT(id) desc')
           return pop_arr.where('favorites.created_at >= ?', get_duration(sort_order)).group(:iphoto_id).order('count(favorites.id) desc')
-          # Iphoto.listed.where(:id => pop_arr)
         else
-          return pop_arr.group(:iphoto_id).order('count(favorites.id) desc')#Iphoto.listed.where(:id => pop_arr)
+          return pop_arr.group(:iphoto_id).order('count(favorites.id) desc')
         end        
       else
         return self.by_partner_id(cpartner_id).order('created_at desc')
@@ -131,36 +123,10 @@ class Iphoto < ActiveRecord::Base
     else
       newest  = self.by_partner_id(cpartner_id).order('created_at desc').limit(6)
 
-      # hottest = Iphoto.listed.where(:id => [hot_arr]).limit(9)
       hottest = hot_arr.empty? ? [] : hot_arr.group(:iphoto_id).order('count(favorites.id) desc')
-      # hot_arr.each do |i|
-      #   hottest << Iphoto.listed.find_by_id(i)
-      #   break if hottest.count == 9
-      # end
 
-      # unless hot_arr.count >=9
-      #   remaining = 9 - hot_arr.count
-      #   add_more_photos(remaining)
-      # end
-
-      popular = []
-      # popular = Iphoto.listed.where(:id => [pop_arr]).limit(6)
       popular = pop_arr? ? [] : pop_arr.group(:iphoto_id).order('count(favorites.id) desc').limit(6)
-      # pop_arr.each do |i|
-      #   popular << Iphoto.listed.find_by_id(i)
-      #   break if popular.count == 6
-      # end
-
-      # unless pop_arr.count >=6
-      #   remaining = 6 - pop_arr.count
-      #   add_more_photos(remaining)
-      # end
-
       return [newest, hottest, popular]
     end
   end
-
-  # def add_more_photos(remaining)
-    
-  # end
 end
