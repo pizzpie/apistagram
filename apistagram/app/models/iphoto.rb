@@ -125,7 +125,7 @@ class Iphoto < ActiveRecord::Base
 
       hottest = hot_arr.empty? ? [] : hot_arr.group(:iphoto_id).order('count(favorites.id) desc')
 
-      popular = pop_arr? ? [] : pop_arr.group(:iphoto_id).order('count(favorites.id) desc').limit(6)
+      popular = pop_arr.empty? ? [] : pop_arr.group(:iphoto_id).order('count(favorites.id) desc').limit(6)
       return [newest, hottest, popular]
     end
   end

@@ -1,6 +1,8 @@
 class AuthsController < ApplicationController
 
   def new
+    # request.env['omniauth.strategy'].options[:consumer_key] = Thread.current[:site_configuration]['instagram_client_id']
+    # request.env['omniauth.strategy'].options[:consumer_secret] = Thread.current[:site_configuration]['instagram_client_secret']    
     redirect_to '/auth/instagram'
   end
 
