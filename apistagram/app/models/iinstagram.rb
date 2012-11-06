@@ -1,10 +1,11 @@
 module IInstagram
   class IInstagram
 
-    attr_accessor :tag, :token, :response, :data, :photos, :max_photo_id, :partner_id
+    attr_accessor :tag, :token, :response, :data, :photos, :max_photo_id, :partner_id, :client_id
   
     def initialize(args)
       if args
+        self.client_id    = args[:client_key]
         self.token        = args[:token]
         self.tag          = args[:tag]
         self.max_photo_id = args[:max_photo_id]
@@ -16,7 +17,7 @@ module IInstagram
   
     def authenticate
       Instagram.configure do |config|
-        config.client_id = Thread.current[:site_configuration]['instagram_client_id']
+        config.client_id = client_id
         config.access_token = token
       end
     end

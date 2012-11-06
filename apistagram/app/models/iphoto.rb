@@ -90,7 +90,12 @@ class Iphoto < ActiveRecord::Base
     else
       duration = Thread.current[:site_configuration]['hot_duration_in_hours'] * counter
       time = duration.hours.ago(dtime)
-      arr = self.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', time).limit(9)
+      arr = self.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', time)
+      if arr.count < 9
+        return arr
+      else
+        arr = self.joins(:favorites).where('favorites.created_at >= ? and iphotos.id = favorites.iphoto_id', time).limit(9)
+      end
       if !arr || arr.count < 9
         counter = counter + 1
         get_hottest_pics(time, counter)
