@@ -8,6 +8,7 @@ Apistagram::Application.routes.draw do
 
   match '/auth/:provider/callback'  => 'auths#create'
   match '/auth/failure'             => 'auths#failure'
+  match '/auth/:provider/setup'     => 'auths#setup'
   match '/signin'                   => 'auths#new',      :as => :signin
   match '/signout'                  => 'auths#destroy',  :as => :signout
   match '/contact'                  => 'users#contact'

@@ -1,8 +1,6 @@
 class AuthsController < ApplicationController
 
-  def new
-    # request.env['omniauth.strategy'].options[:consumer_key] = Thread.current[:site_configuration]['instagram_client_id']
-    # request.env['omniauth.strategy'].options[:consumer_secret] = Thread.current[:site_configuration]['instagram_client_secret']    
+  def new   
     redirect_to '/auth/instagram'
   end
 
@@ -21,5 +19,11 @@ class AuthsController < ApplicationController
 
   def failure
     redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
+  end
+
+  def setup
+    request.env['omniauth.strategy'].options[:client_id] = Thread.current[:site_configuration]['instagram_client_id']
+    request.env['omniauth.strategy'].options[:client_secret] = Thread.current[:site_configuration]['instagram_client_secret']     
+    render :text => "Setup complete", :status => :not_found
   end
 end
