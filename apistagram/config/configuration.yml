@@ -81,30 +81,30 @@ production:
       fb: 'cakesta'
       tw: 'cakestadotcom'
       pin: 'cakestadotcom'
-  tatstagram:
-    app_name: 'tatstagram'
-    host: 'http://tatstagram.com'
-    admin_username: 'tatstagram'
+  tattsta:
+    app_name: 'tattsta'
+    host: 'http://tattsta.com'
+    admin_username: 'tattsta'
     admin_email: 'craig@craigmorrison.ca'
     instagram_client_id: 'f40b5f33899e473d8ae1ac01369fdb74'
     instagram_client_secret: '7838259d15f7436f8cc76676d859f801'
-    tags: ['tattoo', 'tatstagram', 'tattoosofinstagram']
+    tags: ['tattoo', 'tattsta', 'tattoosofinstagram']
     admin_user: 'craig'
-    admin_password: 'tatstagram'
-    copyright_text: 'Tatstagram 2012'
+    admin_password: 'tattsta'
+    copyright_text: 'Tattsta 2012'
     hot_duration_in_hours: 24
     popular_duration_in_days: 365
     hot: "What's Hot"
     newest: "Newest Shots"
     most_popular: "Most Popular"
     meta_tags:
-      "Tatstagram is an Instagram web viewer for photos of ONLY tattoos. Check out some of the most popular tattoo on Instagram, like them, save them and comment on them."
+      "Tattsta is an Instagram web viewer for photos of ONLY tattoos. Check out some of the most popular tattoo on Instagram, like them, save them and comment on them."
     title:
-      default: "Tatstagram - The only Instagram viewer dedicated to tattoos :: #tatstagram ::"
-      hot: "Tatstagram - Hottest Instagram photos of tattoos :: #tatstagram :: "
-      newest: "Tatstagram - Newest Instagram photos of tattoos :: #tatstagram :: "
-      most_popular: "Tatstagram - Most Popular Instagram photos of tattoos :: #tatstagram :: "    
+      default: "Tattsta - The only Instagram viewer dedicated to tattoos :: #tattsta ::"
+      hot: "Tattsta - Hottest Instagram photos of tattoos :: #tattsta :: "
+      newest: "Tattsta - Newest Instagram photos of tattoos :: #tattsta :: "
+      most_popular: "Tattsta - Most Popular Instagram photos of tattoos :: #tattsta :: "    
     social:
-      fb: 'tatstagram'
-      tw: 'tatstagram'
-      pin: 'tatstagram'     
+      fb: 'tattsta'
+      tw: 'tattsta'
+      pin: 'tattsta'     
