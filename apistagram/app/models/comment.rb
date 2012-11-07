@@ -17,6 +17,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :partner
 
+  scope :by_partner_id, lambda{ |partner_id| where(partner_id: partner_id) unless partner_id.nil? }
+
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme

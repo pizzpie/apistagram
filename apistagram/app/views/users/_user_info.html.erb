@@ -4,7 +4,7 @@
   <div class="user-stats">
     <div class="stat-stack">
       <div class="stack-number">
-        <p><%=link_to user.comments.count, "/users/#{user.id}/photos/commented"%></p>
+        <p><%=link_to user.comments.by_partner(partner.id).count, "/users/#{user.id}/photos/commented"%></p>
       </div>
       <div class="stack-cat">
         <p>comments</p>

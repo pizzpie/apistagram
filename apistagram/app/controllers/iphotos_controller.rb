@@ -50,7 +50,7 @@ class IphotosController < ApplicationController
     if favorite 
       favorite.destroy
     else
-      @iphoto.favorites.create(:user_id => current_user.id)
+      @iphoto.favorites.create(:user_id => current_user.id, :partner => @iphoto.partner_id)
     end
 
     respond_to do |format|
@@ -65,6 +65,7 @@ class IphotosController < ApplicationController
     @user_who_commented = current_user
     if current_user 
       @comment = Comment.build_from( @iphoto, @user_who_commented.id, params[:comment])
+      @comment.partner_id = @iphoto.partner_id
       if @comment.save
         return render 'add_comment.js.erb'
       else

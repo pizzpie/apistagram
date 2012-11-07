@@ -4,4 +4,6 @@ class Favorite < ActiveRecord::Base
   belongs_to :user
   belongs_to :iphoto
   belongs_to :partner
+
+  scope :by_partner_id, lambda{ |partner_id| where(partner_id: partner_id) unless partner_id.nil? }
 end
