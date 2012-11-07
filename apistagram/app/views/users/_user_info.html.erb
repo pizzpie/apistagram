@@ -4,7 +4,7 @@
   <div class="user-stats">
     <div class="stat-stack">
       <div class="stack-number">
-        <p><%=link_to user.comments.where('partner_id = ?', partner_id).count, "/users/#{user.id}/photos/commented"%></p>
+        <p><%=link_to user.comments.where('partner_id = ?', partner.id).count, "/users/#{user.id}/photos/commented"%></p>
       </div>
       <div class="stack-cat">
         <p>comments</p>
@@ -12,7 +12,7 @@
     </div>
     <div class="stat-stack">
       <div class="stack-number">
-        <p><%=link_to user.favorites.where('partner_id = ?', partner_id).count, "/users/#{user.id}/photos/likes"%></p>
+        <p><%=link_to user.favorites.where('partner_id = ?', partner.id).count, "/users/#{user.id}/photos/likes"%></p>
       </div>
       <div class="stack-cat">
         <p>likes</p>
