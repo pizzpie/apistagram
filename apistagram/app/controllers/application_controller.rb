@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
     def set_application
-      @app_name   = request.domain.gsub('.dev', '')
+      @app_name   = request.domain.gsub('.com', '')
       @app_name ||= 'cakesta'
 
       Thread.current[:site_configuration] = AppConfiguration[@app_name]
