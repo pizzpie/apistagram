@@ -50,7 +50,7 @@ class IphotosController < ApplicationController
     if favorite 
       favorite.destroy
     else
-      @iphoto.favorites.create(:user_id => current_user.id, :partner => @iphoto.partner_id)
+      @iphoto.favorites.create(:user_id => current_user.id, :partner_id => @iphoto.partner_id)
     end
 
     respond_to do |format|
