@@ -31,8 +31,8 @@ development:
     host: 'http://tatstagram.com:4000'
     admin_username: 'tatstagram'
     admin_email: 'craig@craigmorrison.ca'
-    instagram_client_id: 'f40b5f33899e473d8ae1ac01369fdb74'
-    instagram_client_secret: '7838259d15f7436f8cc76676d859f801'
+    instagram_client_id: 'c6f72b7358e24908a9aa3af6a2b178c7'
+    instagram_client_secret: '934d5990e2004d05b9eac710ff23c7f8'
     tags: ['tattoo', 'tatstagram', 'tattoosofinstagram']
     admin_user: 'craig'
     admin_password: 'tatstagram'
