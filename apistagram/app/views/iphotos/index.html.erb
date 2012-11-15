@@ -5,10 +5,10 @@
     </div>
     <div class="sub-nav">
       <p>
-        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/all"><span class="<%=@sort == 'all' ? 'active' : ''%>">All Time</span></a> | 
-        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/month"><span class="<%=@sort == 'month' ? 'active' : ''%>">This Month</span></a> | 
-        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/week"><span class="<%=@sort == 'week' ? 'active' : ''%>">This Week</span></a> | 
-        <a href="/#{Thread.current[:site_configuration]['app_name']}/most_popular/today"><span class="<%=@sort == 'today' ? 'active' : ''%>">Today</span></a>
+        <a href="/<%=Thread.current[:site_configuration]['app_name']%>/most_popular/all"><span class="<%=@sort == 'all' ? 'active' : ''%>">All Time</span></a> | 
+        <a href="/<%=Thread.current[:site_configuration]['app_name']%>/most_popular/month"><span class="<%=@sort == 'month' ? 'active' : ''%>">This Month</span></a> | 
+        <a href="/<%=Thread.current[:site_configuration]['app_name']%>/most_popular/week"><span class="<%=@sort == 'week' ? 'active' : ''%>">This Week</span></a> | 
+        <a href="/<%=Thread.current[:site_configuration]['app_name']%>/most_popular/today"><span class="<%=@sort == 'today' ? 'active' : ''%>">Today</span></a>
       </p>
     </div>
   <%else%>
