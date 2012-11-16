@@ -6,7 +6,7 @@ development:
     admin_email: 'craig@craigmorrison.ca'
     instagram_client_id: 'd4c0d780aa374f28889e0e4dc28402eb'
     instagram_client_secret: '4834c8731b164da9b034faef50b88ead'
-    tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
+    tags: ['cakes', 'cakesta', 'cupcakes', 'cakesofinstagram']
     admin_user: 'craig'
     admin_password: 'cakesta'
     copyright_text: 'Cakesta 2012'
@@ -33,7 +33,7 @@ development:
     admin_email: 'craig@craigmorrison.ca'
     instagram_client_id: 'c6f72b7358e24908a9aa3af6a2b178c7'
     instagram_client_secret: '934d5990e2004d05b9eac710ff23c7f8'
-    tags: ['tattoo', 'tatstagram', 'tattoosofinstagram']
+    tags: ['tattoo', 'tatstagram', 'tattoosofinstagram', 'tattooedgirls']
     admin_user: 'craig'
     admin_password: 'tatstagram'
     copyright_text: 'Tatstagram 2012'
@@ -50,7 +50,7 @@ development:
       newest: "Tatstagram - Newest Instagram photos of tattoos :: #tatstagram :: "
       most_popular: "Tatstagram - Most Popular Instagram photos of tattoos :: #tatstagram :: "    
     social:
-      fb: 'tattsta'
+      fb: 'pages/Tattstacom/367711949986286'
       tw: 'tattstadotcom'
       pin: 'tattstadotcom'      
 production:
@@ -61,7 +61,7 @@ production:
     admin_email: 'craig@craigmorrison.ca'
     instagram_client_id: '2f9406ec657e411f91c63a690a5a0f91'
     instagram_client_secret: '35b61a97b602469486f27af20db73ea7'
-    tags: ['cakes', 'cakesta', 'apistagram', 'cakesofinstagram']
+    tags: ['cakes', 'cakesta', 'cupcakes', 'cakesofinstagram']
     admin_user: 'craig'
     admin_password: 'cakesta'
     copyright_text: 'Cakesta 2012'
@@ -88,7 +88,7 @@ production:
     admin_email: 'craig@craigmorrison.ca'
     instagram_client_id: 'f40b5f33899e473d8ae1ac01369fdb74'
     instagram_client_secret: '7838259d15f7436f8cc76676d859f801'
-    tags: ['tattoo', 'tattsta', 'tattoosofinstagram']
+    tags: ['tattoo', 'tattsta', 'tattoosofinstagram', 'tattooedgirls']
     admin_user: 'craig'
     admin_password: 'tattsta'
     copyright_text: 'Tattsta 2012'
@@ -105,6 +105,6 @@ production:
       newest: "Tattsta - Newest Instagram photos of tattoos :: #tattsta :: "
       most_popular: "Tattsta - Most Popular Instagram photos of tattoos :: #tattsta :: "    
     social:
-      fb: 'tattsta'
+      fb: 'pages/Tattstacom/367711949986286'
       tw: 'tattstadotcom'
       pin: 'tattstadotcom'     
