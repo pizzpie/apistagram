@@ -358,6 +358,11 @@ html, body {
 	padding-right: 3px;
 }
 
+.social-share-holder a {
+	margin: 15px 0 0 0 !important;
+}
+
+
 
 /* Photo Thumb Section */
 

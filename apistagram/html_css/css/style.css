@@ -306,6 +306,10 @@ html, body {
 	padding-right: 3px;
 }
 
+.social-share-holder a {
+	margin-top: -15px;
+}
+
 
 /* Photo Thumb Section */
 
@@ -1357,4 +1361,8 @@ h2 {
 
 #legal b {
 	font-weight: bold;
+}
+
+a.PIN_1353081495350_pin_it_button {
+	margin-top: -15px;
 }
