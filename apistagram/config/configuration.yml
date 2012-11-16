@@ -50,9 +50,9 @@ development:
       newest: "Tatstagram - Newest Instagram photos of tattoos :: #tatstagram :: "
       most_popular: "Tatstagram - Most Popular Instagram photos of tattoos :: #tatstagram :: "    
     social:
-      fb: 'tatstagram'
-      tw: 'tatstagram'
-      pin: 'tatstagram'      
+      fb: 'tattsta'
+      tw: 'tattstadotcom'
+      pin: 'tattstadotcom'      
 production:
   cakesta:
     app_name: 'cakesta' 
@@ -106,5 +106,5 @@ production:
       most_popular: "Tattsta - Most Popular Instagram photos of tattoos :: #tattsta :: "    
     social:
       fb: 'tattsta'
-      tw: 'tattsta'
-      pin: 'tattsta'     
+      tw: 'tattstadotcom'
+      pin: 'tattstadotcom'     
