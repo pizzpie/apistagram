@@ -16,10 +16,12 @@ class User < ActiveRecord::Base
             :uniqueness => true
 
   has_many :favorites
-  has_many :favorite_photos, :through => :favorites, :source => :iphoto
+  has_many :favorite_photos, :through => :favorites, :source => :iphoto,
+           :order => 'created_at desc'
   has_many :comments
   has_many :commented_photos, :through => :comments, :source => :iphoto,
-                      :conditions => "comments.commentable_type = 'Iphoto'"
+                      :conditions => "comments.commentable_type = 'Iphoto'",
+                      :order => 'created_at desc'
 
   before_create :set_admin_if_required                      
 

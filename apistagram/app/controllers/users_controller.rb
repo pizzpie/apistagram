@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     username = @user.class.to_s == 'User' ? @user.name : @user
     if ["likes", "commented"].include?(params[:sort]) and @user.class.to_s == 'User'
       if params[:sort] == "likes"
-        @iphotos = @user.favorite_photos.by_partner_id(partner.id).order('created_at desc').paginate(:page => params[:page], :per_page => 8)
+        @iphotos = @user.favorite_photos.by_partner_id(partner.id).paginate(:page => params[:page], :per_page => 8)
       else
-        @iphotos = @user.commented_photos.by_partner_id(partner.id).order('created_at desc').paginate(:page => params[:page], :per_page => 8)
+        @iphotos = @user.commented_photos.by_partner_id(partner.id).paginate(:page => params[:page], :per_page => 8)
       end
     else
       @iphotos = Iphoto.by_partner_id(partner.id).listed.by_username(username).paginate(:page => params[:page], :per_page => 8)
