@@ -586,11 +586,21 @@ margin-left: 9px;
 .call-text a {
 	text-decoration: none;
 	color: white;
+	width: 100%;
 }
 
 .call-text a:hover {
 	font-size: 17.5px;
 }
+
+.call-text a span {
+  padding: 100px 42px;		
+}
+
+.call-text a:hover span {
+	padding: 100px 0;
+}
+
 
 .thumb-hover {
 	 z-index: 10;
