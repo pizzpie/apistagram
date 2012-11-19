@@ -362,6 +362,10 @@ html, body {
 	margin: 15px 0 0 0 !important;
 }
 
+#pinterest {
+	float: left;
+	padding-right: 3px;
+}
 
 
 /* Photo Thumb Section */
