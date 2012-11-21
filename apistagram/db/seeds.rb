@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-partners = Partner.create([{name: 'cakesta'}, {name: 'tattsta'}])
+partners = Partner.create([{name: 'cakesta'}, {name: 'tattsta'}, {name:'tatstagram'}])
 
 # Partner.all.each do |partner|
 #   AppConfiguration[partner.name]['tags'].each do |tag|
