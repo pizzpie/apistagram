@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   private
 
     def set_application
+      puts "=================="
+      puts request.domain
+      puts request.domain.gsub('.com', '')
+      puts "==================="
       @app_name   = request.domain.gsub('.com', '')
       @app_name ||= 'cakesta'
 
