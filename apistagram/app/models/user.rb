@@ -45,17 +45,30 @@ class User < ActiveRecord::Base
   end
 
   def get_grams
-    Tag.all.each do |tag|
-      100.times do |i|
+    cakesta_tags = Tag.where(:partner_id => 1)
+    tattsta_tags = Tag.where(:partner_id => 2)
+
+    cakesta_tags.each do |tag|
+      50.times do |i|
         self.delay.fetch_grams(tag, tag.partner_id)
       end
     end
+
+    tattsta_tags.each do |tag|
+      50.times do |i|
+        self.delay.fetch_grams_for_tattsta(tag, tag.partner_id)
+      end
+    end    
   end
 
   def fetch_grams(tag, cpartner_id)
     tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => tag.max_photo_id, :partner_id => cpartner_id, :client_key => AppConfiguration['cakesta']['instagram_client_id'])
-    #tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => Setup.max_photo_id)
     tatsagram.get_grams
+  end
+
+  def fetch_grams_for_tattsta(tag, cpartner_id)
+    tatsagram = IInstagram.new(:token => self.token, :tag => tag.name, :max_id => tag.max_photo_id, :partner_id => cpartner_id, :client_key => AppConfiguration['tattsta']['instagram_client_id'])
+    tatsagram.get_grams    
   end
 
   def likes?(photo)
