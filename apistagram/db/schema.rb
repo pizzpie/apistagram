@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103160735) do
+ActiveRecord::Schema.define(:version => 20121213141952) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(:version => 20121103160735) do
     t.string   "full_name"
     t.boolean  "is_admin"
     t.integer  "partner_id", :default => 1
+    t.string   "website"
+    t.text     "bio"
   end
 
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true

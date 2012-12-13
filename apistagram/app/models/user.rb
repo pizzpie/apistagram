@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
                   :token,
                   :image, 
                   :provider,
+                  :website,
+                  :bio,
                   :remote_image_url
 
   validates :uid, :provider,
@@ -38,6 +40,8 @@ class User < ActiveRecord::Base
       user.name       = auth['info']['nickname']  || ""
       user.full_name  = auth['info']['name']      || ""
       user.email      = auth['info']['email']     || ""
+      user.website    = auth["info"]["website"]
+      user.bio        = auth["info"]["bio"]
     end
 
     user.save!

@@ -28,3 +28,11 @@
     </div>
   </div>
 <%end%>
+
+<%unless user.bio.blank?%>
+  <div class="user_overview">
+    <div class="title">Overview</div>
+    <div><%=user.bio%></div>
+    <div class="website"><%=link_to user.website, user.website, :target => '_blank'%></div>
+  </div>
+<%end%>

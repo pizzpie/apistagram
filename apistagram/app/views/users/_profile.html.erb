@@ -15,7 +15,7 @@
         <%=link_to '', :title=> "Follow RSS Feed"%>
       </div>
       <div class="ulink homepage">
-        <%=link_to '', :title=> "Visit website"%>
+        <%=link_to '', (user.website ? user.website : ''), :title=> "Visit website", :target => '_blank'%>
       </div>
     </div>
   </div>
